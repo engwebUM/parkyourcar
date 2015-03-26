@@ -27,6 +27,8 @@ gem 'bootstrap-sass', '3.2.0.2'
 # is optional, but recommended. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'autoprefixer-rails'
 
+gem 'progressbar', '~> 0.21.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
