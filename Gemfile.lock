@@ -151,7 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-sass (= 3.2.0.2)
+  bootstrap-sass (~> 3.2.0)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

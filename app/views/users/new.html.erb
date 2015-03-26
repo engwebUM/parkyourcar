@@ -1,5 +1,15 @@
-
-
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<div class="container">
+  	<div class="row">
+    	<div class="col-md-offset-4 col-md-4">
+    		<%= render 'shared/imageheader' %>
+      		<div class="page-header">
+        		<h3>Sign Up</h3>
+      		</div>
+			    <%= render 'form' %>
+			    <footer class="footer">
+  				  <p>Already have an account? <a href="/login">Log In</a></p>
+			    </footer>
+    	</div>
+   	</div>
+</div>
+<!--<%= link_to 'Back', users_path %>-->
