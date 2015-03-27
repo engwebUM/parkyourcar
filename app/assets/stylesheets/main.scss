@@ -1,0 +1,52 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-masthead{
+	background:#428bca;
+	height: 40px;
+}
+
+.blog-nav-item{
+	color:white;
+	padding: 10px;
+}
+
+.parkLogo{
+	margin: 25px 50px 0px 0px;
+}
+
+.howItWorks{
+	display: table;
+	width: 100%;
+	table-layout:fixed;
+}
+
+.howItWorksTitle{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	background:#428bca;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.howItWorks .howItWorksContainers{
+	display: table-cell;
+	text-align: center;
+}
+
+.howItWorksContainers{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+}
+.howItWorksImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.howItWorksText{
+	font-size: 20px;
+	text-align: center;
+}

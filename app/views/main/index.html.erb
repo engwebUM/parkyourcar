@@ -1,0 +1,51 @@
+<div class="blog-masthead">
+	<div class="container">
+		<nav class="blog-nav">
+			<%=link_to 'How it works','javascript:;',{:class=>"blog-nav-item"}%>
+			<%=link_to "FAQ?",'javascript:;',{:class=>"blog-nav-item"}%>
+			<%=link_to 'Booking','javascript:;',{:class=>"blog-nav-item"}%>
+			<%=link_to "List Spaces",'javascript:;',{:class=>"blog-nav-item"}%>
+			<%=link_to 'Logout','javascript:;',{:class=>"blog-nav-item"}%>
+			<%=link_to 'User','javascript:;',{:class=>"blog-nav-item"}%>
+		</nav>
+	</div>
+</div>
+<div class="container">
+	<%=image_tag('park_your_car_logo_blue_background.png',height:'100',class:'parkLogo')%>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2>Park your car, closer to you</h2>
+	<!--
+	<%= form_for :person do |f| %>
+	  <%= f.text_field :first_name %><br />
+	  <%= date_select :start_date, :startdate , :class => 'datepicker' %> to 
+	<%= date_select :start_date, :startdate , :class => 'datepicker' %>
+	  <%= f.submit %>
+	<% end %>
+	-->
+	<h3>Form goes here</h3>
+	<br>
+	<br>
+	</div>
+	<div class="howItWorksTitle">
+		<h2>How it works?</h2>
+	</div>
+	<div class="container">
+	<div class="howItWorks">
+		<div class="howItWorksContainers">
+			<%=image_tag('search.png',height:'100',class:'howItWorksImage')%>
+			<p class="howItWorksText">Search</p>
+		</div>
+		<div class="howItWorksContainers">
+			<%=image_tag('calendar.png',height:'100',class:'howItWorksImage')%>
+			<p class="howItWorksText">Reserve</p>
+		</div>
+		<div class="howItWorksContainers">
+			<%=image_tag('park_your_car_logo_blue_background.png',height:'100',class:'howItWorksImage')%>
+			<p class="howItWorksText">Park</p>
+		</div>
+	</div>
+</div>
