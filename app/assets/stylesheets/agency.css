@@ -4,6 +4,10 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+.lettersVisibility{
+    color: grey;
+}
+
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -265,7 +269,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(header-bg4.jpg);
+    background-image: url(header-bg5.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
