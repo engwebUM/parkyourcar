@@ -29,6 +29,7 @@ gem 'autoprefixer-rails'
 
 gem 'ruby-progressbar', '~> 1.7.5'
 
+gem 'bootstrap-datepicker-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
