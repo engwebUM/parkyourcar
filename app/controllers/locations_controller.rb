@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
     else
       @locations = Location.all
     end
+    load_space_markers
   end
 
   # GET /locations/1
@@ -66,6 +67,14 @@ class LocationsController < ApplicationController
   end
 
   private
+
+  def load_space_markers
+    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      marker.lat location.latitude
+      marker.lng location.longitude
+      marker.infowindow location.address
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_location
