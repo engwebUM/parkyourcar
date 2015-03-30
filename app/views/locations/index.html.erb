@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Locations</h1>
+
+<%= form_tag locations_path, :method => :get do %>
+<p>
+ <%= label :location, "Search spaces near: " %>
+  <%= text_field_tag :location, params[:location] %>
+
+   <%= label :distance, "Distance: " %>
+  <%= text_field_tag :distance, params[:distance] %>
+
+  <%= submit_tag "Search Near" %>
+</p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.title %></td>
+        <td><%= location.description %></td>
+        <td><%= location.price %></td>
+        <td><%= location.address %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
+        <td><%= location.distance.round(2) %></td>
+        <td><%= link_to 'Show', location %></td>
+        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Location', new_location_path %>
