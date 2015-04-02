@@ -30,9 +30,12 @@ gem 'autoprefixer-rails'
 
 gem 'ruby-progressbar', '~> 1.7.5'
 
+<<<<<<< HEAD
 
 gem 'capybara'
 
+=======
+>>>>>>> origin/geocoder
 gem 'geocoder'
 
 gem 'gmaps4rails'
