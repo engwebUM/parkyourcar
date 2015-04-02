@@ -5,9 +5,9 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     if params[:location].present?
-      @locations = Location.near(params[:location], params[:distance])
+      @locations = Location.near(params[:location], params[:distance]).paginate(page: params[:page], per_page: 1)
     else
-      @locations = Location.all
+      @locations = Location.all.paginate(page: params[:page], per_page: 1)
     end
     load_space_markers
   end
