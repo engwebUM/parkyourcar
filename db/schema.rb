@@ -11,18 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330210655) do
+ActiveRecord::Schema.define(version: 20150402205329) do
 
-  create_table "locations", force: :cascade do |t|
+  create_table "spaces", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "title"
+    t.integer  "available_spaces"
     t.text     "description"
-    t.float    "price"
+    t.string   "country"
+    t.string   "city"
     t.string   "address"
+    t.string   "post_code"
+    t.float    "price_hour"
+    t.float    "price_week"
+    t.float    "price_month"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "date_from"
+    t.datetime "date_until"
+    t.boolean  "available_weekend"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
+
+  add_index "spaces", ["user_id"], name: "index_spaces_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Visitor signs up' do
   given(:user) { User.create(email: 'user@example.com', first_name: 'user', last_name: 'example', username: 'userexample', password: 'password') }
@@ -18,55 +18,55 @@ feature 'Visitor signs up' do
   scenario 'Signing up with blank first name' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, ''], [:last_name, 'valid'], [:username, 'valid'], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "First name can't be blank"
+    expect(page).to have_content 'First name can\'t be blank'
   end
 
   scenario 'Signing up with blank last name' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, ''], [:username, 'valid'], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Last name can't be blank"
+    expect(page).to have_content 'Last name can\'t be blank'
   end
 
   scenario 'Signing up with blank username' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, ''], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Username can't be blank"
+    expect(page).to have_content 'Username can\'t be blank'
   end
 
   scenario 'Signing up with short username' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, 'user'], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Username is too short (minimum is 5 characters)"
+    expect(page).to have_content 'Username is too short (minimum is 5 characters)'
   end
 
   scenario 'Signing up with long username' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, 'this_username_is_not_valid'], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Username is too long (maximum is 25 characters)"
+    expect(page).to have_content 'Username is too long (maximum is 25 characters)'
   end
 
   scenario 'Signing up with password too short' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, 'valid'], [:password, 'pass'], [:confirmation_password, 'pass']].to_h
 
-    expect(page).to have_content "Password is too short (minimum is 8 characters)"
+    expect(page).to have_content 'Password is too short (minimum is 8 characters)'
   end
 
   scenario 'Signing up with invalid confirmation password' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, 'valid'], [:password, 'password'], [:confirmation_password, 'not_password']].to_h
 
-    expect(page).to have_content "Password confirmation doesn't match Password"
+    expect(page).to have_content 'Password confirmation doesn\'t match Password'
   end
 
   scenario 'Signing up with email that already exists' do
     sign_up_with [[:email, user.email], [:first_name, 'valid'], [:last_name, 'valid'], [:username, 'valid'], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Email has already been taken"
+    expect(page).to have_content 'Email has already been taken'
   end
 
   scenario 'Signing up with username that already exists' do
     sign_up_with [[:email, 'valid@example.com'], [:first_name, 'valid'], [:last_name, 'valid'], [:username, user.username], [:password, 'password'], [:confirmation_password, 'password']].to_h
 
-    expect(page).to have_content "Username has already been taken"
+    expect(page).to have_content 'Username has already been taken'
   end
 end
 

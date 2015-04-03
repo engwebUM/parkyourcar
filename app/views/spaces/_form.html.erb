@@ -1,0 +1,69 @@
+<%= form_for(@space) do |f| %>
+  <% if @space.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@space.errors.count, "error") %> prohibited this space from being saved:</h2>
+
+      <ul>
+      <% @space.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :available_spaces %><br>
+    <%= f.number_field :available_spaces %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %><br>
+    <%= f.text_field :post_code %>
+  </div>
+  <div class="field">
+    <%= f.label :price_hour %><br>
+    <%= f.text_field :price_hour %>
+  </div>
+  <div class="field">
+    <%= f.label :price_week %><br>
+    <%= f.text_field :price_week %>
+  </div>
+  <div class="field">
+    <%= f.label :price_month %><br>
+    <%= f.text_field :price_month %>
+  </div>
+  <div class="field">
+    <%= f.label :date_from %><br>
+    <%= f.datetime_select :date_from %>
+  </div>
+  <div class="field">
+    <%= f.label :date_until %><br>
+    <%= f.datetime_select :date_until %>
+  </div>
+  <div class="field">
+    <%= f.label :available_weekend %><br>
+    <%= f.check_box :available_weekend %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

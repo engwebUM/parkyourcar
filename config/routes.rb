@@ -1,4 +1,6 @@
 Rails.application.routes.draw do 
+  resources :spaces
+
   resources :locations
 
   devise_for :users

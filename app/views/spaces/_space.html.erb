@@ -1,0 +1,15 @@
+<tr data-link='<%= space_path(space)  %>'>
+	<td></td>
+    <td><%= space.title %></td>
+    <td><%= space.price_hour %></td>
+    <td><%= space.address %></td>
+    <td><%= link_to 'Edit', edit_space_path(space) %></td>
+    <td><%= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<script type="text/javascript">
+ $(function() {        
+    $("tr[data-link]").click(function() {
+      window.location = this.dataset.link
+    });
+ });
+</script>
