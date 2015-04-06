@@ -2,80 +2,54 @@
 
 <h1>Show space</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @space.title %>
-</p>
+<div>
+  <p>
+    <p><%= @space.title %></p>
+  </p>
+</div>
 
-<p>
-  <strong>Available spaces:</strong>
-  <%= @space.available_spaces %>
-</p>
+<div>
+  <h2>Description</h2>
+  <p>
+    <strong>Description:</strong>
+    <%= @space.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @space.description %>
-</p>
+  <p>
+    <strong>Price hour:</strong>
+    <%= @space.price_hour %>
+  </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @space.country %>
-</p>
+  <p>
+    <strong>Price week:</strong>
+    <%= @space.price_week %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @space.city %>
-</p>
+  <p>
+    <strong>Price month:</strong>
+    <%= @space.price_month %>
+  </p>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @space.address %>
-</p>
-
-<p>
-  <strong>Post code:</strong>
-  <%= @space.post_code %>
-</p>
-
-<p>
-  <strong>Price hour:</strong>
-  <%= @space.price_hour %>
-</p>
-
-<p>
-  <strong>Price week:</strong>
-  <%= @space.price_week %>
-</p>
-
-<p>
-  <strong>Price month:</strong>
-  <%= @space.price_month %>
-</p>
-
-<p>
-  <strong>Date from:</strong>
-  <%= @space.date_from %>
-</p>
-
-<p>
-  <strong>Date until:</strong>
-  <%= @space.date_until %>
-</p>
-
-<p>
-  <strong>Available weekend:</strong>
-  <%= @space.available_weekend %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @space.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @space.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+<div>
+  <h1>Reviews</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Evaluation</th>
+        <th>Comment</th>
+        <th>Date</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Example</td>
+        <td>4</td>
+        <td>Example : Perfect for our needs.</td>
+        <td>01/04/2015</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
