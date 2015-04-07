@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Show space</h1>
-
 <div>
   <p>
     <p><%= @space.title %></p>
   </p>
 </div>
-
 <div>
   <h2>Description</h2>
   <p>
@@ -30,13 +27,12 @@
     <%= @space.price_month %>
   </p>
 </div>
-
 <div>
   <h1>Reviews</h1>
   <table class="table">
     <thead>
       <tr>
-        <th>User</th>
+        <th>Username</th>
         <th>Evaluation</th>
         <th>Comment</th>
         <th>Date</th>
@@ -44,12 +40,14 @@
       </tr>
     </thead>
     <tbody>
+      <% @space.review.each do |review| %>
       <tr>
-        <td>Example</td>
-        <td>4</td>
-        <td>Example : Perfect for our needs.</td>
-        <td>01/04/2015</td>
+        <td><%= User.find(review.user_id).username %></td>
+        <td><%= review.evaluation %></td>
+        <td><%= review.text_comment %></td>
+        <td><%= review.created_at.strftime("%F %T") %></td>
       </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
