@@ -1,7 +1,15 @@
+
+
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+  <div class="page-header">
+    <h3>Add your Space Advertising</h3>
+  </div>
 <%= form_for(@space) do |f| %>
   <% if @space.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@space.errors.count, "error") %> prohibited this space from being saved:</h2>
+      <h2><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h2>
 
       <ul>
       <% @space.errors.full_messages.each do |message| %>
@@ -11,59 +19,127 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Information</h3>
   </div>
-  <div class="field">
-    <%= f.label :available_spaces %><br>
-    <%= f.number_field :available_spaces %>
+  <div class="panel-body">
+    <div class="form-group row">
+      <div class="col-md-9">
+        <%= f.label :title, class: 'sr-only' %>
+        <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
+      </div>
+
+      <div class="col-md-3">
+        <%= f.label :available_spaces, class: 'sr-only' %>
+        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :description, class: 'sr-only' %>
+        <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+</div>
+<hr>
+
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Location</h3>
   </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.label :country, class: 'sr-only' %>
+      <%= f.text_field :country, class: 'form-control', placeholder: 'Country', :required => true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :city, class: 'sr-only' %>
+      <%= f.text_field :city, class: 'form-control', placeholder: 'City', :required => true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address, class: 'sr-only' %>
+      <%= f.text_field :address, class: 'form-control', placeholder: 'Address', :required => true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :post_code, class: 'sr-only' %>
+      <%= f.text_field :post_code, class: 'form-control', placeholder: 'Post Code', :required => true %>
+    </div>
+ </div>
+</div>
+
+<hr>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Pricing</h3>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+  <div class="panel-body">
+  <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :price_hour, class: 'sr-only' %>
+        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'Price Hour', :required => true  %>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :price_week, class: 'sr-only' %>
+        <%= f.text_field :price_week, class: 'form-control', placeholder: 'Price Week' %>
+      </div>
+
+      <div class="col-md-4">
+          <%= f.label :price_month, class: 'sr-only' %>
+          <%= f.text_field :price_month, class: 'form-control', placeholder: 'Price Month' %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+</div>
+</div>
+<hr>
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Schedule</h3>
   </div>
-  <div class="field">
-    <%= f.label :post_code %><br>
-    <%= f.text_field :post_code %>
-  </div>
-  <div class="field">
-    <%= f.label :price_hour %><br>
-    <%= f.text_field :price_hour %>
-  </div>
-  <div class="field">
-    <%= f.label :price_week %><br>
-    <%= f.text_field :price_week %>
-  </div>
-  <div class="field">
-    <%= f.label :price_month %><br>
-    <%= f.text_field :price_month %>
-  </div>
-  <div class="field">
-    <%= f.label :date_from %><br>
-    <%= f.datetime_select :date_from %>
-  </div>
-  <div class="field">
-    <%= f.label :date_until %><br>
-    <%= f.datetime_select :date_until %>
-  </div>
-  <div class="field">
-    <%= f.label :available_weekend %><br>
-    <%= f.check_box :available_weekend %>
-  </div>
+  <div class="panel-body">
+  <div class="form-group row">
+      <div class="col-md-4">
+              <div class='input-group date' id='date_from'>
+                  <%= f.label :date_from, class: 'sr-only' %>
+                  <%= f.text_field :date_from, class: 'form-control', placeholder: 'Datetime from', :required => true %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class='input-group date' id='date_until'>
+                  <%= f.label :date_until, class: 'sr-only' %>
+                  <%= f.text_field :date_until, class: 'form-control', placeholder: 'Datetime until', :required => true %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+
+          <script type="text/javascript">
+              $(function () {
+                  $('#date_from').datetimepicker();
+                  $('#date_until').datetimepicker();
+              });
+          </script>
+          <div class="col-md-4">
+                <%= f.label :available_weekend %>
+                <%= f.check_box :available_weekend, class: 'form-control', :required => true %>
+          </div>
+      </div>
+</div>
+</div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
 <% end %>
+
+  </div>
+</div>

@@ -4,9 +4,9 @@ class LocationsController < ApplicationController
   # GET /locations
   def index
     if location_present?
-      @spaces = Space.near(params[:location], params[:distance]).paginate(page: params[:page], per_page: 1)
+      @spaces = Space.near(params[:location], params[:distance]).paginate(page: params[:page], per_page: 5)
     else
-      @spaces = Space.all.paginate(page: params[:page], per_page: 1)
+      @spaces = Space.all.paginate(page: params[:page], per_page: 5)
     end
     load_space_markers
   end

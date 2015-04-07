@@ -1,2 +1,27 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<!-- Full Width Image Header with Logo -->
+<!-- Image backgrounds are set within the full-width-pics.css file. -->
+<header class="image-bg-fluid-height">
+  <div class="header-radius" >
+  <%= image_tag("white_logo_background.png", class: 'img-responsive img-center') %>
+      <div class="alert" role="alert">
+      <%= form_tag locations_path, :class => 'form-inline', :method => :get do %>
+          <div class="form-group">
+            <%= label_tag :location, 'Search spaces near' ,class: 'sr-only' %>
+            <%= text_field_tag :location, params[:location], placeholder: 'Search spaces near', class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :distance, "Distance", class: 'sr-only'  %>
+            <%= text_field_tag :distance, params[:distance], placeholder: 'Distance e.g. 10 (km)', class: 'form-control'  %>
+          </div>
+          <div class="form-group">
+            <%= submit_tag "Search Near", class: 'btn btn-success' %>
+          </div>
+      <% end %>
+      </div>
+  </div>
+</header>
+ <%= render 'layouts/jumbotron' %>
+<!-- Fixed Height Image Aside -->
+<!-- Image backgrounds are set within the full-width-pics.css file. -->
+<aside class="image-bg-fixed-height"></aside>
+<%= render 'layouts/how_it_works' %>
