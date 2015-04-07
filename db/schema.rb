@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150408151234) do
 
   add_index "bookings", ["space_id"], name: "index_bookings_on_space_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
-  
-ActiveRecord::Schema.define(version: 20150406144622) do
+
+ActiveRecord::Schema.define(version: 20150407094825) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
