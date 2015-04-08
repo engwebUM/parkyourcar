@@ -32,12 +32,12 @@ body {
 }
 
 .image-bg-fluid-height {
-	background: url('header-bg.jpg') no-repeat center center scroll;
+	background: asset_url('header-bg.jpg') no-repeat center center scroll;
     padding: 200px 0;
 }
 
 .image-bg-fixed-height {
-	background: url('header-bg.jpg') no-repeat center center scroll;
+	background: asset_url('header-bg.jpg') no-repeat center center scroll;
     height: 450px;
 }
 
@@ -59,4 +59,8 @@ section {
 
 footer {
     margin: 50px 0;
+}
+
+.form {
+    background-color: #2c9acf;
 }
