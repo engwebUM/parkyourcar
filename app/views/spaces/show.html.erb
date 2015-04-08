@@ -1,56 +1,73 @@
-<p id="notice"><%= notice %></p>
-<h1>Show space</h1>
-<div>
-  <p>
-    <p><%= @space.title %></p>
-  </p>
-</div>
-<div>
-  <h2>Description</h2>
-  <p>
-    <strong>Description:</strong>
+<div class="container" style="margin-top:100px">
+<!--Temporary solution. Detailed solution for this problem described here
+http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocking-top-content-of-the-page
+-->
+  <p id="notice"><%= notice %></p>
+  <h2><%=@space.title%></h2>
+  <br>
+  <div class="row">
+    <div class="col-xs-8 col-lg-6">
+      <h3>Reserve now</h3>
+      <p>From</p>
+      <p>Until</p>
+      <p>Price</p>
+      <p>
+        <a class="btn btn-default" href="#" role="button">Reserve Now</a>
+      </p>
+    </div>
+    <div class="col-xs-6 col-lg-6">
+      <h3>Location</h3>
+    </div>
+  </div>
+  <h3>Description</h3>
+  <div class="jumbotron">
+    <p><strong>City: </strong><%=@space.city%> - <%=@space.country%></p>
     <%= @space.description %>
-  </p>
-
-  <p>
-    <strong>Price hour:</strong>
-    <%= @space.price_hour %>
-  </p>
-
-  <p>
-    <strong>Price week:</strong>
-    <%= @space.price_week %>
-  </p>
-
-  <p>
-    <strong>Price month:</strong>
-    <%= @space.price_month %>
-  </p>
-</div>
-<div>
-  <h1>Reviews</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Evaluation</th>
-        <th>Comment</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @space.review.each do |review| %>
-      <tr>
-        <td><%= User.find(review.user_id).first_name %></td>
-        <td><%= review.evaluation %></td>
-        <td><%= review.text_comment %></td>
-        <td><%= review.created_at.strftime("%F %T") %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-<div>
-  <p>Space Owner - Kate</p>
-  <button type="button">Send an e-mail</button>
+    <br>
+    <br>
+    <p><strong>Available spaces: </strong><%=@space.available_spaces%></p>
+    <h3>Pricing:</h3>
+    <p><strong><%=@space.price_hour%>$/hour</strong></p>
+    <p><strong><%=@space.price_week%>$/week</strong></p>
+    <p><strong><%=@space.price_month%>$/month</strong></p>
+    <br>
+    <h3>Availability:</h3>
+    <p><strong>From </strong><%=@space.date_from.to_formatted_s(:long)%><strong> to </strong><%=@space.date_until.to_formatted_s(:long)%></p>
+  </div>
+  <h3>Reviews</h3>
+  <div class="table">
+    <div class="col-xs-8 col-lg-8">
+      <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Evaluation</th>
+          <th>Comment</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @space.review.each do |review| %>
+        <tr>
+          <td><%= User.find(review.user_id).first_name %></td>
+          <td><%= review.evaluation %></td>
+          <td><%= review.text_comment %></td>
+          <td><%= review.created_at.strftime("%F %T") %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+    <div class="col-xs-6 col-lg-4">
+      <div>
+    <h3>Space Owner - Kate</h3>
+    <p>Some description about kate</p>
+    <p>Kate's photo</p>
+    <p>Kate's review stars</p>
+    <br>
+    <a class="btn btn-default" href="#" role="button">Send an email</a>
+  </div>
+    </div>
+  </div>
+  
 </div>
