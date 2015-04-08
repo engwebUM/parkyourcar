@@ -2,6 +2,9 @@
 
 <h1>Listing Spaces</h1>
 
+<% if @spaces.count == 0 %>
+  <p>There are no spaces associated with your account.</p>
+<% else %>
 <table>
   <thead>
     <tr>
@@ -47,5 +50,5 @@
 </table>
  <%= will_paginate @spaces, renderer: BootstrapPagination::Rails %>
 <br>
-
+<% end %>
 <%= link_to 'New Space', new_space_path %>
