@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402205329) do
+ActiveRecord::Schema.define(version: 20150408151234) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.string   "file_size"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "date_from"
+    t.datetime "date_until"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "evaluation"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
