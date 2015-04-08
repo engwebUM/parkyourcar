@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
   has_many :spaces, dependent: :destroy
+<<<<<<< HEAD
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+=======
+  has_many :review, dependent: :destroy
+>>>>>>> b9c2ec5b0de468a25069ce2a02384bff6126048d
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
