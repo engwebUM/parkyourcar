@@ -1,7 +1,51 @@
-<% if current_user.present? %>
-    <%= current_user.first_name %>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %>/
-    <%= link_to "Sign in", new_user_session_path %>
-<% end %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <%=link_to 'How it works','javascript:;',{:class=>"page-scroll"}%>
+        </li>
+        <li>
+          <%=link_to 'FAQ?','javascript:;',{:class=>"page-scroll"}%>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <%=link_to 'Booking','javascript:;',{:class=>"page-scroll"}%>
+        </li>
+        <li>
+          <%=link_to 'List Spaces','javascript:;',{:class=>"page-scroll"}%>
+        </li>
+        <% if current_user.present? %>
+          <li>
+            <%=link_to current_user.first_name,'javascript:;',{:class=>"page-scroll"}%>
+          </li>
+          <li>
+          	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+        <%else%>
+          <li>
+  			<%= link_to "Sign up", new_user_registration_path %>
+          </li>
+          <li>
+  			<%= link_to "Sign in", new_user_session_path %>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
