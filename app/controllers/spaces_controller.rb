@@ -15,6 +15,8 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1
   def show
+    @space = Space.find(params[:id])
+    @reviews = @space.review.paginate(page: params[:page], per_page: 1)
   end
 
   # GET /spaces/new
