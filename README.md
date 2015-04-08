@@ -1,6 +1,7 @@
 # Park your Car
 
-![Park Your Car Logo](app/assets/images/blue_logo.jpg)
+![Park Your Car Logo](https://github.com/engwebUM/parkyourcar/blob/master/app/assets/images/white_logo.png)
+
 
 The idea is brutally simple: we connect drivers in search of 
 parking with anyone who has a space going spare, whether in 
