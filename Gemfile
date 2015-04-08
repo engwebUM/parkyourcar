@@ -5,7 +5,6 @@ gem 'rails', '4.2.0'
 
 gem 'devise'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '3.2.0.2'
 
 gem 'momentjs-rails', '>= 2.9.0'
+
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 # It is optional, but recommended. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'autoprefixer-rails'
@@ -52,17 +52,23 @@ gem 'will_paginate-bootstrap'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
   gem 'rubocop', require: false
   
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
+
+  gem 'rails_12factor'
 end
 
