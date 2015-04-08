@@ -1,12 +1,12 @@
-== Park your Car
+# Park your Car
 
-![Park Your Car Logo](./app/assets/images/blue_logo.jpg)
+![Park Your Car Logo](app/assets/images/blue_logo.jpg)
 
 The idea is brutally simple: we connect drivers in search of 
 parking with anyone who has a space going spare, whether in 
 a car park, private driveway, church, school, or pub.
 
-== Configuration
+### Configuration
 
 This section document whatever steps are necessary to get the
 application up and running. We assume that you already set up
@@ -22,7 +22,7 @@ following commands on your terminal:
 `->cd parkyourcar`
 
 3. Make sure all dependencies in your Gemfile are available
-to your application
+to the application
 `->bundle install`
 
 4. Create database, load the schema into the current env's
@@ -37,7 +37,7 @@ After you launch the Rails server (listening on port 3000) go to
 your browser and open http://localhost:3000, you will see 
 parkyourcar Rails app running.
 
-== Heroku
+### Heroku
 
 Our application can also be seen in Heroku where we realize the 
 respective deploy. Heroku is a platform as a service (PaaS) that 
