@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '3.2.0.2'
 
 gem 'momentjs-rails', '>= 2.9.0'
+
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 # It is optional, but recommended. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'autoprefixer-rails'

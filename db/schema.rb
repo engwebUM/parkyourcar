@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402205329) do
+ActiveRecord::Schema.define(version: 20150408151234) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer  "space_id"
+    t.string   "file_name"
+    t.string   "content_type"
+    t.string   "file_size"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "attachments", ["space_id"], name: "index_attachments_on_space_id"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "space_id"
+    t.datetime "date_from"
+    t.datetime "date_until"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["space_id"], name: "index_bookings_on_space_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "space_id"
+    t.integer  "evaluation"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["space_id"], name: "index_reviews_on_space_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
