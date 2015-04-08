@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, except: [:show]
   before_action :set_space, only: [:show, :edit, :update, :destroy]
   before_filter :require_permission, only: :edit
 
