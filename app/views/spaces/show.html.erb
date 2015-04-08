@@ -20,41 +20,23 @@ http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocki
     </div>
   </div>
   <h3>Description</h3>
-  <div class="jumbotron container">
-    <div class="row">
-      <div class="col-md-8">
-        <p>City: <%=@space.city%> - <%=@space.country%></p>
-        <br>
-        <p>Address: <%=@space.address%>, <%=@space.post_code%></p>
-        <br>
-        <p>Description: <%= @space.description %></p>
-        <br>
-        <p>Available spaces: <%=@space.available_spaces%></p>
-        <br>
-        <p>Pricing: <%=@space.price_hour%>$/hour
-          <%=@space.price_week%>$/week <%=@space.price_month%>$/month</p>
-        <br>
-        <p>Available from <%=@space.date_from.to_formatted_s(:long)%> to
-          <%=@space.date_until.to_formatted_s(:long)%>
-          <% if(@space.available_weekend)%>
-            including weekends.
-          <%end%></p>
-      </div>
-      <div class="col-md-4">
-        <div class="row">
-          <img class="col-md-12" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-        </div>
-        <br> <!-- Padding custom css -->
-        <div class="row">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-        </div>
-      </div>
-    </div>
+  <div class="jumbotron">
+    <p><strong>City: </strong><%=@space.city%> - <%=@space.country%></p>
+    <%= @space.description %>
+    <br>
+    <br>
+    <p><strong>Available spaces: </strong><%=@space.available_spaces%></p>
+    <h3>Pricing:</h3>
+    <p><strong><%=@space.price_hour%>$/hour</strong></p>
+    <p><strong><%=@space.price_week%>$/week</strong></p>
+    <p><strong><%=@space.price_month%>$/month</strong></p>
+    <br>
+    <h3>Availability:</h3>
+    <p><strong>From </strong><%=@space.date_from.to_formatted_s(:long)%><strong> to </strong><%=@space.date_until.to_formatted_s(:long)%></p>
   </div>
+  <h3>Reviews</h3>
+  <div class="table">
     <div class="col-xs-8 col-lg-8">
-      <h3>Reviews</h3>
       <table class="table">
       <thead>
         <tr>
