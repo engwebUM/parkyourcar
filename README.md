@@ -40,9 +40,9 @@ parkyourcar Rails app running.
 
 ### Heroku
 
-Our application can also be seen in Heroku where we realize the 
-respective deploy. Heroku is a platform as a service (PaaS) that 
-enables developers to build and run applications entirely in the 
-cloud.
+Our application can also be seen in Heroku where its production 
+version is being timely deployed. Heroku is a platform as a 
+service (PaaS) that enables developers to build and run 
+applications entirely in the cloud.
 
 The link that allows this view is as follows: [Park your Car](https://parkyourcar.herokuapp.com/)
