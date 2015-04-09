@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150408151234) do
     t.integer  "space_id"
     t.datetime "date_from"
     t.datetime "date_until"
+    t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

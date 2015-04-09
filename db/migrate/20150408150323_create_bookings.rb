@@ -5,6 +5,7 @@ class CreateBookings < ActiveRecord::Migration
       t.belongs_to :space, index: true
       t.datetime :date_from
       t.datetime :date_until
+      t.string :state
 
       t.timestamps null: false
     end
