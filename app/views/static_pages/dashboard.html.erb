@@ -4,43 +4,43 @@
 	    <div class="col-md-offset-1 col-md-10">
 	    	<%= render 'layouts/sidenav' %>
 			<div class="col-sm-9 col-md-9">
-	            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">Dashboard</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-                  <div class=" col-md-9 col-lg-9 "> 
-                    <table class="table table-user-information">
-                      <tbody>
-                        <tr>
-                          <td>Name</td>
-                          <td><%= current_user.first_name %> <%= current_user.last_name %></td>
-                        </tr>
-                        <tr>
-	                        <td>Contacts</td>
-	                        <td><a href="mailto:<%= current_user.email %>"><%= current_user.email %></a><br><br>(Mobile)</td>
-                     	</tr>
-                     	<tr>
-                          <td>Pending bookings made</td>
-                          <td>0</td>
-                        </tr>
-                        <tr>
-                          <td>Pending bookings received</td>
-                          <td>0</td>
-                        </tr>
-                        <tr>
-                          <td>Your spaces</td>
-                          <td><%= current_user.spaces.count %></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
-                  </div>
-                </div>
-              </div>
-            </div> 
+	          <div class="panel panel-info">
+	              <div class="panel-heading">
+	                <h3 class="panel-title">Dashboard</h3>
+	              </div>
+	              <div class="panel-body">
+	                <div class="row">
+	                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+	                  <div class=" col-md-9 col-lg-9 "> 
+	                    <table class="table table-user-information">
+	                      <tbody>
+	                        <tr>
+	                          <td>Name</td>
+	                          <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+	                        </tr>
+	                        <tr>
+		                        <td>Contacts</td>
+		                        <td><a href="mailto:<%= current_user.email %>"><%= current_user.email %></a><br><br>(Mobile)</td>
+	                     	</tr>
+	                     	<tr>
+	                          <td>Pending bookings made</td>
+	                          <td>0</td>
+	                        </tr>
+	                        <tr>
+	                          <td>Pending bookings received</td>
+	                          <td>0</td>
+	                        </tr>
+	                        <tr>
+	                          <td>Your spaces</td>
+	                          <td><%= current_user.spaces.count %></td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+	                    <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
+	                  </div>
+                	</div>
+              	</div>
+              </div> 
 	     	</div>
 	    </div> 	
 	</div>	 
