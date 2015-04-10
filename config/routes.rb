@@ -1,9 +1,9 @@
 Rails.application.routes.draw do 
   resources :spaces
 
-  resources :locations
-
+  resources :locations, :only => [:index]
   devise_for :users
+  resources :users, :only => [:show]
   get 'static_pages/help'
   get 'static_pages/faq'
   get 'static_pages/dashboard'

@@ -3,16 +3,16 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a><span class="glyphicon glyphicon-folder-close">
-                            </span>Dashboard</a>
+                        <span class="glyphicon glyphicon-folder-close"></span>
+                        <%= link_to "Dashboard", static_pages_dashboard_path %>
                         </h4>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
-                            </span>Bookings</a>
+                        <span class="glyphicon glyphicon-th"></span>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bookings</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
@@ -20,12 +20,12 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">Bookings Made</a> <span class="label label-info">0</span>
+                                        <a href="#">Bookings Made</a> <span class="label label-info">0</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">Bookings Received</a> <span class="label label-info">0</span>
+                                        <a href="#">Bookings Received</a> <span class="label label-info">0</span>
                                     </td>
                                 </tr>
                             </table>
@@ -35,8 +35,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
-                            </span>Account</a>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
@@ -44,18 +44,12 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">My Profile</a>
+                                        <%= link_to "My Profile", current_user %>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">Edit Profile</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
-                                            Delete Account</a>
+                                        <%= link_to "Edit Profile", edit_user_registration_path %>
                                     </td>
                                 </tr>
                             </table>
@@ -65,8 +59,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
-                            </span>Spaces</a>
+                            <span class="glyphicon glyphicon-file"></span>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Spaces</a>
                         </h4>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
@@ -74,12 +68,12 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">Add a Space</a>
+                                        <%= link_to "Add a space", new_space_path %>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="http://www.jquery2dotnet.com">My Spaces</a>
+                                        <%= link_to "My spaces", spaces_path %>
                                     </td>
                                 </tr>
                             </table>
