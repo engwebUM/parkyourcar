@@ -10,16 +10,78 @@
       <div class="form alert" role="alert">
       <%= form_tag locations_path, :class => 'form-inline', :method => :get do %>
         <div class="form-group">
-          <%= label_tag :location, 'Search spaces near' ,class: 'sr-only' %>
-          <%= text_field_tag :location, params[:location], placeholder: 'Search spaces near', class: 'form-control' %>
+          <%= label_tag :location, 'Search spaces nearby', class: 'sr-only' %>
+          <%= text_field_tag :location, params[:location], placeholder: 'Search spaces nearby', class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= label_tag :distance, "Distance", class: 'sr-only'  %>
           <%= text_field_tag :distance, params[:distance], placeholder: 'Distance', class: 'form-control'  %>
         </div>
         <div class="form-group">
-          <%= submit_tag "Search Near", class: 'btn btn-success' %>
+          <%= submit_tag "Search Nearby", class: 'btn btn-success' %>
         </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-default" aria-label="Filter" id="btn-filter" <%= 'disabled' if filters_present? %>>
+            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Show Filters
+          </button>
+        </div>
+        <div class="form-group adv-filter" style="display: <%= filters_present? ? 'inline-block' : 'none' %>;">
+          <div class="input-group date" id='date_from'>
+            <%= label_tag :date_from, 'Date From', class: 'sr-only' %>
+            <%= date_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span> From
+            </span>
+          </div>
+        </div>
+        <div class="form-group adv-filter" style="display: <%= filters_present? ? 'inline-block' : 'none' %>;">
+          <div class='input-group date' id='date_until'>
+            <%= label_tag :date_until, 'Date Until', class: 'sr-only' %>
+            <%= date_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span> Until
+            </span>
+          </div>
+        </div>
+        <div class="form-group adv-filter" style="display: <%= filters_present? ? 'inline-block' : 'none' %>;">
+          <div class="input-group">
+            <span class="input-group-addon">Order by</span>
+            <%= label_tag :sort, 'Sort Order', class: 'sr-only' %>
+            <%= select_tag :sort, options_for_select([['Price', 2],['Reviews', 3]], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group adv-filter" style="display: <%= filters_present? ? 'inline-block' : 'none' %>;">
+          <button type="button" class="btn btn-default" aria-label="Clean filters" id="btn-clean-filter">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+        </div>
+        <script type="text/javascript">
+          $(function () {
+            $("#btn-filter").click(function() {
+              $("#btn-filter").prop("disabled", true);
+              $(".adv-filter").fadeIn();
+            });
+            $("#btn-clean-filter").click(function() {
+              $(".adv-filter input").each(function() {
+                $(this).val('');
+              });
+              $("#sort").val("");
+            });
+            $("#date_from").datetimepicker({
+              format: 'DD/MM/YYYY hh:mm a',
+              ignoreReadonly: true,
+              showClose: true
+            }).on("dp.change", function (e) {
+              $("#date_until").data("DateTimePicker").minDate(e.date);
+            });
+            $("#date_until").datetimepicker({
+              format: 'DD/MM/YYYY hh:mm a',
+              ignoreReadonly: true
+            }).on("dp.change", function (e) {
+              $("#date_from").data("DateTimePicker").maxDate(e.date);
+            });
+          });
+        </script>
       <% end %>
       </div>
       </div>
