@@ -6,7 +6,7 @@
         <div class="col-sm-9 col-md-9">
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">My Profile</h3>
+                <h3 class="panel-title">Profile - <%= @user.username %></h3>
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -29,27 +29,28 @@
                           <td><%= @user.username %></td>
                         </tr>
 
+                        <% if @user.date_of_birth %>
                         <tr>
                           <td>Date of Birth:</td>
-                          <td></td>
+                          <td><%= @user.date_of_birth %></td>
                         </tr>
-
-                        <tr>
-                          <td>Home Address:</td>
-                          <td></td>
-                        </tr>
-
+                        <% end %>
                         <tr>
                           <td>Email:</td>
                           <td><a href="mailto:<%= @user.email %>"><%= @user.email %></a></td>
                         </tr>
+
+                        <% if @user.phone_number %>
                         <tr>
                           <td>Phone Number:</td>
-                          <td></td>   
+                          <td><%= @user.phone_number %></td>   
                         </tr>
+                        <% end %>
                       </tbody>
                     </table>
+                    <% if @user == current_user %>
                     <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
+                    <% end %>
                   </div>
                 </div>
               </div>
