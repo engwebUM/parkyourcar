@@ -17,19 +17,14 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: EMAIL_REGEX, uniqueness: true
   validates :phone_number, allow_blank: true, format: PHONE_NUMBER_REGEX, uniqueness: true
   validate :valid_age
-  validates_integrity_of  :avatar
+  validates_integrity_of :avatar
   validates_processing_of :avatar
 
   def valid_age
-    if date_of_birth.present? && date_of_birth > 18.year.ago
-      errors.add(:date_of_birth, "You must be 18 years or older.")
-    end
+    return errors.add(:date_of_birth, 'You must be 18 years or older.') if date_of_birth.present? && date_of_birth > 18.year.ago
   end
 
-  def ==(comparison_object)
-  super ||
-    comparison_object.instance_of?(self.class) &&
-    id.present? &&
-    comparison_object.id == id
+  def ==(other)
+    super || other.instance_of?(self.class) && id.present? && other.id == id
   end
 end
