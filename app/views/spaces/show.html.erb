@@ -75,5 +75,11 @@
   <%= @space.longitude %>
 </p>
 
+<% @attachments.each do |p| %>
+  <%= image_tag p.file_name_url, :style => "width: 300px; height: 250px;"  %>
+  <%= link_to "Edit", edit_attachment_path(p) %>
+  <%= link_to "remove",p, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"%>
+<% end %>
+
 <%= link_to 'Edit', edit_space_path(@space) %> |
 <%= link_to 'Back', spaces_path %>

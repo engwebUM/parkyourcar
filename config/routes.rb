@@ -1,6 +1,6 @@
 Rails.application.routes.draw do 
   resources :spaces
-
+  resources :attachments
   resources :locations, :only => [:index]
   devise_for :users
   resources :users, :only => [:show]
