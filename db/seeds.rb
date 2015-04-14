@@ -176,3 +176,28 @@ b6 = Booking.create(user: u1,
                     date_from: '2015-04-01',
                     date_until: '2015-04-02',
                     state: 'rejected')
+
+a1 = Attachment.create(space: s1,
+                       file_name: 'space1',
+                       content_type: 'jpg',
+                       file_size: '131 KB')
+
+a2 = Attachment.create(space: s2,
+                      file_name: 'space2',
+                      content_type: 'jpg',
+                      file_size: '605 KB')
+
+a3 = Attachment.create(space: s3,
+                       file_name: 'space3',
+                       content_type: 'jpg',
+                       file_size: '88 KB')
+
+a4 = Attachment.create(space: s4,
+                      file_name: 'space4',
+                      content_type: 'jpg',
+                      file_size: '150 KB')
+
+a5 = Attachment.create(space: s5,
+                       file_name: 'space5',
+                       content_type: 'jpg',
+                       file_size: '55 KB')
