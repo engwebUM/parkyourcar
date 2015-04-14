@@ -1,0 +1,32 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reserve now</h3>
+    </div>
+    <div class="panel-body">
+          <div class="col-md-4">
+            <div class='input-group date' id='date_from'>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class='input-group date' id='date_until'>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <script type="text/javascript">
+          $(function () {
+            $('#date_from').datetimepicker();
+            $('#date_until').datetimepicker();
+            });
+          </script>
+          <p>
+            <a class="btn btn-default col-md-4" href="#" role="button">Reserve Now</a>
+          </p>
+    </div>
+  </div>
+</div>

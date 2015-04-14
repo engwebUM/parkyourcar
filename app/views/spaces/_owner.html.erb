@@ -1,0 +1,29 @@
+<div class="col-md-4 text-center">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Space Owner - <%= @space.user.username%></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <span class="col-md-2"></span>
+        <img class="col-md-8" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
+        <span class="col-md-2"></span>
+      </div>
+      <div class="row">
+        <span class="col-md-4"></span>
+        <div class="col-md-4">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+            </div>
+          </div>
+        </div>
+        <span class="col-md-4"></span>
+      </div>
+      <div class="row">
+        <span class="col-md-3"></span>
+        <a class="btn btn-default col-md-6" href="mailto:"<%= @space.user.email %> role="button">Send an email</a>
+        <span class="col-md-3"></span>
+      </div>
+    </div>
+  </div>
+</div>

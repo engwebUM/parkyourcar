@@ -1,0 +1,23 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reviews</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Evaluation</th>
+            <th>Comment</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= render @reviews %>
+        </tbody>
+      </table>
+      <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+</div>

@@ -3,84 +3,18 @@
 http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocking-top-content-of-the-page
 -->
   <p id="notice"><%= notice %></p>
-  <h2><%=@space.title%></h2>
+  <h1><%=@space.title%></h1>
+  <br>
   <br>
   <div class="row">
-    <div class="col-xs-8 col-lg-6">
-      <h3>Reserve now</h3>
-      <p>From</p>
-      <p>Until</p>
-      <p>Price</p>
-      <p>
-        <a class="btn btn-default" href="#" role="button">Reserve Now</a>
-      </p>
-    </div>
-    <div class="col-xs-6 col-lg-6">
-      <h3>Location</h3>
-    </div>
+    <%= render 'booking' %>
+    <%= render 'map' %>
   </div>
-  <h3>Description</h3>
-  <div class="jumbotron container">
-    <div class="row">
-      <div class="col-md-8">
-        <p>City: <%=@space.city%> - <%=@space.country%></p>
-        <br>
-        <p>Address: <%=@space.address%>, <%=@space.post_code%></p>
-        <br>
-        <p>Description: <%= @space.description %></p>
-        <br>
-        <p>Available spaces: <%=@space.available_spaces%></p>
-        <br>
-        <p>Pricing: <%=@space.price_hour%>$/hour
-          <%=@space.price_week%>$/week <%=@space.price_month%>$/month</p>
-        <br>
-        <p>Available from <%=@space.date_from.to_formatted_s(:long)%> to
-          <%=@space.date_until.to_formatted_s(:long)%>
-          <% if(@space.available_weekend)%>
-            including weekends.
-          <%end%></p>
-      </div>
-      <div class="col-md-4">
-        <div class="row">
-          <img class="col-md-12" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-        </div>
-        <br> <!-- Padding custom css -->
-        <div class="row">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-          <img class="col-md-4" src="http://64.207.179.53/images/event_images/CarParkingSign.jpg" alt="img1" class="img-rounded">
-        </div>
-      </div>
-    </div>
+  <div>
+    <%= render 'description' %>
   </div>
-    <div class="col-xs-8 col-lg-8">
-      <h3>Reviews</h3>
-      <table class="table">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Evaluation</th>
-          <th>Comment</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      <%= render @reviews %>
-      </tbody>
-    </table>
-    <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
-    </div>
-    <div class="col-xs-6 col-lg-4">
-      <div>
-        <h3>Space Owner - <%= @space.user.username%></h3>
-        <p>Kate's photo</p>
-        <p>Kate's review stars</p>
-        <br>
-        <a class="btn btn-default" href="#" role="button">Send an email</a>
-      </div>
-    </div>
-</div>
-<div>
-  <p>Space Owner - Kate</p>
-  <button type="button">Send an e-mail</button>
+  <div class="row">
+    <%= render 'reviews' %>
+    <%= render 'owner' %>
+  </div>
 </div>

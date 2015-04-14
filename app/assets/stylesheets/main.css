@@ -60,3 +60,15 @@ section {
 footer {
     margin: 50px 0;
 }
+
+/*
+* Show space
+*/
+
+.bold {
+    font-weight: bold;
+}
+
+.center-divs {
+    margin: 0 auto;
+}
