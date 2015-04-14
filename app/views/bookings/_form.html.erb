@@ -1,0 +1,67 @@
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reserve now</h3>
+    </div>
+    <div class="panel-body row">
+      <div class="col-md-12">
+        <%= form_for([@space, @space.bookings.build]) do |f| %>
+          <% if @space.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h2>
+
+              <ul>
+              <% @space.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <div class="form-group adv-filter col-md-6">
+          <div class="input-group date" id='date_from'>
+            <%= label_tag :date_from, 'Date From', class: 'sr-only' %>
+            <%= date_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span> From
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group adv-filter col-md-6">
+          <div class='input-group date' id='date_until'>
+            <%= label_tag :date_until, 'Date Until', class: 'sr-only' %>
+            <%= date_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span> Until
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <span class="col-md-8"></span>
+        <div class="actions col-md-3">
+          <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+          $(function () {
+            $("#date_from").datetimepicker({
+              format: 'DD/MM/YYYY hh:mm a',
+              ignoreReadonly: true,
+              showClose: true
+            }).on("dp.change", function (e) {
+              $("#date_until").data("DateTimePicker").minDate(e.date);
+            });
+            $("#date_until").datetimepicker({
+              format: 'DD/MM/YYYY hh:mm a',
+              ignoreReadonly: true
+            }).on("dp.change", function (e) {
+              $("#date_from").data("DateTimePicker").maxDate(e.date);
+            });
+          });
+    </script>
+    <% end %>
+  </div>
+</div>

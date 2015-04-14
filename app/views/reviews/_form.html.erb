@@ -1,0 +1,31 @@
+<% if(@bool) %>
+<%= form_for([@space, @space.reviews.build]) do |f| %>
+  <% if @space.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@space.erors.count, "error") %> prohibited
+        this review from being saved:
+      </h2>
+      <ul>
+        <% @space.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <div class="col-md-9">
+      <%= f.label :Comment, class: 'sr-only' %>
+      <%= f.text_area :comment, autofocus: true, class: 'form-control', placeholder: 'Comment', :required => true %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :Evaluation, class: 'sr-only' %>
+      <%= f.number_field :evaluation, class: 'form-control', placeholder: 'Evaluation', :required => true, in: 0..5 %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end
+end %>

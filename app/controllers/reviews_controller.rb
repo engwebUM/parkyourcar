@@ -18,21 +18,29 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-
+    @space = Space.find(params[:space_id])
+    @review = Review.new(comment_params)
+    @review.user = current_user
+    @review.space = @space
     if @review.save
-      redirect_to @review
+      flash[:success] = 'Review was successfully created.'
+      redirect_to @space
     else
-      render 'new'
+      render :new
     end
   end
 
   def update
     @review = Review.find(params[:id])
-    if @review.update(review_params)
+    if @review.update(params[:id])
       redirect_to @review
     else
       render 'edit'
     end
   end
+
+  private
+    def comment_params
+      params.require(:review).permit(:comment, :evaluation)
+    end
 end

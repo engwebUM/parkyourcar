@@ -16,7 +16,9 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
-    @reviews = @space.review.paginate(page: params[:page], per_page: 5)
+    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
+    @ownerRating = @space.user.spaces.joins(:reviews).average(:evaluation)
+    @bool = @space.bookings.joins(:user).exists?(user_id: current_user)
     load_space_markers
   end
 

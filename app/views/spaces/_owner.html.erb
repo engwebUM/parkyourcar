@@ -13,7 +13,8 @@
         <span class="col-md-4"></span>
         <div class="col-md-4">
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: <%= @ownerRating*20 %>%">
+              <span><%= number_with_precision(@ownerRating, precision: 2) %></span>
             </div>
           </div>
         </div>
