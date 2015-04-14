@@ -15,6 +15,7 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1
   def show
+    @space = Space.find(params[:id]) 
     @attachments = @space.attachments.all
   end
 
