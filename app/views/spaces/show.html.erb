@@ -1,79 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @space.title %>
-</p>
-
-<p>
-  <strong>Available spaces:</strong>
-  <%= @space.available_spaces %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @space.description %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @space.country %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @space.city %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @space.address %>
-</p>
-
-<p>
-  <strong>Post code:</strong>
-  <%= @space.post_code %>
-</p>
-
-<p>
-  <strong>Price hour:</strong>
-  <%= @space.price_hour %>
-</p>
-
-<p>
-  <strong>Price week:</strong>
-  <%= @space.price_week %>
-</p>
-
-<p>
-  <strong>Price month:</strong>
-  <%= @space.price_month %>
-</p>
-
-<p>
-  <strong>Date from:</strong>
-  <%= @space.date_from %>
-</p>
-
-<p>
-  <strong>Date until:</strong>
-  <%= @space.date_until %>
-</p>
-
-<p>
-  <strong>Available weekend:</strong>
-  <%= @space.available_weekend %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @space.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @space.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+<div class="container" style="margin-top:100px">
+<!--Temporary solution. Detailed solution for this problem described here
+http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocking-top-content-of-the-page
+-->
+  <p id="notice"><%= notice %></p>
+  <h1><%=@space.title%></h1>
+  <br>
+  <br>
+  <div class="row">
+    <%= render 'bookings/form' %>
+    <%= render 'map' %>
+  </div>
+  <div>
+    <%= render 'description' %>
+  </div>
+  <div class="row">
+    <%= render 'reviews/reviews' %>
+    <%= render 'owner' %>
+  </div>
+</div>

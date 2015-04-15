@@ -15,6 +15,9 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1
   def show
+    @space = Space.find(params[:id])
+    aux
+    load_space_markers
   end
 
   # GET /spaces/new
@@ -65,5 +68,19 @@ class SpacesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def space_params
     params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :available_weekend, :latitude, :longitude)
+  end
+
+  def load_space_markers
+    @hash = Gmaps4rails.build_markers(@space) do |space, marker|
+      marker.lat space.latitude
+      marker.lng space.longitude
+      marker.infowindow space.address
+    end
+  end
+
+  def aux
+    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
+    @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
+    @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
   end
 end
