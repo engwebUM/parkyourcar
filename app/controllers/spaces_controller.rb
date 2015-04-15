@@ -27,6 +27,8 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1/edit
   def edit
+    @space=Space.find(params[:id])
+    @attachments=@space.attachments.all
   end
 
   # POST /spaces
