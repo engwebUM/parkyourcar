@@ -54,6 +54,15 @@
           </div>
           <div class="form-group">
             <div class="input-group">
+              <span class="input-group-addon">Available on weekends?</span>
+              <span class="input-droup-addon">
+                <%= label_tag :available_weekend, 'Availability on weekends', class: 'sr-only' %>
+                <%= check_box_tag :available_weekend, 'true', params[:available_weekend], class: 'form-control' %>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
               <span class="input-group-addon">Order by</span>
               <%= label_tag :sort, 'Sort Order', class: 'sr-only' %>
               <%= select_tag :sort, options_for_select([['Price', 2], ['Reviews', 3]], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
@@ -80,6 +89,7 @@
             $(this).val('');
           });
           $("#sort").val("");
+          $("#available_weekend").prop('checked', false);
         });
         $("#date_from").datetimepicker({
           format: 'DD/MM/YYYY hh:mm a',

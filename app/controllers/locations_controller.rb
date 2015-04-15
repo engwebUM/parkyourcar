@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
   end
 
   def filter_spaces
-    @spaces = @spaces.filter_by(params[:date_from], params[:date_until])
+    @spaces = @spaces.filter_by(params[:date_from], params[:date_until], params[:available_weekend])
   end
 
   def sort_spaces
