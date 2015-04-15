@@ -55,7 +55,7 @@
             <div class="input-group">
               <span class="input-group-addon">Order by</span>
               <%= label_tag :sort, 'Sort Order', class: 'sr-only' %>
-              <%= select_tag :sort, options_for_select([['Price', 2], ['No. Reviews', 3]], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
+              <%= select_tag :sort, options_for_select([['Price', 'pri'], ['No. Reviews', 'rev']], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
             </div>
           </div>
           <div class="form-group">
