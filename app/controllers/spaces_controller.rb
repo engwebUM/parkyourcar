@@ -37,7 +37,7 @@ class SpacesController < ApplicationController
     @space.user = current_user
     if @space.save
       params[:attachments]['file_name'].each do |a|
-        @attachment = @space.attachments.create!(:file_name => a, :space_id => @space.id)
+        @attachment = @space.attachments.create!(file_name: a, space_id: @space.id)
       end
       flash[:success] = 'Space was successfully created.'
       redirect_to @space
@@ -49,6 +49,9 @@ class SpacesController < ApplicationController
   # PATCH/PUT /spaces/1
   def update
     if @space.update(space_params)
+      params[:attachments]['file_name'].each do |a|
+        @attachment=@space.attachments.create!(file_name: a, space_id: @space.id)
+      end
       flash[:success] = 'Space was successfully created.'
       redirect_to @space
     else
