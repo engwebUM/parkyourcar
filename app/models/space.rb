@@ -32,10 +32,8 @@ class Space < ActiveRecord::Base
   end
 
   def self.valid_date?(date)
-    begin
-      date.to_datetime
+    date.to_datetime
     rescue ArgumentError, NoMethodError
       false
-    end
   end
 end
