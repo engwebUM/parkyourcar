@@ -15,10 +15,6 @@ class LocationsController < ApplicationController
     load_space_markers
   end
 
-  # GET /locations/1
-  def show
-  end
-
   private
 
   def filters_present?
@@ -47,11 +43,6 @@ class LocationsController < ApplicationController
       marker.lng space.longitude
       marker.infowindow space.address
     end
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_location
-    @space = Space.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
