@@ -1,6 +1,10 @@
-Rails.application.routes.draw do 
-  resources :spaces
+Rails.application.routes.draw do
   resources :attachments
+  resources :spaces do
+    resources :reviews
+    resources :bookings
+  end
+
   resources :locations, :only => [:index]
   devise_for :users
   resources :users, :only => [:show]
