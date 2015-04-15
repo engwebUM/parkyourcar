@@ -12,21 +12,11 @@
     <div class="form alert">
       <div class="row">
         <div class="col-md-12">
-            <div class="form-group">
-              <%= label_tag :location, 'Search spaces nearby', class: 'sr-only' %>
-              <%= text_field_tag :location, params[:location], placeholder: 'Search spaces nearby', class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= label_tag :distance, "Distance", class: 'sr-only' %>
-              <%= text_field_tag :distance, params[:distance], placeholder: 'Distance', class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= submit_tag "Search Nearby", class: 'btn btn-success' %>
-            </div>
-            <div class="form-group">
-              <button type="button" class="btn btn-default" aria-label="Filter" id="btn-filter">
-              <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Show Filters
-            </button>
+          <%= render 'layouts/location_search' %>
+          <div class="form-group">
+            <button type="button" class="btn btn-default" aria-label="Filter" id="btn-filter">
+            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Show Filters
+          </button>
           </div>
         </div>
       </div>
