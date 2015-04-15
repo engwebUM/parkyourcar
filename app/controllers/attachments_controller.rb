@@ -42,19 +42,21 @@ class AttachmentsController < ApplicationController
 
   # DELETE /attachments/1
   def destroy
+    File.delete('public' + @attachment.file_name.to_s)
     @attachment.destroy
     flash[:success] = 'Post attachment was successfully destroyed.'
     redirect_to @attachment.space
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attachment
-      @attachment = Attachment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def attachment_params
-      params.require(:attachment).permit(:space_id, :file_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attachment
+    @attachment = Attachment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def attachment_params
+    params.require(:attachment).permit(:space_id, :file_name)
+  end
 end
