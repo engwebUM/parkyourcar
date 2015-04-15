@@ -27,7 +27,7 @@
           <div class="form-group">
             <div class="input-group date" id='date_from'>
               <%= label_tag :date_from, 'Date From', class: 'sr-only' %>
-              <%= date_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
+              <%= text_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span> From
               </span>
@@ -36,7 +36,7 @@
           <div class="form-group">
             <div class='input-group date' id='date_until'>
               <%= label_tag :date_until, 'Date Until', class: 'sr-only' %>
-              <%= date_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
+              <%= text_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span> Until
               </span>
