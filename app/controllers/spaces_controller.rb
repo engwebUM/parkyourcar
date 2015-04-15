@@ -16,6 +16,7 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
+    @attachments = @space.attachments.all
     aux
     load_space_markers
   end
@@ -23,10 +24,13 @@ class SpacesController < ApplicationController
   # GET /spaces/new
   def new
     @space = Space.new
+    @attachment = @space.attachments.build
   end
 
   # GET /spaces/1/edit
   def edit
+    @space = Space.find(params[:id])
+    @attachments = @space.attachments.all
   end
 
   # POST /spaces
@@ -34,8 +38,7 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
     @space.user = current_user
     if @space.save
-      flash[:success] = 'Space was successfully created.'
-      redirect_to @space
+      create_attachments
     else
       render :new
     end
@@ -44,6 +47,9 @@ class SpacesController < ApplicationController
   # PATCH/PUT /spaces/1
   def update
     if @space.update(space_params)
+      params[:attachments]['file_name'].each do |a|
+        @attachment = @space.attachments.create!(file_name: a, space_id: @space.id)
+      end
       flash[:success] = 'Space was successfully created.'
       redirect_to @space
     else
@@ -67,7 +73,15 @@ class SpacesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def space_params
-    params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :available_weekend, :latitude, :longitude)
+    params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :available_weekend, :latitude, :longitude, attachments_attributes: [:id, :space_id, :file_name])
+  end
+
+  def create_attachments
+    params[:attachments]['file_name'].each do |a|
+      @attachment = @space.attachments.create!(file_name: a, space_id: @space.id)
+    end
+    flash[:success] = 'Space was successfully created.'
+    redirect_to @space
   end
 
   def load_space_markers

@@ -1,0 +1,16 @@
+<%= form_for(@attachment) do |f| %>
+<%= image_tag @attachment.file_name %>
+  <div class="field">
+    <%= f.label :space_id %><br>
+    <%= f.number_field :space_id %>
+  </div>
+  <div class="field">
+    <%= f.label :file_name %><br>
+    <%= f.file_field :file_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

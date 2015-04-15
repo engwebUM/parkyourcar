@@ -1,45 +1,52 @@
+<div class="container">
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
   <div class="page-header">
-    <h3>Add your Space Advertising</h3>
+    <h3>Space Advertising</h3>
   </div>
-<%= form_for(@space) do |f| %>
-  <% if @space.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h2>
 
-      <ul>
-      <% @space.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form_for(@space, :html => { :multipart => true }) do |f| %>
+    <% if @space.errors.any? %>
+    <div class="row">
+      <div class="col-md-12">
+      <div id="error_explanation">
+        <h2><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h2>
+        <div class="alert alert-error alert-block"> <button type="button"
+   class="close" data-dismiss='alert'>x</button>
+         <ul>
+              <% @space.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+        </div>
+      </div>
+      </div>
+      </div>
   <% end %>
-
   <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Information</h3>
-  </div>
-  <div class="panel-body">
-    <div class="form-group row">
-      <div class="col-md-9">
-        <%= f.label :title, class: 'sr-only' %>
-        <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
+    <div class="panel-heading">
+      <h3 class="panel-title">Information</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group row">
+        <div class="col-md-9">
+          <%= f.label :title, class: 'sr-only' %>
+          <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.label :available_spaces, class: 'sr-only' %>
+          <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces', :required => true %>
+        </div>
       </div>
 
-      <div class="col-md-3">
-        <%= f.label :available_spaces, class: 'sr-only' %>
-        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces' %>
+      <div class="form-group">
+          <%= f.label :description, class: 'sr-only' %>
+          <%= f.text_area :description, class: 'form-control', placeholder: 'Description',:required => true %>
       </div>
     </div>
-
-    <div class="form-group">
-        <%= f.label :description, class: 'sr-only' %>
-        <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %>
-    </div>
   </div>
-</div>
-<hr>
+  <hr>
 
   <div class="panel panel-primary">
   <div class="panel-heading">
@@ -121,23 +128,40 @@
 
           <script type="text/javascript">
               $(function () {
-                  $('#date_from').datetimepicker();
-                  $('#date_until').datetimepicker();
+                  $('#date_from').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
+                  $('#date_until').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
               });
           </script>
           
           <div class="col-md-4">
                 <%= f.label :available_weekend %>
-                <%= f.check_box :available_weekend, class: 'form-control', :required => true %>
+                <%= f.check_box :available_weekend, class: 'form-control' %>
           </div>
       </div>
 </div>
 </div>
+<hr>
 
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Insert Images</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+    <%= if controller.action_name=='edit' 
+          then 
+            render 'edit_attachments', f: f 
+        elsif controller.action_name=='new' 
+          then 
+            render 'new_attachments', f: f  
+        end%>
+    </div>
+
+ </div>
+</div>
   <div class="actions">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
-<% end %>
-
+  <% end %>
   </div>
 </div>
