@@ -1,9 +1,8 @@
-<% if(@bool) %>
 <%= form_for([@space, @space.reviews.build]) do |f| %>
   <% if @space.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@space.erors.count, "error") %> prohibited
+        <%= pluralize(@space.errors.count, "error") %> prohibited
         this review from being saved:
       </h2>
       <ul>
@@ -27,5 +26,4 @@
   <div class="actions">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
-<% end
-end %>
+<% end %>

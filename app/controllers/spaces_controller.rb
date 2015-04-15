@@ -81,6 +81,6 @@ class SpacesController < ApplicationController
   def aux
     @reviews = @space.review.paginate(page: params[:page], per_page: 2)
     @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
-    @bool = @space.bookings.joins(:user).exists?(user_id: current_user)
+    @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
   end
 end

@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_filter :authenticate_user!, except: [:show]
+
   # GET /bookings
   def index
   end
@@ -19,11 +21,12 @@ class BookingsController < ApplicationController
 
   def create
     @space = Space.find(params[:space_id])
+    booking_fill
     if @booking.save
       flash[:success] = 'Booking was successfully created.'
       redirect_to @space
     else
-      render :new
+      redirect_to @space
     end
   end
 
