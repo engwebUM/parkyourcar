@@ -19,10 +19,6 @@ class BookingsController < ApplicationController
 
   def create
     @space = Space.find(params[:space_id])
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.space = @space
-    @booking.state = "pending"
     if @booking.save
       flash[:success] = 'Booking was successfully created.'
       redirect_to @space
@@ -41,7 +37,15 @@ class BookingsController < ApplicationController
   end
 
   private
-    def booking_params
-      params.require(:booking).permit(:date_from, :date_until, :state)
-    end
+
+  def booking_params
+    params.require(:booking).permit(:date_from, :date_until, :state)
+  end
+
+  def booking_fill
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.space = @space
+    @booking.state = 'pending'
+  end
 end

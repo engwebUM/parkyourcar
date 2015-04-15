@@ -16,9 +16,7 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
-    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
-    @ownerRating = @space.user.spaces.joins(:reviews).average(:evaluation)
-    @bool = @space.bookings.joins(:user).exists?(user_id: current_user)
+    aux
     load_space_markers
   end
 
@@ -78,5 +76,11 @@ class SpacesController < ApplicationController
       marker.lng space.longitude
       marker.infowindow space.address
     end
+  end
+
+  def aux
+    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
+    @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
+    @bool = @space.bookings.joins(:user).exists?(user_id: current_user)
   end
 end

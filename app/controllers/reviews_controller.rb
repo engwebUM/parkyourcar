@@ -40,7 +40,8 @@ class ReviewsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:review).permit(:comment, :evaluation)
-    end
+
+  def comment_params
+    params.require(:review).permit(:comment, :evaluation)
+  end
 end
