@@ -104,6 +104,10 @@
   <hr>
   <div class="row">
     <div class="col-md-6">
+    <% if @spaces.empty? %>
+      <h3>No spaces were found</h3>
+      <p>Try to refine your search parameters or to refine your filters.</p>
+    <% else %>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -119,6 +123,7 @@
         </tbody>
       </table>
       <%= will_paginate @spaces, renderer: BootstrapPagination::Rails %>
+    <% end %>
     </div>
     <div class="col-md-6">
       <div style='width: 450px;'>
