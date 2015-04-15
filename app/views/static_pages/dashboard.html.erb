@@ -1,0 +1,59 @@
+<%= render 'layouts/jumbotron' %>
+<div class="container">
+    <div class="row">
+	    <div class="col-md-offset-1 col-md-10">
+	    	<%= render 'layouts/sidenav' %>
+			<div class="col-sm-9 col-md-9">
+	          <div class="panel panel-info">
+	              <div class="panel-heading">
+	                <h3 class="panel-title">Dashboard</h3>
+	              </div>
+	              <div class="panel-body">
+	                <div class="row">
+	                  <div class="col-md-3 col-lg-3 " align="center"> 
+	                    <% if current_user.avatar.url.present? %>
+	                      <%= image_tag(current_user.avatar.url, width: '150px', heigh: '150px', class: 'img-circle') %>
+	                    <% else %>
+	                      <%= image_tag("user_avatar.png", class: 'img-circle') %>
+	                    <% end %>
+	                  </div>
+	                  <div class=" col-md-9 col-lg-9 "> 
+	                    <table class="table table-user-information">
+	                      <tbody>
+	                        <tr>
+	                          <td>Name</td>
+	                          <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+	                        </tr>
+	                        <tr>
+		                        <td>Email</td>
+		                        <td><a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
+	                     	</tr>
+	                     	<% if current_user.phone_number %>
+	                        <tr>
+	                          <td>Phone Number:</td>
+	                          <td><%= current_user.phone_number %></td>   
+	                        </tr>
+                        	<% end %>
+	                     	<tr>
+	                          <td>Pending bookings made</td>
+	                          <td>0</td>
+	                        </tr>
+	                        <tr>
+	                          <td>Pending bookings received</td>
+	                          <td>0</td>
+	                        </tr>
+	                        <tr>
+	                          <td>Your spaces</td>
+	                          <td><%= current_user.spaces.count %></td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+	                    <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
+	                  </div>
+                	</div>
+              	</div>
+              </div> 
+	     	</div>
+	    </div> 	
+	</div>	 
+</div>
