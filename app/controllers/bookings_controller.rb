@@ -41,8 +41,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
-    flash[:success] = 'Booking was successfully destroyed.'
+    @booking = current_user.bookings.find(params[:id])
+    if @booking.present?
+      @booking.destroy
+      flash[:success] = 'Booking was successfully destroyed.'
+    end
     redirect_to bookings_url
   end
 
