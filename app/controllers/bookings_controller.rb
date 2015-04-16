@@ -1,13 +1,17 @@
 class BookingsController < ApplicationController
   before_filter :authenticate_user!
+  SENT_STATE = 'sent'
+  PENDING_STATE = 'pending'
+  ACCEPTED_STATE = 'accepted'
+  REJECTED_STATE = 'rejected'
 
   # GET /bookings
   def index
     @bookings = {}
-    @bookings[:sent] = bookings_by_state('sent')
-    @bookings[:pending] = bookings_by_state('pending')
-    @bookings[:accepted] = bookings_by_state('accepted')
-    @bookings[:rejected] = bookings_by_state('rejected')
+    @bookings[SENT_STATE] = bookings_by_state(SENT_STATE)
+    @bookings[PENDING_STATE] = bookings_by_state(PENDING_STATE)
+    @bookings[ACCEPTED_STATE] = bookings_by_state(ACCEPTED_STATE)
+    @bookings[REJECTED_STATE] = bookings_by_state(REJECTED_STATE)
   end
 
   # GET /bookings/new
@@ -63,6 +67,7 @@ class BookingsController < ApplicationController
   end
 
   def bookings_by_state(state)
-    current_user.bookings.where('state = ?', state).paginate(page: params[:page], per_page: 2)
+    param_state_page = state + '_page'
+    current_user.bookings.where('state = ?', state).paginate(page: params[param_state_page], per_page: 2)
   end
 end
