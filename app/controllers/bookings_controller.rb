@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!
 
   # GET /bookings
   def index
@@ -42,10 +42,6 @@ class BookingsController < ApplicationController
 
   private
 
-  def bookings_by_state(state)
-    current_user.bookings.where('state = ?', state)
-  end
-
   def booking_params
     params.require(:booking).permit(:date_from, :date_until, :state)
   end
@@ -55,5 +51,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.space = @space
     @booking.state = 'sent'
+  end
+
+  def bookings_by_state(state)
+    current_user.bookings.where('state = ?', state).paginate(page: params[:page], per_page: 2)
   end
 end
