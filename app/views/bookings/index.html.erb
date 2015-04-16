@@ -29,20 +29,28 @@
             </div>
           </div>
           <script type="text/javascript">
-            $('#myTab a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });
+          $(function() 
+                    { 
+                      $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+                        //save the latest tab; use cookies if you like 'em better:
+                        alert($(this).attr('href'));
+                        localStorage.setItem('lastTab', $(this).attr('href'));
+                       });
 
-            // store the currently selected tab in the hash value
-            $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
-                var id = $(e.target).attr("href").substr(1);
-                window.location.hash = id;
-            });
-
-            // on load of the page: switch to the currently selected tab
-            var hash = window.location.hash;
-            $('#myTab a[href="' + hash + '"]').tab('show');
+                      //go to the latest tab, if it exists:
+                      var lastTab = localStorage.getItem('lastTab');
+                      if (lastTab) {
+                         $('a[href=' + lastTab + ']').tab('show');
+                         alert("lastTab setted");
+                      }
+                      else
+                      {
+                        
+                        // Set the first tab if cookie do not exist
+                        $('a[data-toggle="tab"]:first').tab('show');
+                        alert("lastTab not setted");
+                      }
+                  });
           </script>
         </div>
       </div>  
