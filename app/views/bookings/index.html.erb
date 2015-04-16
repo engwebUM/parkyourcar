@@ -15,47 +15,34 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="sent">
-                <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Bookings Sent <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></h3>
-                </div>
-                <div class="panel-body">
-                <% if @bookings[:sent].empty? %>
-                  Your bookings seems empty.
-                <% else %>
-                <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>Space</th>
-                          <th>Date From</th>
-                          <th>Date Until</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <%= render @bookings[:sent] %>
-                      </tbody>
-                    </table>
-                  <%= will_paginate @bookings[:sent], renderer: BootstrapPagination::Rails %>
-                <% end %>
-               </div>
-              </div>
+                <%= render partial: 'booking_table', locals: { state: :sent} %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="pending">
-              ...
+                <%= render partial: 'booking_table', locals: { state: :pending} %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="accepted">
-              ...
+                <%= render partial: 'booking_table', locals: { state: :accepted} %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="rejected">
-              ...
+                <%= render partial: 'booking_table', locals: { state: :rejected} %>
               </div>
             </div>
           </div>
           <script type="text/javascript">
             $('#myTab a').click(function (e) {
-              e.preventDefault()
-              $(this).tab('show')
-            })
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            // store the currently selected tab in the hash value
+            $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+                var id = $(e.target).attr("href").substr(1);
+                window.location.hash = id;
+            });
+
+            // on load of the page: switch to the currently selected tab
+            var hash = window.location.hash;
+            $('#myTab a[href="' + hash + '"]').tab('show');
           </script>
         </div>
       </div>  
