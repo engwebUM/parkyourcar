@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   resources :attachments
   resources :spaces do
-    resources :reviews
-    resources :bookings
+    resources :reviews, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
-
-  resources :locations, :only => [:index]
+  resources :bookings, only: [:index]
+  resources :locations, only: [:index]
   devise_for :users
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
   get 'static_pages/help'
   get 'static_pages/faq'
   get 'static_pages/dashboard'

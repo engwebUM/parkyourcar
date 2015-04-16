@@ -14,7 +14,6 @@ class Booking < ActiveRecord::Base
   end
 
   def valid_interval
-    errors.add(:date_from, 'dates must be in valid interval') if date
-    from.to_datetime > date_until.to_datetime
+    errors.add(:date_from, 'dates must be in valid interval') if date_from.to_datetime > date_until.to_datetime
   end
 end

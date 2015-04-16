@@ -3,10 +3,11 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   def index
-  end
-
-  # GET /bookings/1
-  def show
+    @bookings = Hash.new
+    @bookings[:sent] = bookings_by_state('sent')
+    @bookings[:pending] = bookings_by_state('pending')
+    @bookings[:accepted] = bookings_by_state('accepted')
+    @bookings[:rejected] = bookings_by_state('rejected')
   end
 
   # GET /bookings/new
@@ -41,6 +42,10 @@ class BookingsController < ApplicationController
 
   private
 
+  def bookings_by_state(state)
+    current_user.bookings.where('state = ?', state)
+  end
+
   def booking_params
     params.require(:booking).permit(:date_from, :date_until, :state)
   end
@@ -49,6 +54,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.space = @space
-    @booking.state = 'pending'
+    @booking.state = 'sent'
   end
 end
