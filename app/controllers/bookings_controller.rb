@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   def index
-    @bookings = Hash.new
+    @bookings = {}
     @bookings[:sent] = bookings_by_state('sent')
     @bookings[:pending] = bookings_by_state('pending')
     @bookings[:accepted] = bookings_by_state('accepted')
@@ -38,6 +38,12 @@ class BookingsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @booking.destroy
+    flash[:success] = 'Booking was successfully destroyed.'
+    redirect_to bookings_url
   end
 
   private

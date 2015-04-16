@@ -1,0 +1,11 @@
+<tr>
+  <td>
+  <%= link_to booking.space.title, space_path(booking.space) %></td>
+  <td><%= booking.date_from %></td>
+  <td><%= booking.date_until %></td>
+  <td>
+  <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+     <span class="glyphicon glyphicon-remove-circle"> Cancel</span>
+  <% end %>
+  </td>
+</tr>
