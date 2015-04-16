@@ -30,13 +30,13 @@
 	                     	</tr>
 	                     	<% if current_user.phone_number %>
 	                        <tr>
-	                          <td>Phone Number:</td>
+	                          <td>Phone Number</td>
 	                          <td><%= current_user.phone_number %></td>   
 	                        </tr>
                         	<% end %>
 	                     	<tr>
-	                          <td>Pending bookings made</td>
-	                          <td>0</td>
+	                          <td><%= link_to "Pending bookings made", bookings_path(:anchor => "pending") %></td>
+	                          <td><%= @pending_bookings_made %></td>
 	                        </tr>
 	                        <tr>
 	                          <td>Pending bookings received</td>
@@ -44,7 +44,7 @@
 	                        </tr>
 	                        <tr>
 	                          <td>Your spaces</td>
-	                          <td><%= current_user.spaces.count %></td>
+	                          <td><%= @user_spaces %></td>
 	                        </tr>
 	                      </tbody>
 	                    </table>
