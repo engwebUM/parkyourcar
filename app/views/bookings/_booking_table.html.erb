@@ -1,6 +1,13 @@
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Bookings <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></h3>
+    <h3 class="panel-title">Bookings 
+    <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="<%= tip %>" aria-hidden="true"></span>
+    </h3>
+    <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
   </div>
   <div class="panel-body">
   <% if @bookings[state].empty? %>

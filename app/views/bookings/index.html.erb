@@ -15,16 +15,16 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="sent">
-                <%= render partial: 'booking_table', locals: { state: 'sent'} %>
+                <%= render partial: 'booking_table', locals: { state: 'sent', tip: 'Requests sent to the owners of space' } %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="pending">
-                <%= render partial: 'booking_table', locals: { state: 'pending'} %>
+                <%= render partial: 'booking_table', locals: { state: 'pending', tip: 'Requests awaiting conversation between you and owner of space'} %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="accepted">
-                <%= render partial: 'booking_table', locals: { state: 'accepted'} %>
+                <%= render partial: 'booking_table', locals: { state: 'accepted', tip: 'Requests accepted by the owners of space'} %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="rejected">
-                <%= render partial: 'booking_table', locals: { state: 'rejected'} %>
+                <%= render partial: 'booking_table', locals: { state: 'rejected', tip: 'Requests rejected by the owners of space'} %>
               </div>
             </div>
           </div>
