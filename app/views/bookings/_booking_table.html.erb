@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-<%= state_panel %>">
   <div class="panel-heading">
     <h3 class="panel-title">Bookings 
     <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="<%= tip %>" aria-hidden="true"></span>
@@ -22,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render @bookings[state] %>
+      <%= render partial: 'booking', collection: @bookings[state], locals: { state: state } %>
     </tbody>
   </table>
     <%= will_paginate @bookings[state], param_name: state + '_page', renderer: BootstrapPagination::Rails %>
