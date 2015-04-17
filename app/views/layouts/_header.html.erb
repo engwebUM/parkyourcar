@@ -28,11 +28,27 @@
                 <li><%= link_to "FAQ",  static_pages_faq_path %></li>
                 <li><%= link_to "How It Works?", root_path(:anchor => "how_it_works") %></li>
                 <% if current_user.present? %>
-                <li><%= link_to current_user.username, static_pages_dashboard_path %></li>
-                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                <li>
+                <%= link_to static_pages_dashboard_path do %>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= current_user.username %>
+                <% end %>
+                </li>
+                <li>
+                <%= link_to destroy_user_session_path, :method => :delete do %>
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+                <% end %>
+                </li>
                 <% else %>
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                <li><%= button_to "Sign In", new_user_session_path, :class => "btn btn-default navbar-btn", :method => :get %></li>
+                <li>
+                <%= link_to new_user_registration_path do %>
+                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Sign up
+                <% end %>
+                </li>
+                <li>
+                <%= button_to new_user_session_path, :class => "btn btn-default navbar-btn", :method => :get do %>
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+                <% end %>
+                </li>
                 <% end %>
             </ul>
         </div>
