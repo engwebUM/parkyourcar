@@ -10,8 +10,8 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
-  	@pending_bookings_made = count_pending_bookings
-  	@user_spaces = count_user_spaces
+    @pending_bookings_made = count_pending_bookings
+    @user_spaces = count_user_spaces
   end
 
   private
