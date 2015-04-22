@@ -1,0 +1,57 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Description</h3>
+  </div>
+  <div class="panel-body row">
+    <div class="col-md-7">
+      <br>
+      <p><span class="bold">Address:</span> <%= @space.address %>, <%= @space.post_code %>, <%= @space.city%> - <%= @space.country %></p>
+      <br>
+      <p><span class="bold">Description:</span> <%= @space.description %></p>
+      <br>
+      <p><span class="bold">Available spaces:</span> <%=@space.available_spaces%></p>
+      <br>
+      <p>
+        <span class="bold">Pricing:</span> <%=@space.price_hour%> $/hour
+        <%=@space.price_week%> $/week <%= @space.price_month %> $/month
+        </p>
+      <br>
+    </div>
+    <div class="col-md-5">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+       <!-- Indicators -->
+       <ol class="carousel-indicators attachments-ol">
+         <% (1..@attachments.count).each do |i| %>
+           <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
+         <% end %>
+       </ol>
+       <!-- Wrapper for slides -->
+        <div class="carousel-inner attachments-item" role="listbox">
+         <% @attachments.each do |p| %>
+          <div class="item">
+            <%= image_tag p.file_name_url %>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <% end %>
+        </div>
+       <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $( ".attachments-ol li" ).first().addClass( "active" );
+    $( ".item" ).first().addClass( "active" );
+  }); 
+</script>

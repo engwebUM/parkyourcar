@@ -1,6 +1,0 @@
-<%= f.fields_for :attachments do |p| %>
-     <div class="field">
-       <%= p.label :file_name %><br>
-       <%= p.file_field :file_name, :multiple => true, name: "attachments[file_name][]" %>
-     </div>
-<% end %>

@@ -31,6 +31,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'rmagick'
+
 gem 'carrierwave'
 # It is optional, but recommended. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'autoprefixer-rails'
@@ -71,7 +73,7 @@ group :development, :test do
 end
 
 group :production do
-#  gem 'pg'
+  gem 'pg'
 
   gem 'rails_12factor'
 end
