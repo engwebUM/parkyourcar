@@ -19,7 +19,15 @@ class User < ActiveRecord::Base
   validates_processing_of :avatar
 
   def get_avatar
-    @user_avatar = avatar.url(:thumb) || 'user_avatar.png'
+    @avatar = avatar.url(:thumb) || 'user_avatar.png'
+  end
+
+  def phone
+    @phone = phone_number || 'No available'
+  end
+
+  def birthdate
+    @phone = date_of_birth || 'No available'
   end
 
   def valid_age
