@@ -1,6 +1,23 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
   <h1><%= @space.title %></h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-12"><h1><%=@space.title%>
+      <% if current_user.present? %>
+        <% unless current_user.favorites.exists?(space: @space) %>
+          <%= link_to favorites_path(space_id: @space), method: :post, class: "btn btn-default btn-md" do %>
+            <span class="glyphicon glyphicon-star-empty"></span> Add favorite
+          <% end %>
+        <% else %>
+          <%= link_to favorite_path(@space), method: :delete, class: "btn btn-default btn-md" do %>
+            <span class="glyphicon glyphicon-star"></span> Remove favorite
+          <% end %>
+        <% end %>
+      <% end %>
+      </h1>
+      </div>
+  </div>
+  <br>
   <br>
   <div class="row">
     <%= render 'bookings/form' %>

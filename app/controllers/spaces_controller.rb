@@ -16,9 +16,8 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
-    @attachments = @space.attachments.all
-    aux
-    load_space_markers
+    query_processing
+    @hash = Location.load_space_markers(@space)
   end
 
   # GET /spaces/new
@@ -80,15 +79,8 @@ class SpacesController < ApplicationController
     redirect_to @space
   end
 
-  def load_space_markers
-    @hash = Gmaps4rails.build_markers(@space) do |space, marker|
-      marker.lat space.latitude
-      marker.lng space.longitude
-      marker.infowindow space.address
-    end
-  end
-
-  def aux
+  def query_processing
+    @attachments = @space.attachments.all
     @reviews = @space.review.paginate(page: params[:page], per_page: 2)
     @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)

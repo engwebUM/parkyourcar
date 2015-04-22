@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
       @spaces = Space.all
     end
     paginate_spaces
-    load_space_markers
+    @hash = Location.load_space_markers(@spaces)
   end
 
   private
@@ -35,14 +35,6 @@ class LocationsController < ApplicationController
 
   def location_present?
     params[:location].present?
-  end
-
-  def load_space_markers
-    @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
-      marker.lat space.latitude
-      marker.lng space.longitude
-      marker.infowindow space.address
-    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
