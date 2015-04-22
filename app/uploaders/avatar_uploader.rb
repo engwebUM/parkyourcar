@@ -3,7 +3,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
 
   version :thumb do
-    process resize_to_limit: [100, 100]
+    process resize_to_limit: [150, 100]
   end
 
   def store_dir

@@ -45,7 +45,7 @@ class AttachmentsController < ApplicationController
     File.delete('public' + @attachment.file_name.to_s)
     @attachment.destroy
     flash[:success] = 'Post attachment was successfully destroyed.'
-    redirect_to @attachment.space
+    redirect_to edit_space_path(@attachment.space)
   end
 
   private

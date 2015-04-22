@@ -29,10 +29,10 @@
         <div class="form-group adv-filter col-md-6">
           <div class="input-group date" id='date_from'>
             <%= f.label :date_from, 'Date From', class: 'sr-only' %>
-            <%= f.text_field :date_from, require: true, placeholder: 'Date-time from', class: 'form-control', readonly: true, value: Date.current %>
+            <%= f.text_field :date_from, required: true, placeholder: 'Date-time from', class: 'form-control', readonly: true, value: Date.current %>
             <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span> From
-            </span>
+                <span class="glyphicon glyphicon-calendar"></span> From
+              </span>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="form-group adv-filter col-md-6">
           <div class='input-group date' id='date_until'>
             <%= f.label :date_until, 'Date Until', class: 'sr-only' %>
-            <%= f.text_field :date_until, require: true, placeholder: 'Date-time until', class: 'form-control', readonly: true, value: Date.current %>
+            <%= f.text_field :date_until, required: true, placeholder: 'Date-time until', class: 'form-control', readonly: true, value: Date.current %>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span> Until&nbsp;
             </span>
@@ -54,30 +54,31 @@
         </div>
       </div>
     </div>
+
+    <% end %>
+  </div>
+</div>
     <script type="text/javascript">
-          $(function () {
+          $(function() {
             $("#date_from").datetimepicker({
               format: 'DD/MM/YYYY hh:mm a',
               ignoreReadonly: true,
               showClose: true
             });
-            // .on("dp.change", function (e) {
-            //     $("#date_until").data("DateTimePicker").minDate(e.date);
-            //   }).ready(function() {
-            //     $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
-            //   });
+            .on("dp.change", function (e) {
+                $("#date_until").data("DateTimePicker").minDate(e.date);
+              }).ready(function() {
+                $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+              });
 
               $("#date_until").datetimepicker({
                 format: 'DD/MM/YYYY hh:mm a',
                 ignoreReadonly: true
               });
-              // .on("dp.change", function (e) {
-              //   $("#date_from").data("DateTimePicker").maxDate(e.date);
-              // }).ready(function() {
-              //   $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
-              // });
+              .on("dp.change", function (e) {
+                $("#date_from").data("DateTimePicker").maxDate(e.date);
+              }).ready(function() {
+                $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+              });
             });
     </script>
-    <% end %>
-  </div>
-</div>

@@ -53,11 +53,15 @@ include ActionView::Helpers::NumberHelper
   end
 
   def get_owner_avatar
-    @owner_avatar = user.avatar.url(:thumb) || 'user_avatar.png'
+    @owner_avatar = user.get_avatar
   end
 
   def get_owner_rating
     @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2)
+  end
+
+  def space_image
+    @space_image = attachments.first.file_name.url(:thumb) || 'no_image.png'
   end
 
 end
