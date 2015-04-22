@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :bookings
   end
+  resources :favorites, :only => [:index, :destroy, :create]
 
   resources :locations, :only => [:index]
   devise_for :users
