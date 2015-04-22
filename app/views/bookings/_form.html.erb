@@ -9,7 +9,7 @@
           <span class="bold">This space is available from</span>
           <%=@space.date_from.to_formatted_s(:long)%> to
           <%=@space.date_until.to_formatted_s(:long)%>
-          <% if(@space.available_weekend)%> including weekends.
+          <% if @space.available_weekend %> including weekends.
           <%end%>
         </p>
       </div>
@@ -65,20 +65,20 @@
               ignoreReadonly: true,
               showClose: true
             });
-            .on("dp.change", function (e) {
-                $("#date_until").data("DateTimePicker").minDate(e.date);
-              }).ready(function() {
-                $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
-              });
+            // .on("dp.change", function (e) {
+            //     $("#date_until").data("DateTimePicker").minDate(e.date);
+            //   }).ready(function() {
+            //     $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+            //   });
 
               $("#date_until").datetimepicker({
                 format: 'DD/MM/YYYY hh:mm a',
                 ignoreReadonly: true
               });
-              .on("dp.change", function (e) {
-                $("#date_from").data("DateTimePicker").maxDate(e.date);
-              }).ready(function() {
-                $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
-              });
+              // .on("dp.change", function (e) {
+              //   $("#date_from").data("DateTimePicker").maxDate(e.date);
+              // }).ready(function() {
+              //   $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+              // });
             });
     </script>
