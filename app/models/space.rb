@@ -1,4 +1,6 @@
 class Space < ActiveRecord::Base
+  require 'action_view'
+  include ActionView::Helpers::NumberHelper
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :attachments, dependent: :destroy
@@ -49,5 +51,17 @@ class Space < ActiveRecord::Base
     date.to_datetime
     rescue ArgumentError, NoMethodError
       false
+  end
+
+  def owner_avatar
+    @owner_avatar = user.photo
+  end
+
+  def owner_rating
+    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2)
+  end
+
+  def space_image
+    @space_image = attachments.first.file_name.url(:thumb) || 'no_image.png'
   end
 end

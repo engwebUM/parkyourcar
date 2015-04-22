@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="form alert alert-info adv-filter" style="display: <%= filters_present? ? 'block' : 'none' %>;">
+    <div class="form alert alert-info adv-filter <%= filters_present? ? 'filter-display-block' : 'filter-display-none' %>">
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -124,8 +124,8 @@
     <% end %>
     </div>
     <div class="col-md-6">
-      <div style='width: 450px;'>
-        <div id="map" style='width: 450px; height: 400px;'></div>
+      <div class="map-container">
+        <div id="map" class="map-big"></div>
       </div>
       <script type="text/javascript">
         handler = Gmaps.build('Google');

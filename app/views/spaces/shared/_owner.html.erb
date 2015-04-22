@@ -1,0 +1,26 @@
+<div class="col-md-5 text-center">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Space Owner - <%= @space.user.username%></h3>
+    </div>
+    <div class="panel-body center">
+      <div class="row">
+          <%= image_tag(@space.owner_avatar, class: 'img-circle') %>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: <%= @space.owner_rating * 20 %>%">
+              <span><%= @space.owner_rating %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <a class="btn btn-default" href="mailto:<%= @space.user.email %>" role="button">Send an email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

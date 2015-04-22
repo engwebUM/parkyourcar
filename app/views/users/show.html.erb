@@ -11,11 +11,7 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-3 col-lg-3 " align="center">
-                    <% if @user.avatar.url.present? %>
-                      <%= image_tag(@user.avatar.url, width: '150px', heigh: '150px', class: 'img-circle') %>
-                    <% else %>
-                    <%= image_tag("user_avatar.png", class: 'img-circle') %>
-                    <% end %>
+                    <%= image_tag(@user.photo, class: 'img-circle') %>
                   </div>
                   <div class=" col-md-9 col-lg-9 "> 
                     <table class="table table-user-information">
@@ -29,29 +25,22 @@
                           <td>Last Name:</td>
                           <td><%= @user.last_name %></td>
                         </tr>
-
                         <tr>
                           <td>Username:</td>
                           <td><%= @user.username %></td>
                         </tr>
-
-                        <% if @user.date_of_birth %>
                         <tr>
                           <td>Date of Birth:</td>
-                          <td><%= @user.date_of_birth %></td>
+                          <td><%= @user.birthdate %></td>
                         </tr>
-                        <% end %>
                         <tr>
                           <td>Email:</td>
                           <td><a href="mailto:<%= @user.email %>"><%= @user.email %></a></td>
                         </tr>
-
-                        <% if @user.phone_number %>
                         <tr>
                           <td>Phone Number:</td>
-                          <td><%= @user.phone_number %></td>   
+                          <td><%= @user.phone %></td>   
                         </tr>
-                        <% end %>
                       </tbody>
                     </table>
                     <% if @user == current_user %>

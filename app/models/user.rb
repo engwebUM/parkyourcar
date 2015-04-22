@@ -19,6 +19,18 @@ class User < ActiveRecord::Base
   validates_integrity_of :avatar
   validates_processing_of :avatar
 
+  def photo
+    @avatar = avatar.url(:thumb) || 'user_avatar.png'
+  end
+
+  def phone
+    @phone = phone_number || 'No available'
+  end
+
+  def birthdate
+    @phone = date_of_birth || 'No available'
+  end
+
   def valid_age
     return errors.add(:date_of_birth, 'You must be 18 years or older.') if date_of_birth.present? && date_of_birth > 18.year.ago
   end

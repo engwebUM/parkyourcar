@@ -1,8 +1,6 @@
-<div class="container" style="margin-top:100px">
-<!--Temporary solution. Detailed solution for this problem described here
-http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocking-top-content-of-the-page
--->
+<div class="container">
   <p id="notice"><%= notice %></p>
+  <h1><%= @space.title %></h1>
   <div class="row">
     <div class="col-sm-12 col-md-12"><h1><%=@space.title%>
       <% if current_user.present? %>
@@ -19,18 +17,17 @@ http://stackoverflow.com/questions/10336194/twitter-bootstrap-top-nav-bar-blocki
       </h1>
       </div>
   </div>
-
   <br>
   <br>
   <div class="row">
     <%= render 'bookings/form' %>
-    <%= render 'map' %>
+    <%= render 'spaces/shared/map' %>
   </div>
-  <div>
-    <%= render 'description' %>
+  <div class="row">
+    <%= render 'spaces/shared/description' %>
   </div>
   <div class="row">
     <%= render 'reviews/reviews' %>
-    <%= render 'owner' %>
+    <%= render 'spaces/shared/owner' %>
   </div>
 </div>

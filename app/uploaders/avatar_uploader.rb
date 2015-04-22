@@ -1,5 +1,10 @@
 class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
   storage :file
+
+  version :thumb do
+    process resize_to_limit: [150, 100]
+  end
 
   def store_dir
     'uploads/attachments'
@@ -10,7 +15,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    '#{secure_token(10)}.#{file.extension}' if original_filename.present?
+    "#{secure_token(10)}.#{file.extension}" if original_filename.present?
   end
 
   protected
