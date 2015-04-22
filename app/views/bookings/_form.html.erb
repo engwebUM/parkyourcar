@@ -29,7 +29,7 @@
         <div class="form-group adv-filter col-md-6">
           <div class="input-group date" id='date_from'>
             <%= f.label :date_from, 'Date From', class: 'sr-only' %>
-            <%= f.date_field :date_from, require: true, placeholder: 'Date-time from', class: 'form-control', readonly: true, value: Date.current %>
+            <%= f.text_field :date_from, require: true, placeholder: 'Date-time from', class: 'form-control', readonly: true, value: Date.current %>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span> From
             </span>
@@ -40,7 +40,7 @@
         <div class="form-group adv-filter col-md-6">
           <div class='input-group date' id='date_until'>
             <%= f.label :date_until, 'Date Until', class: 'sr-only' %>
-            <%= f.date_field :date_until, require: true, placeholder: 'Date-time until', class: 'form-control', readonly: true, value: Date.current %>
+            <%= f.text_field :date_until, require: true, placeholder: 'Date-time until', class: 'form-control', readonly: true, value: Date.current %>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span> Until&nbsp;
             </span>

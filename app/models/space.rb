@@ -1,4 +1,6 @@
 class Space < ActiveRecord::Base
+  require 'action_view'
+include ActionView::Helpers::NumberHelper
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :attachments, dependent: :destroy
@@ -49,4 +51,13 @@ class Space < ActiveRecord::Base
     rescue ArgumentError, NoMethodError
       false
   end
+
+  def get_owner_avatar
+    @owner_avatar = user.avatar.url(:thumb) || 'user_avatar.png'
+  end
+
+  def get_owner_rating
+    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2)
+  end
+
 end
