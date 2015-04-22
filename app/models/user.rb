@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_integrity_of :avatar
   validates_processing_of :avatar
 
-  def get_avatar
+  def photo
     @avatar = avatar.url(:thumb) || 'user_avatar.png'
   end
 

@@ -5,13 +5,13 @@
     </div>
     <div class="panel-body center">
       <div class="row">
-          <%= image_tag(@space.get_owner_avatar, class: 'img-circle') %>
+          <%= image_tag(@space.owner_avatar, class: 'img-circle') %>
       </div>
       <div class="row">
         <div class="col-md-offset-4 col-md-4">
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: <%= @owner_rating*20 %>%">
-              <span><%= @space.get_owner_rating %></span>
+              <span><%= @space.owner_rating %></span>
             </div>
           </div>
         </div>
