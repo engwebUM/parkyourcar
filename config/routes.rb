@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :destroy]
   resources :locations, only: [:index]
+  resources :favorites, :only => [:index, :destroy, :create]
   devise_for :users
   resources :users, only: [:show]
   get 'static_pages/help'
