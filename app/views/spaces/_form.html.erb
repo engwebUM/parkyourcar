@@ -6,10 +6,10 @@
       <div class="alert alert-error alert-block"> <button type="button"
  class="close" data-dismiss='alert'>x</button>
        <ul>
-            <% @space.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+          <% @space.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -21,20 +21,20 @@
   </div>
   <div class="panel-body">
     <div class="form-group row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <%= f.label :title, class: 'sr-only' %>
         <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= f.label :available_spaces, class: 'sr-only' %>
-        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces', :required => true %>
+        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces (Min: 1)', :required => true %>
       </div>
     </div>
 
     <div class="form-group">
         <%= f.label :description, class: 'sr-only' %>
-        <%= f.text_area :description, class: 'form-control', placeholder: 'Description',:required => true %>
+        <%= f.text_area :description, class: 'form-control', placeholder: 'Space description goes here',:required => true %>
     </div>
   </div>
 </div>
@@ -46,22 +46,22 @@
 <div class="panel-body">
   <div class="form-group">
     <%= f.label :country, class: 'sr-only' %>
-    <%= f.text_field :country, class: 'form-control', placeholder: 'Country', :required => true %>
+    <%= f.text_field :country, class: 'form-control', placeholder: 'Country e.g.: EUA', :required => true %>
   </div>
 
   <div class="form-group">
     <%= f.label :city, class: 'sr-only' %>
-    <%= f.text_field :city, class: 'form-control', placeholder: 'City', :required => true %>
+    <%= f.text_field :city, class: 'form-control', placeholder: 'City/State e.g.: New York', :required => true %>
   </div>
 
   <div class="form-group">
     <%= f.label :address, class: 'sr-only' %>
-    <%= f.text_field :address, class: 'form-control', placeholder: 'Address', :required => true %>
+    <%= f.text_field :address, class: 'form-control', placeholder: 'Address e.g.: 350 Fifth Avenue', :required => true %>
   </div>
 
   <div class="form-group">
     <%= f.label :post_code, class: 'sr-only' %>
-    <%= f.text_field :post_code, class: 'form-control', placeholder: 'Post Code', :required => true %>
+    <%= f.text_field :post_code, class: 'form-control', placeholder: 'Post Code e.g.: 10118-3299', :required => true %>
   </div>
 </div>
 </div>
@@ -74,17 +74,15 @@
   <div class="form-group row">
       <div class="col-md-4">
         <%= f.label :price_hour, class: 'sr-only' %>
-        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'Price Hour', :required => true  %>
+        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'Price Hour e.g.: 0,25 EUR', :required => true  %>
       </div>
-
       <div class="col-md-4">
         <%= f.label :price_week, class: 'sr-only' %>
-        <%= f.text_field :price_week, class: 'form-control', placeholder: 'Price Week' %>
+        <%= f.text_field :price_week, class: 'form-control', placeholder: 'Price Week e.g.: 7,50 EUR' %>
       </div>
-
       <div class="col-md-4">
           <%= f.label :price_month, class: 'sr-only' %>
-          <%= f.text_field :price_month, class: 'form-control', placeholder: 'Price Month' %>
+          <%= f.text_field :price_month, class: 'form-control', placeholder: 'Price Month e.g.: 25,00 EUR'  %>
       </div>
   </div>
 </div>
@@ -105,7 +103,6 @@
             </span>
         </div>
     </div>
-
     <div class="col-md-4">
         <div class='input-group date' id='date_until'>
             <%= f.label :date_until, class: 'sr-only' %>
