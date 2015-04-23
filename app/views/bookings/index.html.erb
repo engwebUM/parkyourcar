@@ -1,0 +1,54 @@
+<%= render 'layouts/jumbotron' %>
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <%= render 'layouts/sidenav' %>
+        <div class="col-sm-9 col-md-9">
+          <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#sent" aria-controls="sent" role="tab" data-toggle="tab">Sent</a></li>
+              <li role="presentation"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">Pending</a></li>
+              <li role="presentation"><a href="#accepted" aria-controls="accepted" role="tab" data-toggle="tab">Accepted</a></li>
+              <li role="presentation"><a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab">Rejected</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="sent">
+                <%= render partial: 'booking_table', locals: { state: 'sent', tip: 'Requests sent to the owners of space', state_panel: 'info' } %>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="pending">
+                <%= render partial: 'booking_table', locals: { state: 'pending', tip: 'Requests awaiting conversation between you and owner of space', state_panel: 'warning'} %>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="accepted">
+                <%= render partial: 'booking_table', locals: { state: 'accepted', tip: 'Requests accepted by the owners of space', state_panel: 'success'} %>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="rejected">
+                <%= render partial: 'booking_table', locals: { state: 'rejected', tip: 'Requests rejected by the owners of space', state_panel: 'danger'} %>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+          $(function() 
+            { 
+              $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+                //save the latest tab; use cookies if you like 'em better:
+                localStorage.setItem('lastTab', $(this).attr('href'));
+               });
+
+              //go to the latest tab, if it exists:
+              var lastTab = localStorage.getItem('lastTab');
+              if (lastTab) {
+                 $('a[href=' + lastTab + ']').tab('show');
+              }
+              else
+              {
+                // Set the first tab if cookie do not exist
+                $('a[data-toggle="tab"]:first').tab('show');
+              }
+          });
+          </script>
+        </div>
+      </div>  
+  </div>   
+</div>

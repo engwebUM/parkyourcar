@@ -1,84 +1,82 @@
 <div class="col-sm-3 col-md-3">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                        <span class="glyphicon glyphicon-folder-close"></span>
-                        <%= link_to "Dashboard", static_pages_dashboard_path %>
-                        </h4>
-                    </div>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <span class="glyphicon glyphicon-folder-close"></span>
+                <%= link_to "Dashboard", static_pages_dashboard_path %>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <span class="glyphicon glyphicon-th"></span>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bookings</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <%= link_to "Bookings Made", bookings_path %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">Bookings Received</a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                        <span class="glyphicon glyphicon-th"></span>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bookings</a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a href="#">Bookings Made</a> <span class="label label-info">0</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">Bookings Received</a> <span class="label label-info">0</span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <%= link_to "My Profile", current_user %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to "Edit Profile", edit_user_registration_path %>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <span class="glyphicon glyphicon-user"></span>
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Account</a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <%= link_to "My Profile", current_user %>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <%= link_to "Edit Profile", edit_user_registration_path %>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <span class="glyphicon glyphicon-file"></span>
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Spaces</a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <%= link_to "Add a space", new_space_path %>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <%= link_to "My spaces", spaces_path %>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-file"></span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Spaces</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <%= link_to "Add a space", new_space_path %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to "My spaces", spaces_path %>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -90,3 +88,5 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>

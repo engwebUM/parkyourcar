@@ -141,41 +141,41 @@ r5 = Review.create(user: u2,
                    evaluation: 2,
                    comment: 'Meh.')
 
-b1 = Booking.create(user: u2,
+b1 = Booking.create(user: u1,
                     space: s1,
                     date_from: '2015-01-02',
                     date_until: '2015-01-30',
-                    state: 'accepted')
+                    state: 'sent')
 
-b2 = Booking.create(user: u3,
+b2 = Booking.create(user: u1,
                     space: s1,
                     date_from: '2015-03-03',
                     date_until: '2015-04-04',
-                    state: 'accepted')
+                    state: 'sent')
 
-b3 = Booking.create(user: u4,
+b3 = Booking.create(user: u1,
                     space: s2,
                     date_from: '2015-02-15',
                     date_until: '2015-02-20',
-                    state: 'accepted')
+                    state: 'pending')
 
-b4 = Booking.create(user: u5,
+b4 = Booking.create(user: u1,
                     space: s3,
                     date_from: '2015-02-03',
                     date_until: '2015-03-04',
-                    state: 'accepted')
+                    state: 'pending')
 
-b5 = Booking.create(user: u2,
+b5 = Booking.create(user: u1,
                     space: s4,
                     date_from: '2015-03-01',
                     date_until: '2015-04-01',
-                    state: 'accepted')
+                    state: 'pending')
 
 b6 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-04-01',
                     date_until: '2015-04-02',
-                    state: 'rejected')
+                    state: 'accepted')
 
 a1 = Attachment.create(space: s1,
                        file_name: 'space1',
