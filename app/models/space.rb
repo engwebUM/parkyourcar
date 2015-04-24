@@ -1,13 +1,14 @@
 class Space < ActiveRecord::Base
   require 'action_view'
   include ActionView::Helpers::NumberHelper
+  belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :attachments, dependent: :destroy
-  accepts_nested_attributes_for :attachments
-  belongs_to :user
   has_many :review, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :attachments, dependent: :destroy
+  accepts_nested_attributes_for :attachments
+  scope :by_last_created, -> { order(created_at: :desc) }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
   # GET /favorites
   def index
-    @favorites = current_user.favorites.paginate(page: params[:page], per_page: 2)
+    @favorites = current_user.favorites.by_last_created.paginate(page: params[:page], per_page: 2)
   end
 
   def create
