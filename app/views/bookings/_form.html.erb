@@ -5,31 +5,56 @@
     </div>
     <div class="panel-body">
       <div class="row">
-      <div class="col-md-12">
+       <div class="col-md-12">
         <p>
           <span class="bold">This space is available from</span>
-          <%= I18n.l @space.date_from %> to
-          <%= I18n.l @space.date_until %>
+          <%= l @space.date_from, format: :long %> to
+          <%= l @space.date_until, format: :long %> between 
+          <%= l @space.time_from, format: :short %> and
+          <%= l @space.time_until, format: :short %> 
           <%= @space.weekend %>
         </p>
         <%= form_for([@space, @space.bookings.build], :html => { :class => 'form-inline' } )do |f| %>
-            <div class='input-group date col-md-4' id='date_from'>
-              <%= f.label :date_from, class: 'sr-only' %>
-              <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span> From
-                </span>
+            <div class="row">
+              <div class="col-md-5">
+                  <div class='input-group date' id='date_from'>
+                      <%= f.label :date_from, class: 'sr-only' %>
+                      <%= f.text_field :date_from, placeholder: 'Date', required: true, readonly: true, class: 'form-control' %>
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> From</span>
+                  </div>
+              </div>
+              <div class="col-md-5">
+                  <div class='input-group date' id='date_until'>
+                      <%= f.label :date_until, class: 'sr-only' %>
+                      <%= f.text_field :date_until, placeholder: 'Date', required: true, readonly: true, class: 'form-control'  %>
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Until</span>
+                  </div>
+              </div>
             </div>
-            <div class='input-group date col-md-4' id='date_until'>
-              <%= f.label :date_until, class: 'sr-only' %>
-              <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span> Until
-              </span>
+            <div class="row">
+              <div class="col-md-5">
+                  <div class='input-group date' id='time_from'>
+                      <%= f.label :time_from, class: 'sr-only' %>
+                      <%= f.text_field :time_from, placeholder: 'Time', required: true, readonly: true, class: 'form-control' %>
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> From</span>
+                  </div>
+              </div>
+              <div class="col-md-5">
+                  <div class='input-group date' id='time_until'>
+                      <%= f.label :time_until, class: 'sr-only' %>
+                      <%= f.text_field :time_until, placeholder: 'Time', required: true, readonly: true, class: 'form-control'  %>
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> Until</span>
+                  </div>
+              </div>
             </div>
-            <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+            <hr>
+            <div class="row">
+              <div class="col-md-offset-8 col-md-2">
+                <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+              </div>
+            </div>
         <% end %>
-        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -49,12 +74,15 @@
                 <th>Space</th>
                 <th>Date From</th>
                 <th>Date Until</th>
+                <th>Hour From</th>
+                <th>Hour Until</th>
               </tr>
             </thead>
             <tbody>
               <%= render partial: 'bookings/booking', collection: @bookings, locals: { state: '' } %>
             </tbody>
           </table>
+            <%= will_paginate @bookings, param_name: 'booking_page', renderer: BootstrapPagination::Rails %>
           <% end %>
         </div>
       </div>
@@ -63,22 +91,40 @@
 </div>
 <script type="text/javascript">
   $(function() {
-    $("#date_from").datetimepicker({
-      format: 'YYYY-MM-DD hh:mm a',
-      ignoreReadonly: true
-    }).on("dp.change", function (e) {
-        $("#date_until").data("DateTimePicker").minDate(e.date);
-      }).ready(function() {
-        $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
-      });
+      $("#date_from").datetimepicker({
+        format: 'YYYY-MM-DD',
+        ignoreReadonly: true
+      }).on("dp.change", function (e) {
+          $("#date_until").data("DateTimePicker").minDate(e.date);
+        }).ready(function() {
+          $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+        });
 
       $("#date_until").datetimepicker({
-        format: 'YYYY-MM-DD hh:mm a',
+        format: 'YYYY-MM-DD',
         ignoreReadonly: true
       }).on("dp.change", function (e) {
         $("#date_from").data("DateTimePicker").maxDate(e.date);
       }).ready(function() {
         $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+      });
+
+      $("#time_from").datetimepicker({
+        format: 'hh:mm a',
+        ignoreReadonly: true
+      }).on("dp.change", function (e) {
+        $("#time_until").data("DateTimePicker").minDate(e.date);
+      }).ready(function() {
+        $("#time_until").data("DateTimePicker").minDate($("#time_from").data("DateTimePicker").date());
+      });
+
+      $("#time_until").datetimepicker({
+        format: 'hh:mm a',
+        ignoreReadonly: true
+      }).on("dp.change", function (e) {
+        $("#time_from").data("DateTimePicker").maxDate(e.date);
+      }).ready(function() {
+        $("#time_from").data("DateTimePicker").maxDate($("#time_until").data("DateTimePicker").date());
       });
     });
 </script>

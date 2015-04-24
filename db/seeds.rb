@@ -46,6 +46,8 @@ s1 = Space.create(user: u1,
                   longitude: -73.990486,
                   date_from: '2015-01-01',
                   date_until: '2015-12-31',
+                  time_from: '09:00 am',
+                  time_until: '17:00 pm',
                   available_weekend: true)
 
 s2 = Space.create(user: u1,
@@ -63,6 +65,8 @@ s2 = Space.create(user: u1,
                   longitude: -73.985142,
                   date_from: '2015-02-01',
                   date_until: '2015-04-30',
+                  time_from: '09:00 am',
+                  time_until: '17:00 pm',
                   available_weekend: false)
 
 s3 = Space.create(user: u1,
@@ -80,6 +84,8 @@ s3 = Space.create(user: u1,
                   longitude: -73.974711,
                   date_from: '2015-01-10',
                   date_until: '2015-10-01',
+                  time_from: '09:00 am',
+                  time_until: '17:00 pm',
                   available_weekend: true)
 
 s4 = Space.create(user: u3,
@@ -97,6 +103,8 @@ s4 = Space.create(user: u3,
                   longitude: -122.085208,
                   date_from: '2015-02-02',
                   date_until: '2015-12-12',
+                  time_from: '09:00 am',
+                  time_until: '17:00 pm',
                   available_weekend: false)
 
 s5 = Space.create(user: u5,
@@ -114,6 +122,8 @@ s5 = Space.create(user: u5,
                   longitude: -73.965356,
                   date_from: '2015-03-01',
                   date_until: '2015-05-31',
+                  time_from: '09:00 am',
+                  time_until: '23:30 pm',
                   available_weekend: true)
 
 r1 = Review.create(user: u2,
@@ -143,60 +153,96 @@ r5 = Review.create(user: u2,
 
 b1 = Booking.create(user: u1,
                     space: s1,
-                    date_from: '2015-01-02',
-                    date_until: '2015-01-30',
+                    date_from: '2015-05-02',
+                    date_until: '2015-05-10',
+                    time_from: '10:00 am',
+                    time_until: '03:00 pm',
                     state: 'sent')
 
 b2 = Booking.create(user: u1,
                     space: s1,
-                    date_from: '2015-03-03',
-                    date_until: '2015-04-04',
+                    date_from: '2015-05-13',
+                    date_until: '2015-05-24',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'sent')
 
 b3 = Booking.create(user: u1,
                     space: s2,
-                    date_from: '2015-02-15',
-                    date_until: '2015-02-20',
+                    date_from: '2015-05-15',
+                    date_until: '2015-05-20',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'pending')
 
 b4 = Booking.create(user: u1,
                     space: s3,
-                    date_from: '2015-02-03',
-                    date_until: '2015-03-04',
+                    date_from: '2015-05-03',
+                    date_until: '2015-05-14',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'pending')
 
 b5 = Booking.create(user: u1,
                     space: s4,
-                    date_from: '2015-03-01',
-                    date_until: '2015-04-01',
+                    date_from: '2015-05-10',
+                    date_until: '2015-05-14',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'pending')
 
 b6 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-05-01',
                     date_until: '2015-05-05',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'accepted')
 
 b7 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-05-06',
                     date_until: '2015-05-07',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'accepted')
 
 b8 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-05-08',
                     date_until: '2015-05-09',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'accepted')
 
 b9 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-05-10',
                     date_until: '2015-05-15',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
                     state: 'accepted')
 
 b10 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-16',
-                    date_until: '2015-05-25',
+                    date_from: '2015-04-10',
+                    date_until: '2015-04-15',
+                    time_from: '04:00 pm',
+                    time_until: '06:00 pm',
+                    state: 'accepted')
+
+b10 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-04-18',
+                    date_until: '2015-04-24',
+                    time_from: '04:00 pm',
+                    time_until: '23:00 pm',
+                    state: 'accepted')
+
+b10 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-04-24',
+                    date_until: '2015-04-24',
+                    time_from: '23:10 pm',
+                    time_until: '23:20 pm',
                     state: 'accepted')

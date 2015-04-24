@@ -3,8 +3,10 @@ class CreateBookings < ActiveRecord::Migration
     create_table :bookings do |t|
       t.belongs_to :user, index: true
       t.belongs_to :space, index: true
-      t.datetime :date_from
-      t.datetime :date_until
+      t.date :date_from
+      t.date :date_until
+      t.time :time_from
+      t.time :time_until
       t.string :state
 
       t.timestamps null: false
