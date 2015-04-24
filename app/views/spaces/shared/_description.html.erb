@@ -4,30 +4,33 @@
   </div>
   <div class="panel-body row">
     <div class="col-md-7">
-      <br>
-      <p><span class="bold">Address:</span> <%= @space.address %>, <%= @space.post_code %>, <%= @space.city%> - <%= @space.country %></p>
-      <br>
-      <p><span class="bold">Description:</span> <%= @space.description %></p>
-      <br>
-      <p><span class="bold">Available spaces:</span> <%=@space.available_spaces%></p>
-      <br>
-      <p>
-        <span class="bold">Pricing:</span> <%=@space.price_hour%> $/hour
-        <%=@space.price_week%> $/week <%= @space.price_month %> $/month
-        </p>
-      <br>
+      <dl class="dl-horizontal">
+        <dt>Available spaces</dt>
+        <dd><span class="btn btn-success"><%= @space.available_spaces %></span><dd>
+        <hr>
+        <dt>Pricing starting at</dt>
+        <dd><span class="btn btn-success"><%= @space.price_hour %> EUR/hour</span> | <span class="btn btn-info"><%= @space.price_week %> EUR/week</span> <span class="btn btn-info"><%= @space.price_month %> EUR/month</span><dd>
+        <hr>
+        <dt>Description</dt>
+        <dd class="well"><%= @space.description %><dd>
+        <dt>Address</dt>
+        <dd class="well"><%= @space.address %>, <%= @space.post_code %>, <%= @space.city%> - <%= @space.country %></dd>
+      </dl>
     </div>
     <div class="col-md-5">
+    <% if @space.attachments.empty? %>
+      <div class="well text-center">No photos available</div>
+    <% else %>
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
        <!-- Indicators -->
        <ol class="carousel-indicators attachments-ol">
-         <% (1..@attachments.count).each do |i| %>
+         <% (1..@space.attachments.count).each do |i| %>
            <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
          <% end %>
        </ol>
        <!-- Wrapper for slides -->
         <div class="carousel-inner attachments-item" role="listbox">
-         <% @attachments.each do |p| %>
+         <% @space.attachments.each do |p| %>
           <div class="item">
             <%= image_tag p.file_name_url %>
             <div class="carousel-caption">
@@ -45,6 +48,7 @@
         <span class="sr-only">Next</span>
       </a>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
