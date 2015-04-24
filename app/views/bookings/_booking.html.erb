@@ -1,7 +1,9 @@
 <tr>
   <td><%= link_to booking.space.title, space_path(booking.space) %></td>
-  <td><%= I18n.l booking.date_from %></td>
-  <td><%= I18n.l booking.date_until %></td>
+  <td><%= l booking.date_from, format: :long%></td>
+  <td><%= l booking.date_until, format: :long %></td>
+  <td><%= l booking.time_from, format: :short %></td>
+  <td><%= l booking.time_until, format: :short %></td>
   <% if state == 'sent' %>
       <td>
       <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>

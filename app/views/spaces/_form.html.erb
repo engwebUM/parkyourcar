@@ -94,21 +94,44 @@
       <div class="col-md-4">
           <div class='input-group date' id='date_from'>
               <%= f.label :date_from, class: 'sr-only' %>
-              <%= f.text_field :date_from, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control' %>
+              <%= f.text_field :date_from, placeholder: 'Date', required: true, readonly: true, class: 'form-control' %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> From</span>
           </div>
       </div>
       <div class="col-md-4">
+          <div class='input-group date' id='time_from'>
+              <%= f.label :time_from, class: 'sr-only' %>
+              <%= f.text_field :time_from, placeholder: 'Time', required: true, readonly: true, class: 'form-control' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> From</span>
+          </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
           <div class='input-group date' id='date_until'>
               <%= f.label :date_until, class: 'sr-only' %>
-              <%= f.text_field :date_until, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control'  %>
+              <%= f.text_field :date_until, placeholder: 'Date', required: true, readonly: true, class: 'form-control'  %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Until</span>
           </div>
       </div>
+      <div class="col-md-4">
+          <div class='input-group date' id='time_until'>
+              <%= f.label :time_until, class: 'sr-only' %>
+              <%= f.text_field :time_until, placeholder: 'Time', required: true, readonly: true, class: 'form-control'  %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> Until</span>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :available_weekend %>
+        <%= f.check_box :available_weekend %>
+      </div>
+    </div>
+  </div>
+</div>
       <script type="text/javascript">
         $(document).ready(function() {
-           $("#date_from").datetimepicker({
-              format: 'YYYY-MM-DD hh:mm a',
+            $("#date_from").datetimepicker({
+              format: 'YYYY-MM-DD',
               ignoreReadonly: true
             }).on("dp.change", function (e) {
               $("#date_until").data("DateTimePicker").minDate(e.date);
@@ -117,22 +140,33 @@
             });
 
             $("#date_until").datetimepicker({
-              format: 'YYYY-MM-DD hh:mm a',
+              format: 'YYYY-MM-DD',
               ignoreReadonly: true
             }).on("dp.change", function (e) {
               $("#date_from").data("DateTimePicker").maxDate(e.date);
             }).ready(function() {
               $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
             });
+
+            $("#time_from").datetimepicker({
+              format: 'hh:mm a',
+              ignoreReadonly: true
+            }).on("dp.change", function (e) {
+              $("#time_until").data("DateTimePicker").minDate(e.date);
+            }).ready(function() {
+              $("#time_until").data("DateTimePicker").minDate($("#time_from").data("DateTimePicker").date());
+            });
+
+            $("#time_until").datetimepicker({
+              format: 'hh:mm a',
+              ignoreReadonly: true
+            }).on("dp.change", function (e) {
+              $("#time_from").data("DateTimePicker").maxDate(e.date);
+            }).ready(function() {
+              $("#time_from").data("DateTimePicker").maxDate($("#time_until").data("DateTimePicker").date());
+            });
         });   
       </script>
-      <div class="col-md-4">
-        <%= f.label :available_weekend %>
-        <%= f.check_box :available_weekend %>
-      </div>
-    </div>
-  </div>
-</div>
 <hr>
 <div class="panel panel-primary">
   <div class="panel-heading">

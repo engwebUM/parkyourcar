@@ -1,8 +1,11 @@
 <tr data-link='<%= space_path(space) %>'>
 	<td><%= image_tag space.first_image %></td>
-    <td><%= space.title %></td>
-    <td><%= space.price_hour %></td>
-    <td><%= space.address %></td>	
+    <td><strong><%= space.title %></strong>, <%= space.address %></td>
+    <td><%= l space.date_from, format: :short %> -
+          <%= l space.date_until, format: :short %> <br>
+          <%= l space.time_from, format: :short %> -
+          <%= l space.time_until, format: :short %> </td>
+    <td><span class="btn btn-success btn-xs"><%= space.price_hour %> EUR/hour</span> </td>   	
 </tr>
 
 <% if current_page?(spaces_path) %>
