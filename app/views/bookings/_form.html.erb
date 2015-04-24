@@ -64,7 +64,7 @@
 <script type="text/javascript">
   $(function() {
     $("#date_from").datetimepicker({
-      format: 'DD/MM/YYYY hh:mm a',
+      format: 'YYYY-MM-DD hh:mm a',
       ignoreReadonly: true
     }).on("dp.change", function (e) {
         $("#date_until").data("DateTimePicker").minDate(e.date);
@@ -73,7 +73,7 @@
       });
 
       $("#date_until").datetimepicker({
-        format: 'DD/MM/YYYY hh:mm a',
+        format: 'YYYY-MM-DD hh:mm a',
         ignoreReadonly: true
       }).on("dp.change", function (e) {
         $("#date_from").data("DateTimePicker").maxDate(e.date);
