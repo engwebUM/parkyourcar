@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     if @booking.update(params[:id])
       redirect_to @booking
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.space = @space
-    @booking.state = 'sent'
+    @booking.state = SENT_STATE
   end
 
   def bookings_by_state(state)
