@@ -58,10 +58,14 @@ class Space < ActiveRecord::Base
   end
 
   def owner_rating
-    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2)
+    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2).to_f
   end
 
-  def space_image
-    @space_image = attachments.first.file_name.url(:thumb) || 'no_image.png'
+  def first_image
+    if attachments.empty?
+      'no_image.png'
+    else
+      attachments.first.file_name.url(:thumb)
+    end
   end
 end

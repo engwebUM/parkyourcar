@@ -16,7 +16,8 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
-    query_processing
+    @reviews = @space.reviews.paginate(page: params[:page], per_page: 2)
+    @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
     @hash = Location.load_space_markers(@space)
   end
 
@@ -29,7 +30,6 @@ class SpacesController < ApplicationController
   # GET /spaces/1/edit
   def edit
     @space = Space.find(params[:id])
-    @attachments = @space.attachments.all
   end
 
   # POST /spaces
@@ -72,17 +72,10 @@ class SpacesController < ApplicationController
   end
 
   def create_attachments
-    params[:attachments]['file_name'].each do |a|
+    params[:attachments_new]['file_name'].each do |a|
       @attachment = @space.attachments.create!(file_name: a, space_id: @space.id)
     end
     flash[:success] = 'Space was successfully created.'
     redirect_to @space
-  end
-
-  def query_processing
-    @attachments = @space.attachments.all
-    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
-    @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
-    @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
   end
 end

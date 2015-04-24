@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12">
     <div id="error_explanation">
-      <h2><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h2>
+      <h4><%= pluralize(@space.errors.count, "error") %> prevented this space from being saved:</h4>
       <div class="alert alert-error alert-block"> <button type="button"
  class="close" data-dismiss='alert'>x</button>
        <ul>
@@ -21,20 +21,20 @@
   </div>
   <div class="panel-body">
     <div class="form-group row">
-      <div class="col-md-8">
+      <div class="col-md-7">
         <%= f.label :title, class: 'sr-only' %>
         <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-5">
         <%= f.label :available_spaces, class: 'sr-only' %>
-        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces (Min: 1)', :required => true %>
+        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'Available Spaces (Min: 1)', :required => true, min: '1' %>
       </div>
     </div>
 
     <div class="form-group">
         <%= f.label :description, class: 'sr-only' %>
-        <%= f.text_area :description, class: 'form-control', placeholder: 'Space description goes here',:required => true %>
+        <%= f.text_area :description, class: 'form-control', rows: '10' ,placeholder: 'Space description goes here',:required => true %>
     </div>
   </div>
 </div>
@@ -74,50 +74,66 @@
   <div class="form-group row">
       <div class="col-md-4">
         <%= f.label :price_hour, class: 'sr-only' %>
-        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'Price Hour e.g.: 0,25 EUR', :required => true  %>
+        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'Per Hour e.g.: 0.25 EUR', :required => true  %>
       </div>
       <div class="col-md-4">
         <%= f.label :price_week, class: 'sr-only' %>
-        <%= f.text_field :price_week, class: 'form-control', placeholder: 'Price Week e.g.: 7,50 EUR' %>
+        <%= f.text_field :price_week, class: 'form-control', placeholder: 'Per Week e.g.: 7.50 EUR' %>
       </div>
       <div class="col-md-4">
           <%= f.label :price_month, class: 'sr-only' %>
-          <%= f.text_field :price_month, class: 'form-control', placeholder: 'Price Month e.g.: 25,00 EUR'  %>
+          <%= f.text_field :price_month, class: 'form-control', placeholder: 'Per Month e.g.: 25.00 EUR'  %>
       </div>
   </div>
 </div>
 </div>
 <hr>
 <div class="panel panel-primary">
-<div class="panel-heading">
-  <h3 class="panel-title">Schedule</h3>
-</div>
-<div class="panel-body">
-  <div class="form-group row">
-    <div class="col-md-4">
-        <div class='input-group date' id='date_from'>
-            <%= f.label :date_from, class: 'sr-only' %>
-            <%= f.text_field :date_from, class: 'form-control', placeholder: 'Datetime from', :required => true %>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class='input-group date' id='date_until'>
-            <%= f.label :date_until, class: 'sr-only' %>
-            <%= f.text_field :date_until, class: 'form-control', placeholder: 'Datetime until', :required => true %>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-        </div>
-    </div>
-    <div class="col-md-4">
-          <%= f.label :available_weekend %>
-          <%= f.check_box :available_weekend, class: 'form-control' %>
+  <div class="panel-heading">
+    <h3 class="panel-title">Schedule</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group row">
+      <div class="col-md-4">
+          <div class='input-group date' id='date_from'>
+              <%= f.label :date_from, class: 'sr-only' %>
+              <%= f.text_field :date_from, class: 'form-control', placeholder: 'Datetime from', :required => true %>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class='input-group date' id='date_until'>
+              <%= f.label :date_until, class: 'sr-only' %>
+              <%= f.text_field :date_until, class: 'form-control', placeholder: 'Datetime until', :required => true %>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+      </div>
+      <div class="col-md-4">
+            <%= f.label :available_weekend %>
+            <%= f.check_box :available_weekend %>
+      </div>
     </div>
   </div>
 </div>
+<hr>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Insert New Images</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+    <%= f.fields_for :attachments_new do |a| %>
+        <div class="field">
+          <%= a.label :file_name %>
+          <%= a.file_field :file_name, :multiple => true, name: "attachments_new[file_name][]" %>
+      </div>
+    <% end %>
+  </div>
+  </div>
 </div>
 <hr>
 <script type="text/javascript">
