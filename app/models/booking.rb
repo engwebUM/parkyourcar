@@ -9,6 +9,15 @@ class Booking < ActiveRecord::Base
   validate :valid_dates_interval
   validate :valid_date_from_space_interval
   validate :valid_date_until_space_interval
+  validate :valid_accepted_bookings_interval
+
+  def owner_email
+    space.user.email
+  end
+
+  def owner_phone
+    space.user.phone_number
+  end
 
   private
 
@@ -27,5 +36,13 @@ class Booking < ActiveRecord::Base
 
   def valid_date_until_space_interval
     errors.add(:date_until, "must be between #{space.date_from} and #{space.date_until}") unless date_until.to_datetime < space.date_until.to_datetime
+  end
+
+  def valid_accepted_bookings_interval
+    errors.add(:dates, 'cannot be between accepted bookings interval') unless accepted_bookings_interval == 0
+  end
+
+  def accepted_bookings_interval
+    space.bookings.where('date_until > ? AND date_from < ?', date_from, date_until).count
   end
 end

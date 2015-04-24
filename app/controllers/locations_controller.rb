@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show]
   helper_method :filters_present?
 
   # GET /locations
@@ -34,11 +33,6 @@ class LocationsController < ApplicationController
   end
 
   def location_present?
-    params[:location].present?
+    params[:location].present? && params[:distance].present?
   end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  # def location_params
-  # params.require(:location).permit(:title, :description, :price, :address, :latitude, :longitude)
-  # end
 end

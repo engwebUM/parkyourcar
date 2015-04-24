@@ -1,28 +1,14 @@
 <tr>
-  <td>
-  <%= link_to booking.space.title, space_path(booking.space) %></td>
-  <td><%= booking.date_from %></td>
-  <td><%= booking.date_until %></td>
-<% if state == 'sent' %>
-  <td>
-  <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
-     <span class="glyphicon glyphicon-remove-circle"> Cancel</span>
+  <td><%= link_to booking.space.title, space_path(booking.space) %></td>
+  <td><%= I18n.l booking.date_from %></td>
+  <td><%= I18n.l booking.date_until %></td>
+  <% if state == 'sent' %>
+      <td>
+      <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+         <span class="glyphicon glyphicon-remove-circle"> Cancel</span>
+      <% end %>
+      </td>
+  <% elsif state == 'accepted' || state == 'pending' %>
+      <td><a href="mailto:<%= current_user.email %>">Send email</a> <%= booking.owner_phone %></td>
   <% end %>
-  </td>
-<% else %>
-  <td colspan="1" />	
-<% end %>
 </tr>
-<% if state == 'accepted' || state == 'pending'
-   space_owner = booking.space.user %>
-	<tr>
-	  <td>Email:</td>
-	  <td><a href="mailto:<%= current_user.email %>"><%= space_owner.email %></a></td>
-	<% if space_owner.phone_number %>
-	  <td>Phone Number:</td>
-	  <td><%= space_owner.phone_number %></td>   
-	<% else %>
-	  <td colspan="2" />	
-	<% end %>
-	</tr>
-<% end %>

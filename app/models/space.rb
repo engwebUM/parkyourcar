@@ -41,9 +41,7 @@ class Space < ActiveRecord::Base
     if sort_param == 'pri'
       sorted = sorted.reorder(:price_hour)
     elsif sort_param == 'rev'
-      sorted = sorted.select('COUNT(reviews.id) AS reviews_count').
-               joins('LEFT JOIN reviews ON spaces.id = reviews.id').
-               group(:id).reorder('reviews_count')
+      sorted = sorted.joins(:reviews).select('spaces.id, count(reviews.id) as number_of_reviews').group('spaces.id').order('number_of_reviews DESC')
     end
     sorted
   end
@@ -67,6 +65,14 @@ class Space < ActiveRecord::Base
       'no_image.png'
     else
       attachments.first.file_name.url(:thumb)
+    end
+  end
+
+  def weekend
+    if available_weekend
+      'including weekends'
+    else
+      'excluding weekends'
     end
   end
 end

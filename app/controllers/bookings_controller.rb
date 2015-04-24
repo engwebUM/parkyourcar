@@ -54,6 +54,6 @@ class BookingsController < ApplicationController
 
   def bookings_by_state(state)
     param_state_page = state + '_page'
-    current_user.bookings.where('state = ?', state).paginate(page: params[param_state_page], per_page: 2)
+    current_user.bookings.where('state = ?', state).paginate(page: params[param_state_page], per_page: 4)
   end
 end
