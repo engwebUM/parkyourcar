@@ -94,21 +94,40 @@
       <div class="col-md-4">
           <div class='input-group date' id='date_from'>
               <%= f.label :date_from, class: 'sr-only' %>
-              <%= f.text_field :date_from, class: 'form-control', placeholder: 'Datetime from', :required => true %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+              <%= f.text_field :date_from, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> From</span>
           </div>
       </div>
       <div class="col-md-4">
           <div class='input-group date' id='date_until'>
               <%= f.label :date_until, class: 'sr-only' %>
-              <%= f.text_field :date_until, class: 'form-control', placeholder: 'Datetime until', :required => true %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+              <%= f.text_field :date_until, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control'  %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Until</span>
           </div>
       </div>
+
+      <script type="text/javascript">
+ $(document).ready(function() {
+       $("#date_from").datetimepicker({
+          format: 'DD/MM/YYYY hh:mm a',
+          ignoreReadonly: true
+        }).on("dp.change", function (e) {
+          $("#date_until").data("DateTimePicker").minDate(e.date);
+        }).ready(function() {
+          $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+        });
+
+        $("#date_until").datetimepicker({
+          format: 'DD/MM/YYYY hh:mm a',
+          ignoreReadonly: true
+        }).on("dp.change", function (e) {
+          $("#date_from").data("DateTimePicker").maxDate(e.date);
+        }).ready(function() {
+          $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+        });
+});
+           
+      </script>
       <div class="col-md-4">
         <%= f.label :available_weekend %>
         <%= f.check_box :available_weekend %>
@@ -133,9 +152,4 @@
   </div>
 </div>
 <hr>
-<script type="text/javascript">
-$(function () {
-    $('#date_from').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
-    $('#date_until').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
-});
-</script>
+
