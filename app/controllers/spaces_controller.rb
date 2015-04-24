@@ -10,7 +10,7 @@ class SpacesController < ApplicationController
 
   # GET /spaces
   def index
-    @spaces = current_user.spaces.paginate(page: params[:page], per_page: 2)
+    @spaces = current_user.spaces.by_last_created.paginate(page: params[:page], per_page: 2)
   end
 
   # GET /spaces/1
