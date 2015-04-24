@@ -98,3 +98,7 @@ map-container{
 .filter-display-none {
     display: none;
 }
+
+.panel-body > .table {
+  margin-bottom: 0;
+}
