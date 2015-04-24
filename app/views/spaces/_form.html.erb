@@ -48,17 +48,14 @@
     <%= f.label :country, class: 'sr-only' %>
     <%= f.text_field :country, class: 'form-control', placeholder: 'Country e.g.: EUA', :required => true %>
   </div>
-
   <div class="form-group">
     <%= f.label :city, class: 'sr-only' %>
     <%= f.text_field :city, class: 'form-control', placeholder: 'City/State e.g.: New York', :required => true %>
   </div>
-
   <div class="form-group">
     <%= f.label :address, class: 'sr-only' %>
     <%= f.text_field :address, class: 'form-control', placeholder: 'Address e.g.: 350 Fifth Avenue', :required => true %>
   </div>
-
   <div class="form-group">
     <%= f.label :post_code, class: 'sr-only' %>
     <%= f.text_field :post_code, class: 'form-control', placeholder: 'Post Code e.g.: 10118-3299', :required => true %>
@@ -113,8 +110,8 @@
           </div>
       </div>
       <div class="col-md-4">
-            <%= f.label :available_weekend %>
-            <%= f.check_box :available_weekend %>
+        <%= f.label :available_weekend %>
+        <%= f.check_box :available_weekend %>
       </div>
     </div>
   </div>
@@ -127,9 +124,9 @@
   <div class="panel-body">
     <div class="form-group">
     <%= f.fields_for :attachments_new do |a| %>
-        <div class="field">
-          <%= a.label :file_name %>
-          <%= a.file_field :file_name, :multiple => true, name: "attachments_new[file_name][]" %>
+      <div class="field">
+        <%= a.label :file_name %>
+        <%= a.file_field :file_name, :multiple => true, name: "attachments_new[file_name][]" %>
       </div>
     <% end %>
   </div>

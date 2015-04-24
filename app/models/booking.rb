@@ -22,10 +22,10 @@ class Booking < ActiveRecord::Base
   end
 
   def valid_date_from_space_interval
-    errors.add(:date_from, 'must be between date from and date until') unless date_from.to_datetime > space.date_from.to_datetime
+    errors.add(:date_from, "must be between #{space.date_from} and #{space.date_until}") unless date_from.to_datetime > space.date_from.to_datetime
   end
 
   def valid_date_until_space_interval
-    errors.add(:date_until, 'must be between date from and date until') unless date_until.to_datetime < space.date_until.to_datetime
+    errors.add(:date_until, "must be between #{space.date_from} and #{space.date_until}") unless date_until.to_datetime < space.date_until.to_datetime
   end
 end
