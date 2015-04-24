@@ -20,13 +20,12 @@ class ReviewsController < ApplicationController
   def create
     @space = Space.find(params[:space_id])
     @review = Review.new(comment_params)
-    @review.user = current_user
-    @review.space = @space
+    review_fill
     if @review.save
       flash[:success] = 'Review was successfully created.'
       redirect_to @space
     else
-      render :new
+      redirect_to :back, flash: { error: @review.errors.full_messages.to_sentence }
     end
   end
 
@@ -43,5 +42,10 @@ class ReviewsController < ApplicationController
 
   def comment_params
     params.require(:review).permit(:comment, :evaluation)
+  end
+
+  def review_fill
+    @review.user = current_user
+    @review.space = @space
   end
 end

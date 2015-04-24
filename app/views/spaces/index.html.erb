@@ -12,19 +12,19 @@
           <% if @spaces.empty? %>
           Your spaces seems empty.
           <% else %>
-          <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Starting at</th>
-                    <th>Address</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @spaces %>
-                </tbody>
-              </table>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Title</th>
+                  <th>Starting at</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @spaces %>
+              </tbody>
+            </table>
             <%= will_paginate @spaces, renderer: BootstrapPagination::Rails %>
           <% end %>
          </div>
