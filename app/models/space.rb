@@ -87,7 +87,7 @@ class Space < ActiveRecord::Base
     end
   end
 
-  def self.convert(time) 
+  def self.convert(time)
     time = Time.parse(time)
     Time.utc(2000, 1, 1, time.hour, time.min).localtime
   end
