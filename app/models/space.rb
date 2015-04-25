@@ -37,14 +37,14 @@ class Space < ActiveRecord::Base
   end
 
   def self.filter_dates(filtered, date_from, date_until)
-    filtered = filtered.where('date_from <= ?', date_from.to_date) if valid_date? date_from
-    filtered = filtered.where('date_until >= ?', date_until.to_date) if valid_date? date_until
+    filtered = filtered.where('date_from <= ?', date_from) if valid_date? date_from
+    filtered = filtered.where('date_until >= ?', date_until) if valid_date? date_until
     filtered
   end
 
   def self.filter_times(filtered, time_from, time_until)
-    filtered = filtered.where('time_from <= ?', time_from.to_time) if valid_time? time_from
-    filtered = filtered.where('time_until >= ?', time_until.to_time) if valid_time? time_until
+    filtered = filtered.where('time_from <= ?', convert(time_from)) if valid_time? time_from
+    filtered = filtered.where('time_until >= ?', convert(time_until)) if valid_time? time_until
     filtered
   end
 
@@ -87,7 +87,10 @@ class Space < ActiveRecord::Base
     end
   end
 
-  private 
+  def self.convert(time) 
+    time = Time.parse(time)
+    Time.utc(2000, 1, 1, time.hour, time.min).localtime
+  end
 
   def self.valid_date?(date)
     date.to_date unless date.nil?

@@ -38,7 +38,7 @@
                 <span class="glyphicon glyphicon-calendar"></span> Until
               </span>
             </div>
-            <div class="input-group date col-md-2" id='time-from'>
+            <div class='input-group date col-md-2' id='time_from'>
               <%= label_tag :time_from, 'Time From', class: 'sr-only' %>
               <%= text_field_tag :time_from, params[:time_from], placeholder: 'Time', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
@@ -114,8 +114,8 @@
         });
 
         $("#time_from").datetimepicker({
-          format: 'hh:mm a',
-          ignoreReadonly: true
+        format: 'hh:mm a',
+        ignoreReadonly: true
         }).on("dp.change", function (e) {
           $("#time_until").data("DateTimePicker").minDate(e.date);
         }).ready(function() {
