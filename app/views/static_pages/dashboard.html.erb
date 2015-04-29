@@ -1,53 +1,57 @@
 <%= render 'layouts/jumbotron' %>
 <div class="container">
-    <div class="row">
-	    <div class="col-md-offset-1 col-md-10">
-	    	<%= render 'layouts/sidenav' %>
-			<div class="col-sm-9 col-md-9">
-	          <div class="panel panel-info">
-	              <div class="panel-heading">
-	                <h3 class="panel-title">Dashboard</h3>
-	              </div>
-	              <div class="panel-body">
-	                <div class="row">
-	                  <div class="col-md-3 col-lg-3 " align="center"> 
-	                     <%= image_tag(current_user.photo, class: 'img-circle') %>
-	                  </div>
-	                  <div class=" col-md-9 col-lg-9 "> 
-	                    <table class="table table-user-information">
-	                      <tbody>
-	                        <tr>
-		                       <td>Name</td>
-		                       <td><%= current_user.first_name %> <%= current_user.last_name %></td>
-	                        </tr>
-	                        <tr>
-		                      <td>Email</td>
-		                      <td><a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
-	                     	</tr>
-	                        <tr>  
-	                          <td>Phone Number:</td>
-	                          <td><%= current_user.phone %></td>   
-	                        </tr>
-	                     	<tr>
-	                          <td><%= link_to "Pending bookings made", bookings_path(:anchor => "pending") %></td>
-	                          <td><%= @pending_bookings_made %></td>
-	                        </tr>
-	                        <tr>
-	                          <td>Pending bookings received</td>
-	                          <td>0</td>
-	                        </tr>
-	                        <tr>
-	                          <td>Your spaces</td>
-	                          <td><%= @user_spaces %></td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
-	                    <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
-	                  </div>
-                	</div>
-              	</div>
-              </div> 
-	     	</div>
-	    </div> 	
-	</div>	 
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <%= render 'layouts/sidenav' %>
+      <div class="col-sm-9 col-md-9">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Dashboard</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 " align="center">
+                <%= image_tag(current_user.photo, class: 'img-circle') %>
+              </div>
+              <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td>Name</td>
+                      <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td><a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
+                    </tr>
+                    <tr>
+                      <td>Phone Number:</td>
+                      <td><%= current_user.phone %></td>
+                    </tr>
+                    <tr>
+                      <td><%= link_to "Pending bookings made", bookings_path(:anchor => "pending") %></td>
+                      <td><%= @pending_bookings_made %></td>
+                    </tr>
+                    <tr>
+                      <td><%= link_to "Received bookings awaiting approval", proposals_path(anchor: "sent") %></td>
+                      <td><%= @received_bookings_awaiting_approval %></td>
+                    </tr>
+                    <tr>
+                      <td><%= link_to "Received bookings pending", proposals_path(anchor: "pending") %></td>
+                      <td><%= @received_bookings_pending %></td>
+                    </tr>
+                    <tr>
+                      <td>Your spaces</td>
+                      <td><%= @user_spaces %></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <%= link_to "Edit My Profile", edit_user_registration_path, class: 'btn btn-info' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
