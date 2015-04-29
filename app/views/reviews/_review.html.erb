@@ -2,5 +2,5 @@
   <td><%= review.user.first_name %></td>
   <td><%= review.evaluation %></td>
   <td><%= review.comment %></td>
-  <td><%= l review.created_at, format: :long %></td>
+  <td><%= review.created_at.strftime("%F %T") %></td>
 </tr>

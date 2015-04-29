@@ -14,10 +14,8 @@ class CreateSpaces < ActiveRecord::Migration
       t.float :price_month
       t.float :latitude
       t.float :longitude
-      t.date :date_from
-      t.date :date_until
-      t.time :time_from
-      t.time :time_until
+      t.datetime :date_from
+      t.datetime :date_until
       t.boolean :available_weekend
 
       t.timestamps null: false
