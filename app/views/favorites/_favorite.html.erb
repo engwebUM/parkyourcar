@@ -1,23 +1,14 @@
-<tr data-link='<%= space_path(favorite.space) %>'>
-	<td><%= image_tag favorite.space.first_image %></td>
-    <td><%= favorite.space.title %></td>
-    <td><%= favorite.space.price_hour %></td>
-    <td><%= favorite.space.address %></td>
-</tr>
-<% if current_page?(favorites_path) %>
 <tr>
-    <td colspan="3"></td>
-		<td>
-    <%= link_to favorite_path(favorite.space), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+<td><%= image_tag favorite.space.first_image %></td>
+    <td><strong><%= link_to favorite.space.title, space_path(favorite.space) %></strong>, <%= favorite.space.address %></td>
+    <td><%= l favorite.space.date_from, format: :short %> -
+        <%= l favorite.space.date_until, format: :short %><br>
+        <%= l favorite.space.time_from, format: :short %> -
+        <%= l favorite.space.time_until, format: :short %></td>
+    <td><span class="btn btn-success btn-xs"><%= favorite.space.price_hour %> EUR/hour</span></td> 
+    <td>
+    <td><%= link_to favorite_path(favorite.space), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
      <span class="glyphicon glyphicon-remove-circle"> Remove</span>
     <% end %>
     </td>
 </tr>
-<% end %>
-<script type="text/javascript">
- $(function() {
-    $("tr[data-link]").click(function() {
-      window.location = this.dataset.link
-    });
- });
-</script>
