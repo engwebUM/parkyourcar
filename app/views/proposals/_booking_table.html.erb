@@ -1,0 +1,33 @@
+<div class="panel panel-<%= state_panel %>">
+  <div class="panel-heading">
+    <h3 class="panel-title">Bookings Received
+    <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="<%= tip %>" aria-hidden="true"></span>
+    </h3>
+    <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
+  </div>
+  <div class="panel-body">
+  <% if @bookings[state].empty? %>
+    Your bookings seems empty.
+  <% else %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Space</th>
+        <th>From</th>
+        <th>Until</th>
+        <th>User</th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'booking', collection: @bookings[state], locals: { state: state } %>
+    </tbody>
+  </table>
+    <%= will_paginate @bookings[state], param_name: state + '_page', renderer: BootstrapPagination::Rails %>
+  <% end %>
+  </div>
+</div>
