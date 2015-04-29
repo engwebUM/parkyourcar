@@ -16,15 +16,13 @@
               <thead>
                 <tr>
                   <th></th>
-                  <th>Space</th>
-                  <th>Schedule</th>
+                  <th>Title</th>
                   <th>Starting at</th>
+                  <th>Address</th>
                 </tr>
               </thead>
               <tbody>
-              <% @spaces.each do |space| %>
-                <%= render partial: 'own_space', locals: { space: space } %>
-              <% end %>
+                <%= render @spaces %>
               </tbody>
             </table>
             <%= will_paginate @spaces, renderer: BootstrapPagination::Rails %>

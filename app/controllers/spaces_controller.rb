@@ -71,7 +71,7 @@ class SpacesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def space_params
-    params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :time_from, :time_until, :available_weekend, :latitude, :longitude, attachments_attributes: [:id, :space_id, :file_name])
+    params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :available_weekend, :latitude, :longitude, attachments_attributes: [:id, :space_id, :file_name])
   end
 
   def create_attachments
@@ -81,12 +81,8 @@ class SpacesController < ApplicationController
   end
 
   def space_fill
-    @bookings = bookings_accepted.by_datetime_until.paginate(page: params['booking_page'], per_page: 5)
-    @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
+    @bookings = @space.bookings.where('state = ?', BookingsController::ACCEPTED_STATE).take(5)
+    @reviews = @space.reviews.paginate(page: params[:page], per_page: 5)
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
-  end
-
-  def bookings_accepted
-    @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date)
   end
 end

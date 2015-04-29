@@ -28,27 +28,10 @@ class Space < ActiveRecord::Base
   validates :date_from, presence: true
   validates :date_until, presence: true
 
-  def self.filter_by(date_from, date_until, time_from, time_until, available_weekend)
+  def self.filter_by(date_from, date_until, available_weekend)
     filtered = Space.where(nil)
-    filtered = filter_dates(filtered, date_from, date_until)
-    filtered = filter_times(filtered, time_from, time_until)
-    filtered = filter_weekend(filtered, available_weekend)
-    filtered
-  end
-
-  def self.filter_dates(filtered, date_from, date_until)
-    filtered = filtered.where('date_from <= ?', date_from) if valid_date? date_from
-    filtered = filtered.where('date_until >= ?', date_until) if valid_date? date_until
-    filtered
-  end
-
-  def self.filter_times(filtered, time_from, time_until)
-    filtered = filtered.where('time_from <= ?', convert(time_from)) if valid_time? time_from
-    filtered = filtered.where('time_until >= ?', convert(time_until)) if valid_time? time_until
-    filtered
-  end
-
-  def self.filter_weekend(filtered, available_weekend)
+    filtered = filtered.where('date_from <= ?', date_from.to_datetime) if valid_date?(date_from)
+    filtered = filtered.where('date_until >= ?', date_until.to_datetime) if valid_date?(date_until)
     filtered = filtered.where(available_weekend: true) if available_weekend == 'true'
     filtered
   end
@@ -61,6 +44,12 @@ class Space < ActiveRecord::Base
       sorted = sorted.joins(:reviews).select('spaces.id, count(reviews.id) as number_of_reviews').group('spaces.id').order('number_of_reviews DESC')
     end
     sorted
+  end
+
+  def self.valid_date?(date)
+    date.to_datetime
+    rescue ArgumentError, NoMethodError
+      false
   end
 
   def owner_avatar
@@ -85,18 +74,5 @@ class Space < ActiveRecord::Base
     else
       'excluding weekends'
     end
-  end
-
-  def self.convert(time)
-    time = Time.parse(time)
-    Time.utc(2000, 1, 1, time.hour, time.min).localtime
-  end
-
-  def self.valid_date?(date)
-    date.to_date unless date.nil?
-  end
-
-  def self.valid_time?(time)
-    time.to_time unless time.nil?
   end
 end

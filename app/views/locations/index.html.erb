@@ -22,71 +22,58 @@
       </div>
     </div>
     <div class="form alert alert-info adv-filter <%= filters_present? ? 'filter-display-block' : 'filter-display-none' %>">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="input-group date col-md-2" id='date_from'>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="input-group date" id='date_from'>
               <%= label_tag :date_from, 'Date From', class: 'sr-only' %>
-              <%= text_field_tag :date_from, params[:date_from], placeholder: 'Date', class: 'form-control', readonly: true %>
+              <%= text_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span> From
               </span>
             </div>
-            <div class='input-group date col-md-2' id='date_until'>
+          </div>
+          <div class="form-group">
+            <div class='input-group date' id='date_until'>
               <%= label_tag :date_until, 'Date Until', class: 'sr-only' %>
-              <%= text_field_tag :date_until, params[:date_until], placeholder: 'Date', class: 'form-control', readonly: true %>
+              <%= text_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span> Until
               </span>
             </div>
-            <div class='input-group date col-md-2' id='time_from'>
-              <%= label_tag :time_from, 'Time From', class: 'sr-only' %>
-              <%= text_field_tag :time_from, params[:time_from], placeholder: 'Time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span> From
-              </span>
-            </div>
-            <div class='input-group date col-md-2' id='time_until'>
-              <%= label_tag :time_until, 'Time Until', class: 'sr-only' %>
-              <%= text_field_tag :time_until, params[:time_until], placeholder: 'Time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span> Until
-              </span>
-            </div>
-            <div class="input-group col-md-2">
-              <span class="input-group-addon">Weekends?</span>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Available on weekends?</span>
               <span class="input-droup-addon">
                 <%= label_tag :available_weekend, 'Availability on weekends', class: 'sr-only' %>
                 <%= check_box_tag :available_weekend, 'true', params[:available_weekend], class: 'form-control' %>
               </span>
             </div>
-            <div class="input-group col-md-1">
-              <button type="button" class="btn btn-link" aria-label="Clean filters" id="btn-clean-filter">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Clean Filters
-              </button>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Order by</span>
+              <%= label_tag :sort, 'Sort Order', class: 'sr-only' %>
+              <%= select_tag :sort, options_for_select([['Price', 'pri'], ['No. Reviews', 'rev']], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
             </div>
           </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="input-group col-md-3">
-                <span class="input-group-addon">Order by</span>
-                <%= label_tag :sort, 'Sort Order', class: 'sr-only' %>
-                <%= select_tag :sort, options_for_select([['Price', 'pri'], ['No. Reviews', 'rev']], selected: params[:sort]), prompt: 'Distance', class: 'form-control' %>
-            </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-link" aria-label="Clean filters" id="btn-clean-filter">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Clean Filters
+            </button>
           </div>
         </div>
       </div>
+    </div>
     <script type="text/javascript">
-      $(document).ready(function() {
-        
+      $(function () {
         $("#btn-filter").click(function() {
           $(".adv-filter").animate({
             height: "toggle",
             opacity: "toggle"
           });
         });
-
         $("#btn-clean-filter").click(function() {
           $(".adv-filter input").each(function() {
             $(this).val('');
@@ -94,43 +81,22 @@
           $("#sort").val("");
           $("#available_weekend").prop('checked', false);
         });
-
         $("#date_from").datetimepicker({
-          format: 'YYYY-MM-DD',
+          format: 'YYYY-MM-DD hh:mm a',
           ignoreReadonly: true
         }).on("dp.change", function (e) {
           $("#date_until").data("DateTimePicker").minDate(e.date);
         }).ready(function() {
           $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
         });
-
         $("#date_until").datetimepicker({
-          format: 'YYYY-MM-DD',
+          format: 'YYYY-MM-DD hh:mm a',
           ignoreReadonly: true
         }).on("dp.change", function (e) {
           $("#date_from").data("DateTimePicker").maxDate(e.date);
         }).ready(function() {
           $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
         });
-
-        $("#time_from").datetimepicker({
-        format: 'hh:mm a',
-        ignoreReadonly: true
-        }).on("dp.change", function (e) {
-          $("#time_until").data("DateTimePicker").minDate(e.date);
-        }).ready(function() {
-          $("#time_until").data("DateTimePicker").minDate($("#time_from").data("DateTimePicker").date());
-        });
-
-        $("#time_until").datetimepicker({
-        format: 'hh:mm a',
-        ignoreReadonly: true
-        }).on("dp.change", function (e) {
-          $("#time_from").data("DateTimePicker").maxDate(e.date);
-        }).ready(function() {
-          $("#time_from").data("DateTimePicker").maxDate($("#time_until").data("DateTimePicker").date());
-        });
-
       });
     </script>
   <% end %>
@@ -144,10 +110,10 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Space</th>
             <th></th>
-            <th>Schedule</th>
+            <th>Title</th>
             <th>Starting at</th>
+            <th>Address</th>
           </tr>
         </thead>
         <tbody>

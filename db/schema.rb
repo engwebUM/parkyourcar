@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 20150421210210) do
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "space_id"
-    t.date     "date_from"
-    t.date     "date_until"
-    t.time     "time_from"
-    t.time     "time_until"
+    t.datetime "date_from"
+    t.datetime "date_until"
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,10 +73,8 @@ ActiveRecord::Schema.define(version: 20150421210210) do
     t.float    "price_month"
     t.float    "latitude"
     t.float    "longitude"
-    t.date     "date_from"
-    t.date     "date_until"
-    t.time     "time_from"
-    t.time     "time_until"
+    t.datetime "date_from"
+    t.datetime "date_until"
     t.boolean  "available_weekend"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

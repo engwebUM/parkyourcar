@@ -17,23 +17,11 @@ class LocationsController < ApplicationController
   private
 
   def filters_present?
-    dates_present? || times_present? || sort_present?
-  end
-
-  def dates_present?
-    params[:date_from].present? || params[:date_until].present?
-  end
-
-  def times_present?
-    params[:time_from].present? || params[:time_until].present?
-  end
-
-  def sort_present?
-    params[:sort].present?
+    params[:date_from].present? || params[:date_until].present? || params[:sort].present?
   end
 
   def filter_spaces
-    @spaces = @spaces.filter_by(params[:date_from], params[:date_until], params[:time_from], params[:time_until], params[:available_weekend])
+    @spaces = @spaces.filter_by(params[:date_from], params[:date_until], params[:available_weekend])
   end
 
   def sort_spaces
