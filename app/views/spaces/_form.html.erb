@@ -98,20 +98,20 @@
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> From</span>
           </div>
       </div>
-      <div class="col-md-4">
-          <div class='input-group date' id='time_from'>
-              <%= f.label :time_from, class: 'sr-only' %>
-              <%= f.text_field :time_from, placeholder: 'Time', required: true, readonly: true, class: 'form-control' %>
-              <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> From</span>
-          </div>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-md-4">
+     <div class="col-md-4">
           <div class='input-group date' id='date_until'>
               <%= f.label :date_until, class: 'sr-only' %>
               <%= f.text_field :date_until, placeholder: 'Date', required: true, readonly: true, class: 'form-control'  %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Until</span>
+          </div>
+      </div>
+    </div>
+    <div class="form-group row">
+     <div class="col-md-4">
+          <div class='input-group date' id='time_from'>
+              <%= f.label :time_from, class: 'sr-only' %>
+              <%= f.text_field :time_from, placeholder: 'Time', required: true, readonly: true, class: 'form-control' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span> From</span>
           </div>
       </div>
       <div class="col-md-4">
@@ -149,21 +149,13 @@
             });
 
             $("#time_from").datetimepicker({
-              format: 'hh:mm a',
+              format: ' hh:mm a',
               ignoreReadonly: true
-            }).on("dp.change", function (e) {
-              $("#time_until").data("DateTimePicker").minDate(e.date);
-            }).ready(function() {
-              $("#time_until").data("DateTimePicker").minDate($("#time_from").data("DateTimePicker").date());
             });
 
             $("#time_until").datetimepicker({
-              format: 'hh:mm a',
+              format: ' hh:mm a',
               ignoreReadonly: true
-            }).on("dp.change", function (e) {
-              $("#time_from").data("DateTimePicker").maxDate(e.date);
-            }).ready(function() {
-              $("#time_from").data("DateTimePicker").maxDate($("#time_until").data("DateTimePicker").date());
             });
         });   
       </script>
