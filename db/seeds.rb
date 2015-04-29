@@ -47,7 +47,7 @@ s1 = Space.create(user: u1,
                   date_from: '2015-01-01',
                   date_until: '2015-12-31',
                   time_from: '09:00 am',
-                  time_until: '17:00 pm',
+                  time_until: '05:00 pm',
                   available_weekend: true)
 
 s2 = Space.create(user: u1,
@@ -66,7 +66,7 @@ s2 = Space.create(user: u1,
                   date_from: '2015-02-01',
                   date_until: '2015-04-30',
                   time_from: '09:00 am',
-                  time_until: '17:00 pm',
+                  time_until: '05:00 pm',
                   available_weekend: false)
 
 s3 = Space.create(user: u1,
@@ -84,8 +84,8 @@ s3 = Space.create(user: u1,
                   longitude: -73.974711,
                   date_from: '2015-01-10',
                   date_until: '2015-10-01',
-                  time_from: '09:00 am',
-                  time_until: '17:00 pm',
+                  time_from: '00:00 pm',
+                  time_until: '00:00 pm',
                   available_weekend: true)
 
 s4 = Space.create(user: u3,
@@ -103,8 +103,8 @@ s4 = Space.create(user: u3,
                   longitude: -122.085208,
                   date_from: '2015-02-02',
                   date_until: '2015-12-12',
-                  time_from: '09:00 am',
-                  time_until: '17:00 pm',
+                  time_from: '09:00 pm',
+                  time_until: '05:00 am',
                   available_weekend: false)
 
 s5 = Space.create(user: u5,
@@ -187,8 +187,8 @@ b5 = Booking.create(user: u1,
                     space: s4,
                     date_from: '2015-05-10',
                     date_until: '2015-05-14',
-                    time_from: '04:00 pm',
-                    time_until: '06:00 pm',
+                    time_from: '11:00 pm',
+                    time_until: '11:30 pm',
                     state: 'pending')
 
 b6 = Booking.create(user: u1,
@@ -236,13 +236,13 @@ b10 = Booking.create(user: u1,
                     date_from: '2015-04-18',
                     date_until: '2015-04-24',
                     time_from: '04:00 pm',
-                    time_until: '23:00 pm',
+                    time_until: '11:00 pm',
                     state: 'accepted')
 
 b10 = Booking.create(user: u1,
                     space: s5,
                     date_from: '2015-04-24',
                     date_until: '2015-04-24',
-                    time_from: '23:10 pm',
-                    time_until: '23:20 pm',
+                    time_from: '11:10 pm',
+                    time_until: '11:20 pm',
                     state: 'accepted')

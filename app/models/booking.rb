@@ -15,8 +15,6 @@ class Booking < ActiveRecord::Base
 
   validate :valid_time_format
   validate :valid_times_interval
-  validate :valid_time_from_space_interval
-  validate :valid_time_until_space_interval
 
   validate :valid_accepted_bookings_interval
 
@@ -31,20 +29,20 @@ class Booking < ActiveRecord::Base
   private
 
   def valid_dates_format
-    errors.add(:date_from, 'must be a valid date') unless date_from.to_date && date_from.to_date > DateTime.now.to_date
+    errors.add(:date_from, 'must be a valid date') unless date_from.to_date
     errors.add(:date_until, 'must be a valid date') unless date_until.to_date
   end
 
   def valid_dates_interval
-    errors.add(:date_from, 'cannot be higher than date until') unless date_from.to_date <= date_until.to_date
+    errors.add(:date_from, 'cannot be higher than date until') if date_from.to_date < DateTime.now.to_date || date_from.to_date > date_until.to_date
   end
 
   def valid_date_from_space_interval
-    errors.add(:date_from, "must be between #{space.date_from} and #{space.date_until}") unless date_from.to_date >= space.date_from.to_date
+    errors.add(:date_from, "must be between #{space.date_from} and #{space.date_until}") if date_from.to_date < space.date_from.to_date
   end
 
   def valid_date_until_space_interval
-    errors.add(:date_until, "must be between #{space.date_from} and #{space.date_until}") unless date_until.to_date <= space.date_until.to_date
+    errors.add(:date_until, "must be between #{space.date_from} and #{space.date_until}") if date_until.to_date > space.date_until.to_date
   end
 
   def valid_time_format
@@ -53,19 +51,49 @@ class Booking < ActiveRecord::Base
   end
 
   def valid_times_interval
-    errors.add(:time_from, 'cannot be higher than time until') unless time_from.to_time < time_until.to_time
+    if time_from.to_time == time_until.to_time
+      booking_same_day
+    elsif space.time_until < space.time_from
+      space_times_in_different_days
+    else
+      space_times_in_same_day
+    end
   end
 
-  def valid_time_from_space_interval
-    errors.add(:time_from, "must be between #{space.time_from.to_formatted_s(:time)} and #{space.time_until.to_formatted_s(:time)}") unless time_from.to_time >= space.time_from.to_time
+  def space_times_in_different_days
+    if time_from < time_until
+      special_case
+    else
+      regular_case
+    end
   end
 
-  def valid_time_until_space_interval
-    errors.add(:time_until, "must be between #{space.time_from.to_formatted_s(:time)} and #{space.time_until.to_formatted_s(:time)}") unless time_until.to_time <= space.time_until.to_time
+  def space_times_in_same_day
+    if time_from > time_until
+      times_error
+    else
+      regular_case
+    end
+  end
+
+  def regular_case
+    times_error unless time_from.to_time >= space.time_from.to_time && time_until.to_time <= space.time_until.to_time
+  end
+
+  def special_case
+    times_error unless time_from.to_time > space.time_from.to_time || time_until.to_time < space.time_until.to_time
+  end
+
+  def times_error
+    errors.add(:time_from, "should be between #{space.time_from.to_formatted_s(:time)} and #{space.time_until.to_formatted_s(:time)}")
+  end
+
+  def booking_same_day
+    errors.add(:time_from, 'and until are equals. Choose different days.') if date_from.to_date == date_until.to_date
   end
 
   def valid_accepted_bookings_interval
-    errors.add(:dates, 'cannot be between accepted bookings interval') unless accepted_bookings_interval == 0
+    errors.add(:dates, 'cannot be between accepted bookings interval') if accepted_bookings_interval > 0
   end
 
   def accepted_bookings_interval
