@@ -21,18 +21,13 @@
                 class: "btn btn-primary btn-xs" do %>
       <span class="glyphicon glyphicon-ok"> Aprove</span>
     <% end %>
+    <%= render 'reject_button', booking: booking %>
   <% elsif state == 'pending' %>
     <%= link_to accept_proposal_path(booking),
                 class: "btn btn-success btn-xs" do %>
       <span class="glyphicon glyphicon-ok"> Accept</span>
     <% end %>
-  <% end %>
-  <% if state == 'sent' || state == 'pending' %>
-    <%= link_to reject_proposal_path(booking),
-                data: { confirm: 'Are you sure?' },
-                class: "btn btn-danger btn-xs" do %>
-      <span class="glyphicon glyphicon-remove"> Reject</span>
-    <% end %>
+    <%= render 'reject_button', booking: booking %>
   <% end %>
   </td>
 </tr>
