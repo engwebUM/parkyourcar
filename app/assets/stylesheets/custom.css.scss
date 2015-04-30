@@ -1,4 +1,7 @@
-/*flash*/
+.alert {
+    margin: 0px !important;
+}  
+
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -26,3 +29,8 @@
     color: #468847;
     text-align: center;
  }
+
+.alert-list-type {
+    list-style-type: none;
+ }
+ 

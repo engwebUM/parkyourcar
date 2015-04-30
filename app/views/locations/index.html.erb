@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="page-header">
-        <h3>Listing Locations</h3>
+        <h3>Listing Spaces</h3>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
           $("#available_weekend").prop('checked', false);
         });
         $("#date_from").datetimepicker({
-          format: 'DD/MM/YYYY hh:mm a',
+          format: 'YYYY-MM-DD hh:mm a',
           ignoreReadonly: true
         }).on("dp.change", function (e) {
           $("#date_until").data("DateTimePicker").minDate(e.date);
@@ -90,7 +90,7 @@
           $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
         });
         $("#date_until").datetimepicker({
-          format: 'DD/MM/YYYY hh:mm a',
+          format: 'YYYY-MM-DD hh:mm a',
           ignoreReadonly: true
         }).on("dp.change", function (e) {
           $("#date_from").data("DateTimePicker").maxDate(e.date);
@@ -111,9 +111,9 @@
         <thead>
           <tr>
             <th></th>
-            <th>Title</th>
+            <th>Space</th>
+            <th>Schedule</th>
             <th>Starting at</th>
-            <th>Address</th>
           </tr>
         </thead>
         <tbody>

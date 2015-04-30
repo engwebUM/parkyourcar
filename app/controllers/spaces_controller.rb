@@ -10,14 +10,14 @@ class SpacesController < ApplicationController
 
   # GET /spaces
   def index
-    @spaces = current_user.spaces.paginate(page: params[:page], per_page: 2)
+    @spaces = current_user.spaces.by_last_created.paginate(page: params[:page], per_page: 2)
   end
 
   # GET /spaces/1
   def show
     @space = Space.find(params[:id])
-    query_processing
     @hash = Location.load_space_markers(@space)
+    space_fill
   end
 
   # GET /spaces/new
@@ -29,7 +29,6 @@ class SpacesController < ApplicationController
   # GET /spaces/1/edit
   def edit
     @space = Space.find(params[:id])
-    @attachments = @space.attachments.all
   end
 
   # POST /spaces
@@ -38,6 +37,8 @@ class SpacesController < ApplicationController
     @space.user = current_user
     if @space.save
       create_attachments
+      flash[:success] = 'Space was successfully created.'
+      redirect_to @space
     else
       render :new
     end
@@ -47,6 +48,8 @@ class SpacesController < ApplicationController
   def update
     if @space.update(space_params)
       create_attachments
+      flash[:success] = 'Space was successfully updated.'
+      redirect_to @space
     else
       render :edit
     end
@@ -72,17 +75,18 @@ class SpacesController < ApplicationController
   end
 
   def create_attachments
-    params[:attachments]['file_name'].each do |a|
+    params[:attachments_new]['file_name'].each do |a|
       @attachment = @space.attachments.create!(file_name: a, space_id: @space.id)
-    end
-    flash[:success] = 'Space was successfully created.'
-    redirect_to @space
+    end unless params[:attachments_new].nil?
   end
 
-  def query_processing
-    @attachments = @space.attachments.all
-    @reviews = @space.review.paginate(page: params[:page], per_page: 2)
-    @owner_rating = @space.user.spaces.joins(:reviews).average(:evaluation)
+  def space_fill
+    @bookings = bookings_accepted.by_datetime_until.paginate(page: params['booking_page'], per_page: 5)
+    @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
+  end
+
+  def bookings_accepted
+    @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date)
   end
 end

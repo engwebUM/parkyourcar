@@ -3,28 +3,25 @@
   <td><%= l booking.date_from, format: :short %></td>
   <td><%= l booking.date_until, format: :short %></td>
   <% renter = booking.user %>
-  <td><%= link_to renter.username, user_path(renter) %></td>
+  <td><%= renter.username %></td>
   <td class="text-right">
   <% if state == 'accepted' || state == 'pending' %>
     <% if renter.phone_number %>
-    <div class="btn btn-default btn-xs" do %>
+    <div class="btn btn-default btn-xs" %>
       <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" data-placement="top" title="Call to <%= renter.first_name %> at <%= renter.phone_number%>"></span>
     </div>
     <% end %>
-    <%= mail_to renter.email,
-                class: "btn btn-info btn-xs" do %>
+    <%= mail_to renter.email, class: "btn btn-info btn-xs" do %>
       <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" data-placement="top" title="Send an email to <%= renter.first_name %>"></span>
     <% end %>
   <% end %>
   <% if state == 'sent' %>
-    <%= link_to aprove_proposal_path(booking),
-                class: "btn btn-primary btn-xs" do %>
+    <%= link_to aprove_proposal_path(booking), class: "btn btn-primary btn-xs" do %>
       <span class="glyphicon glyphicon-ok"> Aprove</span>
     <% end %>
     <%= render 'reject_button', booking: booking %>
   <% elsif state == 'pending' %>
-    <%= link_to accept_proposal_path(booking),
-                class: "btn btn-success btn-xs" do %>
+    <%= link_to accept_proposal_path(booking), class: "btn btn-success btn-xs" do %>
       <span class="glyphicon glyphicon-ok"> Accept</span>
     <% end %>
     <%= render 'reject_button', booking: booking %>

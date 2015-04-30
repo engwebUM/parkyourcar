@@ -19,11 +19,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # GET /bookings/1/edit
-  def edit
-    @booking = Booking.find(params[:id])
-  end
-
   def create
     @space = Space.find(params[:space_id])
     booking_fill
@@ -31,16 +26,7 @@ class BookingsController < ApplicationController
       flash[:success] = 'Booking was successfully created.'
       redirect_to @space
     else
-      redirect_to @space
-    end
-  end
-
-  def update
-    @booking = Booking.find(params[:id])
-    if @booking.update(params[:id])
-      redirect_to @booking
-    else
-      render 'edit'
+      redirect_to :back, flash: { error: @booking.errors.full_messages.to_sentence }
     end
   end
 
@@ -63,11 +49,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.space = @space
-    @booking.state = 'sent'
+    @booking.state = SENT_STATE
   end
 
   def bookings_by_state(state)
     param_state_page = state + '_page'
-    current_user.bookings.where('state = ?', state).paginate(page: params[param_state_page], per_page: 2)
+    current_user.bookings.where('state = ?', state).paginate(page: params[param_state_page], per_page: 4)
   end
 end

@@ -6,6 +6,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [150, 100]
   end
 
+  version :show do
+    process resize_to_limit: [500, 500]
+  end
+
   def store_dir
     'uploads/attachments'
   end

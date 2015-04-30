@@ -9,16 +9,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%= link_to "Park Your Car", root_path, class: "navbar-brand" %>
+            <%= link_to "Park your Car", root_path, class: "navbar-brand" %>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><%= link_to "About Us", static_pages_help_path %></li>
-                <li><%= link_to "FAQ",  static_pages_faq_path %></li>
-                <li><%= link_to "How It Works?", root_path(:anchor => "how_it_works") %></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "New space", new_space_path %></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bookings <span class="caret"></span></a>
@@ -27,12 +22,35 @@
                     <li><%= link_to "Bookings Received", proposals_path %></li>
                   </ul>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><%= link_to "About Us", static_pages_help_path %></li> -->
+                <li><%= link_to "FAQ",  static_pages_faq_path %></li>
+                <li><%= link_to "How It Works?", root_path(:anchor => "how_it_works") %></li>
                 <% if current_user.present? %>
-                <li><%= link_to current_user.username, static_pages_dashboard_path %></li>
-                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                <li>
+                <%= link_to static_pages_dashboard_path do %>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= current_user.username %>
+                <% end %>
+                </li>
+                <li>
+                <%= link_to destroy_user_session_path, :method => :delete do %>
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+                <% end %>
+                </li>
                 <% else %>
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                <li><%= button_to "Sign In", new_user_session_path, :class => "btn btn-default navbar-btn", :method => :get %></li>
+                <li>
+                <%= link_to new_user_registration_path do %>
+                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Sign up
+                <% end %>
+                </li>
+                <li>
+                <p class="navbar-btn">
+                <%= link_to new_user_session_path, :class => "btn btn-default" do %>
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+                <% end %>
+                </p>
+                </li>
                 <% end %>
             </ul>
         </div>

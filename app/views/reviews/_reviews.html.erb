@@ -4,7 +4,7 @@
       <h3 class="panel-title">Reviews</h3>
     </div>
     <div class="panel-body">
-      <% if(@space.reviews.empty?) %>
+      <% if(@reviews.empty?) %>
       <p>There's no reviews for this space.
         <% if(@booked_by_user)%>
         Be the first reviewing this space.
@@ -25,11 +25,11 @@
           <%= render @reviews %>
           </tbody>
         </table>
-        <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate @reviews, param_name: 'review_page', renderer: BootstrapPagination::Rails %>
         <% if(@booked_by_user)%>
         <%= render 'reviews/form' %>
         <% end %>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

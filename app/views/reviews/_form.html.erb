@@ -1,18 +1,4 @@
 <%= form_for([@space, @space.reviews.build]) do |f| %>
-  <% if @space.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@space.errors.count, "error") %> prohibited
-        this review from being saved:
-      </h2>
-      <ul>
-        <% @space.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group row">
     <div class="col-md-9">
       <%= f.label :Comment, class: 'sr-only' %>
@@ -20,7 +6,7 @@
     </div>
     <div class="col-md-3">
       <%= f.label :Evaluation, class: 'sr-only' %>
-      <%= f.number_field :evaluation, class: 'form-control', placeholder: 'Evaluation', :required => true, in: 0..5 %>
+      <%= f.number_field :evaluation, class: 'form-control', placeholder: 'Evaluation', :required => true, in: 1..5 %>
     </div>
   </div>
   <div class="actions">

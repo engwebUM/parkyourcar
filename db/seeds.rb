@@ -173,31 +173,30 @@ b5 = Booking.create(user: u1,
 
 b6 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-04-01',
-                    date_until: '2015-04-02',
+                    date_from: '2015-05-01',
+                    date_until: '2015-05-05',
                     state: 'accepted')
 
-a1 = Attachment.create(space: s1,
-                       file_name: 'space1',
-                       content_type: 'jpg',
-                       file_size: '131 KB')
+b7 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-05-06',
+                    date_until: '2015-05-07',
+                    state: 'accepted')
 
-a2 = Attachment.create(space: s2,
-                      file_name: 'space2',
-                      content_type: 'jpg',
-                      file_size: '605 KB')
+b8 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-05-08',
+                    date_until: '2015-05-09',
+                    state: 'accepted')
 
-a3 = Attachment.create(space: s3,
-                       file_name: 'space3',
-                       content_type: 'jpg',
-                       file_size: '88 KB')
+b9 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-05-10',
+                    date_until: '2015-05-15',
+                    state: 'accepted')
 
-a4 = Attachment.create(space: s4,
-                      file_name: 'space4',
-                      content_type: 'jpg',
-                      file_size: '150 KB')
-
-a5 = Attachment.create(space: s5,
-                       file_name: 'space5',
-                       content_type: 'jpg',
-                       file_size: '55 KB')
+b10 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-05-16',
+                    date_until: '2015-05-25',
+                    state: 'accepted')

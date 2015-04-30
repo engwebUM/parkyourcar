@@ -1,13 +1,19 @@
 class Space < ActiveRecord::Base
   require 'action_view'
   include ActionView::Helpers::NumberHelper
+  belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :attachments, dependent: :destroy
-  accepts_nested_attributes_for :attachments
-  belongs_to :user
   has_many :review, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :attachments, dependent: :destroy
+  accepts_nested_attributes_for :attachments
+  scope :by_last_created, -> { order(created_at: :desc) }
+  scope :by_number_of_reviews, lambda {
+    joins('LEFT JOIN reviews ON spaces.id = reviews.space_id').
+      select('COUNT(reviews.id) AS reviews_counter').
+      group(:space_id).reorder('reviews_counter DESC')
+  }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -40,9 +46,7 @@ class Space < ActiveRecord::Base
     if sort_param == 'pri'
       sorted = sorted.reorder(:price_hour)
     elsif sort_param == 'rev'
-      sorted = sorted.select('COUNT(reviews.id) AS reviews_count').
-               joins('LEFT JOIN reviews ON spaces.id = reviews.id').
-               group(:id).reorder('reviews_count')
+      sorted = sorted.by_number_of_reviews
     end
     sorted
   end
@@ -58,10 +62,22 @@ class Space < ActiveRecord::Base
   end
 
   def owner_rating
-    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2)
+    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2).to_f
   end
 
-  def space_image
-    @space_image = attachments.first.file_name.url(:thumb) || 'no_image.png'
+  def first_image
+    if attachments.empty?
+      'no_image.png'
+    else
+      attachments.first.file_name.url(:thumb)
+    end
+  end
+
+  def weekend
+    if available_weekend
+      'including weekends'
+    else
+      'excluding weekends'
+    end
   end
 end
