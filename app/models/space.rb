@@ -9,6 +9,11 @@ class Space < ActiveRecord::Base
   has_many :attachments, dependent: :destroy
   accepts_nested_attributes_for :attachments
   scope :by_last_created, -> { order(created_at: :desc) }
+  scope :by_number_of_reviews, lambda {
+    joins('LEFT JOIN reviews ON spaces.id = reviews.space_id').
+      select('COUNT(reviews.id) AS reviews_counter').
+      group(:space_id).reorder('reviews_counter DESC')
+  }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -41,7 +46,7 @@ class Space < ActiveRecord::Base
     if sort_param == 'pri'
       sorted = sorted.reorder(:price_hour)
     elsif sort_param == 'rev'
-      sorted = sorted.joins(:reviews).select('spaces.id, count(reviews.id) as number_of_reviews').group('spaces.id').order('number_of_reviews DESC')
+      sorted = sorted.by_number_of_reviews
     end
     sorted
   end

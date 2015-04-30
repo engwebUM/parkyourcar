@@ -1,0 +1,15 @@
+<% @spaces.each do |space| %>
+<tr>
+	<%= render 'spaces/shared/space_summary', space: space %>
+  <td>
+    <%= link_to edit_space_path(space), class: "btn btn-info btn-xs" do %>
+     <span class="glyphicon glyphicon-edit"> Edit</span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to space, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+     <span class="glyphicon glyphicon-remove-circle"> Remove</span>
+    <% end %>
+  </td>
+</tr>
+<% end %>

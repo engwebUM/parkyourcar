@@ -81,8 +81,12 @@ class SpacesController < ApplicationController
   end
 
   def space_fill
-    @bookings = @space.bookings.where('state = ?', BookingsController::ACCEPTED_STATE).take(5)
-    @reviews = @space.reviews.paginate(page: params[:page], per_page: 5)
+    @bookings = bookings_accepted.by_datetime_until.paginate(page: params['booking_page'], per_page: 5)
+    @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
+  end
+
+  def bookings_accepted
+    @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date)
   end
 end

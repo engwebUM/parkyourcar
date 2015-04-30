@@ -1,7 +1,7 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :space
-
+  scope :by_datetime_until, -> { order(date_until: :asc) }
   validates :date_from, presence: true
   validates :date_until, presence: true
 
@@ -11,12 +11,8 @@ class Booking < ActiveRecord::Base
   validate :valid_date_until_space_interval
   validate :valid_accepted_bookings_interval
 
-  def owner_email
-    space.user.email
-  end
-
-  def owner_phone
-    space.user.phone_number
+  def owner
+    space.user
   end
 
   private

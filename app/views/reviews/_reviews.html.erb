@@ -25,7 +25,7 @@
           <%= render @reviews %>
           </tbody>
         </table>
-        <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate @reviews, param_name: 'review_page', renderer: BootstrapPagination::Rails %>
         <% if(@booked_by_user)%>
         <%= render 'reviews/form' %>
         <% end %>

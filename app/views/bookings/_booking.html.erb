@@ -1,14 +1,23 @@
 <tr>
   <td><%= link_to booking.space.title, space_path(booking.space) %></td>
-  <td><%= I18n.l booking.date_from %></td>
-  <td><%= I18n.l booking.date_until %></td>
+  <td><%= l booking.date_from, format: :long %></td>
+  <td><%= l booking.date_until, format: :long %></td>
+  <td><%= booking.owner.username %></td>
+  <td class="text-right">
   <% if state == 'sent' %>
-      <td>
-      <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
-         <span class="glyphicon glyphicon-remove-circle"> Cancel</span>
-      <% end %>
-      </td>
-  <% elsif state == 'accepted' || state == 'pending' %>
-      <td><a href="mailto:<%= current_user.email %>">Send email</a> <%= booking.owner_phone %></td>
+  <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+     <span class="glyphicon glyphicon-remove-circle"> Cancel</span>
   <% end %>
+  <% elsif state == 'accepted' || state == 'pending' %>
+    <% if booking.owner.phone_number %>
+    <div class="btn btn-default btn-xs" %>
+      <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" data-placement="top" title="Call to <%= booking.owner.first_name %> at <%= booking.owner.phone %>"></span>
+    </div>
+    <% end %>
+    <%= mail_to booking.owner.email, class: "btn btn-info btn-xs" do %>
+      <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" data-placement="top" title="Send an email to <%= booking.owner.first_name %>"></span>
+    <% end %>
+  <% end %>
+  </td>
 </tr>
+   

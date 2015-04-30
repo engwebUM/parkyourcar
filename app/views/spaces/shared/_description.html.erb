@@ -32,7 +32,7 @@
         <div class="carousel-inner attachments-item" role="listbox">
          <% @space.attachments.each do |p| %>
           <div class="item">
-            <%= image_tag p.file_name_url %>
+            <%= image_tag p.file_name_url(:show) %>
             <div class="carousel-caption">
             </div>
           </div>
@@ -52,7 +52,6 @@
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
  $(document).ready(function(){
     $( ".attachments-ol li" ).first().addClass( "active" );

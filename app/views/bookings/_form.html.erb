@@ -8,8 +8,8 @@
       <div class="col-md-12">
         <p>
           <span class="bold">This space is available from</span>
-          <%= I18n.l @space.date_from %> to
-          <%= I18n.l @space.date_until %>
+          <%= l @space.date_from, format: :long %> to
+          <%= l @space.date_until, format: :long %>
           <%= @space.weekend %>
         </p>
         <%= form_for([@space, @space.bookings.build], :html => { :class => 'form-inline' } )do |f| %>
@@ -55,6 +55,7 @@
               <%= render partial: 'bookings/booking', collection: @bookings, locals: { state: '' } %>
             </tbody>
           </table>
+          <%= will_paginate @bookings, param_name: 'booking_page', renderer: BootstrapPagination::Rails %>
           <% end %>
         </div>
       </div>
