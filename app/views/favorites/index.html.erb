@@ -12,19 +12,22 @@
             <% if current_user.favorites.empty? %>
             You have no favorite spaces.
             <% else %>
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Space</th>
-                    <th>Schedule</th>
-                    <th>Starting at</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render @favorites %>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Space</th>
+                      <th></th>
+                      <th>Schedule</th>
+                      <th>Starting at</th>
+                      <th colspan="2"/>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @favorites %>
+                  </tbody>
+                </table>
+              </div>
               <%= will_paginate @favorites, renderer: BootstrapPagination::Rails %>
             <% end %>
             </div>

@@ -12,27 +12,27 @@
           <% if @spaces.empty? %>
           Your spaces seems empty.
           <% else %>
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Space</th>
-                  <th></th>
-                  <th>Schedule</th>
-                  <th>Starting at</th>
-                  <th colspan="2"/>
-                </tr>
-              </thead>
-              <tbody>
-              <% @spaces.each do |space| %>
-                <%= render 'own_space', space: space %>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Space</th>
+                    <th></th>
+                    <th>Schedule</th>
+                    <th>Starting at</th>
+                    <th colspan="2"/>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @spaces.each do |space| %>
+                  <%= render 'own_space', space: space %>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
             <%= will_paginate @spaces, renderer: BootstrapPagination::Rails %>
           <% end %>
-         </div>
+          </div>
         </div>
       </div>
     </div>
