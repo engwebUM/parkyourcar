@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -24,11 +23,11 @@ class User < ActiveRecord::Base
   end
 
   def phone
-    @phone = phone_number || 'No available'
+    @phone = phone_number || 'Not available'
   end
 
   def birthdate
-    @phone = date_of_birth || 'No available'
+    @phone = date_of_birth || 'Not available'
   end
 
   def valid_age
