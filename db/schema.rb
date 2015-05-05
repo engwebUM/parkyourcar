@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421210210) do
+ActiveRecord::Schema.define(version: 20150504164215) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "space_id"
@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(version: 20150421210210) do
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "vehicle_id"
   end
 
   add_index "bookings", ["space_id"], name: "index_bookings_on_space_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
+  add_index "bookings", ["vehicle_id"], name: "index_bookings_on_vehicle_id"
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -105,5 +107,16 @@ ActiveRecord::Schema.define(version: 20150421210210) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vehicles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "plate"
+    t.string   "make"
+    t.string   "model"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id"
 
 end

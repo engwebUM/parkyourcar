@@ -1,0 +1,32 @@
+<%= form_for @vehicle do |f| %>
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "error") %> prevented this space from being saved:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+<div class="form-group adv-filter col-md-12">
+  <h4>New Vehicle</h4>
+  <div class="form-group">
+      <%= f.label :plate, class: 'sr-only' %>
+      <%= f.text_field :plate, autofocus: true, class: 'form-control', placeholder: 'License Plate', :required => true %>
+  </div>
+  <div class="form-group">
+      <%= f.label :make, class: 'sr-only' %>
+      <%= f.text_field :make, autofocus: true, class: 'form-control', placeholder: 'Make' %>
+  </div>
+  <div class="form-group">
+      <%= f.label :model, class: 'sr-only' %>
+      <%= f.text_field :model, autofocus: true, class: 'form-control', placeholder: 'Model' %>
+  </div>
+  <div class="form-group">
+    <div class="actions">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+</div>
+</div>
+<% end %>
