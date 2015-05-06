@@ -4,10 +4,8 @@ class Space < ActiveRecord::Base
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :review, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :attachments, dependent: :destroy
-  accepts_nested_attributes_for :attachments
   scope :by_last_created, -> { order(created_at: :desc) }
   scope :by_number_of_reviews, lambda {
     joins('LEFT JOIN reviews ON spaces.id = reviews.space_id').
