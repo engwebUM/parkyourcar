@@ -1,0 +1,13 @@
+<tr data-link='<%= vehicle_path(vehicle) %>'>
+    <td><%= vehicle.plate %></td>
+    <td><%= vehicle.make %></td>
+    <td><%= vehicle.model %></td>
+    <td>
+    <%= link_to edit_vehicle_path(vehicle), class: "btn btn-info btn-xs" do %>
+     <span class="glyphicon glyphicon-edit"> Edit</span>
+    <% end %>
+    <%= link_to vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+     <span class="glyphicon glyphicon-remove-circle"> Remove</span>
+    <% end %>
+    </td>
+</tr>

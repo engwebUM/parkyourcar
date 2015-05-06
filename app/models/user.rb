@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :vehicles, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

@@ -1,0 +1,42 @@
+<%= render 'layouts/jumbotron' %>
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <%= render 'layouts/sidenav' %>
+        <div class="col-sm-9 col-md-9">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">My Vehicles</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <% if @vehicles.empty? %>
+                      You don't have any vehicles associated.
+                      <% else %>
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Lic. Plate</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <%= render @vehicles %>
+                        </tbody>
+                      </table>
+                      <%= will_paginate @vehicles, renderer: BootstrapPagination::Rails %>
+                      <% end %>
+                    </div>
+                    <div class="col-md-4">
+                      <%= render 'form' %>
+                    </div>
+                  </div>
+               </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>

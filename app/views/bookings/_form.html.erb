@@ -27,7 +27,20 @@
                 <span class="glyphicon glyphicon-calendar"></span> Until
               </span>
             </div>
-            <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+            <p>
+            <div class="input-group col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Vehicle</span>
+                <%= f.label :vehicle, class: 'sr-only' %>
+                <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :plate),{}, {class: 'form-control'} %>
+              </div>
+            </div>
+            <div class="input-group col-md-4">
+              <span class="pull-right">
+              <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+              </span>
+            </div>
+          </p>
         <% end %>
         </div>
       </div>

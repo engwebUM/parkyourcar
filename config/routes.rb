@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
     resources :bookings, only: [:new, :create]
   end
+  resources :vehicles
   resources :bookings, only: [:index, :destroy]
   resources :proposals, only: [:index] do
     get 'aprove', on: :member
