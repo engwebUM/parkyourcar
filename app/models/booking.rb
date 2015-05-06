@@ -1,7 +1,7 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :space
-  has_one :vehicle
+  belongs_to :vehicle
 
   scope :by_datetime_until, -> { order(date_until: :asc) }
   validates :date_from, presence: true
