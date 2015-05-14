@@ -9,8 +9,8 @@ class Space < ActiveRecord::Base
   scope :by_last_created, -> { order(created_at: :desc) }
   scope :by_number_of_reviews, lambda {
     joins('LEFT JOIN reviews ON spaces.id = reviews.space_id').
-      select('COUNT(reviews.id) AS reviews_counter').
-      group(:space_id).reorder('reviews_counter DESC')
+      select('COUNT(reviews.space_id) AS reviews_counter').
+      group('spaces.id').reorder('reviews_counter DESC')
   }
 
   geocoded_by :address
