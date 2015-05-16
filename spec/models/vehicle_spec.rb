@@ -8,14 +8,14 @@ describe Vehicle do
   describe 'is invalid' do
     context 'without' do
       it 'plate' do
-        expect(FactoryGirl.build(:vehicle, plate: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:vehicle, plate: nil)).not_to be_valid
       end
     end
 
     context 'with repeated' do
       it 'plates' do
         FactoryGirl.create(:vehicle, plate: '00-AA-00')
-        expect(FactoryGirl.build(:vehicle, plate: '00-AA-00')).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:vehicle, plate: '00-AA-00')).not_to be_valid
       end
     end
   end

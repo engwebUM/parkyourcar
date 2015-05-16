@@ -2,6 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :space do
+    user
     title             { Faker::Company.name }
     available_spaces  { Faker::Number.between(1, 9) }
     description       { Faker::Lorem.paragraph }
