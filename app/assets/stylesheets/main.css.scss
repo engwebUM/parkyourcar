@@ -88,7 +88,7 @@ section {
 
 .map-small {
   width: 100%;
-  height: 400px;
+  height: 220px;
 }
 
 .map-big {
@@ -109,18 +109,18 @@ section {
 }
 
 span.stars, span.stars span {
-    display: block;
-    background: asset_url('stars.png') 0 -16px repeat-x;
-    width: 80px;
-    height: 16px;
+  display: block;
+  background: asset_url('stars.png') 0 -16px repeat-x;
+  width: 80px;
+  height: 16px;
 }
 
 span.stars span {
-    background-position: 0 0;
+  background-position: 0 0;
 }
 
 .margin-space {
-    margin: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 .header-title {
@@ -158,4 +158,8 @@ span.stars span {
 .date-format {
   color: grey;
   font-size: 12px;
+}
+
+.fc-center h2 {
+  font-size: 16pt;
 }
