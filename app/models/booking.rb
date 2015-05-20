@@ -16,6 +16,18 @@ class Booking < ActiveRecord::Base
     space.user
   end
 
+  def as_json(*)
+    {
+      id: id,
+      title: 'Reserved',
+      start:  date_from.rfc822,
+      end: date_until.rfc822,
+      allDay: true,
+      user_name: user.username,
+      color: 'red'
+    }
+  end
+
   private
 
   def valid_dates_format

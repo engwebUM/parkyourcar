@@ -86,7 +86,7 @@ class SpacesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @bookings }
+      format.json { render json: @bookings }
     end
   end
 
