@@ -200,3 +200,15 @@ b10 = Booking.create(user: u1,
                     date_from: '2015-05-16',
                     date_until: '2015-05-25',
                     state: 'accepted')
+
+b11 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-05-27',
+                    date_until: '2015-05-29',
+                    state: 'accepted')
+
+b12 = Booking.create(user: u1,
+                    space: s5,
+                    date_from: '2015-06-07',
+                    date_until: '2015-06-09',
+                    state: 'accepted')
