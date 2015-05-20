@@ -9,11 +9,7 @@
       </div>
       <div class="row">
         <div class="col-md-offset-4 col-md-4">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" style="width: <%= @space.owner_rating * 20 %>%;">
-              <span><%= @space.owner_rating %></span>
-            </div>
-          </div>
+          <span class="stars"><%= @space.owner_rating %></span>
         </div>
       </div>
       <div class="row">
@@ -24,3 +20,15 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(function() {
+    $('span.stars').stars();
+});
+
+$.fn.stars = function() {
+    return $(this).each(function() {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    });
+}
+</script>
