@@ -27,6 +27,7 @@
   <div class="row">
     <%= render 'bookings/form' %>
     <%= render 'spaces/shared/map' %>
+    <div id='calendar'></div>
   </div>
   <div>
     <%= render 'spaces/shared/description' %>
@@ -36,3 +37,14 @@
     <%= render 'spaces/shared/owner' %>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
+
+});
+</script>
