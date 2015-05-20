@@ -9,8 +9,7 @@ class Booking < ActiveRecord::Base
 
   validate :valid_dates_format
   validate :valid_dates_interval
-  validate :valid_date_from_space_interval
-  validate :valid_date_until_space_interval
+  validate :valid_space_interval
   validate :valid_accepted_bookings_interval
 
   def owner
@@ -28,12 +27,12 @@ class Booking < ActiveRecord::Base
     errors.add(:date_from, 'cannot be higher than date until') unless date_from.to_datetime < date_until.to_datetime
   end
 
-  def valid_date_from_space_interval
-    errors.add(:date_from, "must be between #{space.date_from} and #{space.date_until}") unless date_from.to_datetime > space.date_from.to_datetime
+  def valid_space_interval
+    errors.add(:date_from, "must be between #{space.date_from.to_formatted_s(:short)} and #{space.date_until.to_formatted_s(:short)}") if invalid_space_interval
   end
 
-  def valid_date_until_space_interval
-    errors.add(:date_until, "must be between #{space.date_from} and #{space.date_until}") unless date_until.to_datetime < space.date_until.to_datetime
+  def invalid_space_interval
+    ((date_from.to_datetime <= space.date_from.to_datetime) || (date_until.to_datetime >= space.date_until.to_datetime))
   end
 
   def valid_accepted_bookings_interval
@@ -41,6 +40,6 @@ class Booking < ActiveRecord::Base
   end
 
   def accepted_bookings_interval
-    space.bookings.where('date_until > ? AND date_from < ?', date_from, date_until).count
+    space.bookings.where('state = ? AND date_until > ? AND date_from < ?', BookingsController::ACCEPTED_STATE, date_from, date_until).count
   end
 end
