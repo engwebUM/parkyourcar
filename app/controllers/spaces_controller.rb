@@ -79,10 +79,15 @@ class SpacesController < ApplicationController
   end
 
   def space_fill
-    @bookings = bookings_accepted.by_datetime_until.paginate(page: params['booking_page'], per_page: 5)
+    @bookings = bookings_accepted.by_datetime_until
     @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
     @user_already_reviewed = user_already_reviewed?
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @bookings }
+    end
   end
 
   def bookings_accepted
