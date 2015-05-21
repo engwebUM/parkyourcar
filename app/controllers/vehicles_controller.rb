@@ -1,4 +1,6 @@
 class VehiclesController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @vehicles = current_user.vehicles
     paginate_vehicles
