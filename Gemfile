@@ -39,8 +39,6 @@ gem 'autoprefixer-rails'
 
 gem 'ruby-progressbar', '~> 1.7.5'
 
-gem 'capybara'
-
 gem 'geocoder'
 
 gem 'gmaps4rails'
@@ -68,8 +66,20 @@ group :development, :test do
   gem 'spring'
 
   gem 'rubocop', require: false
-  
+
   gem 'rspec-rails'
+
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+
+  gem 'capybara'
+
+  gem 'guard-rspec'
+
+  gem 'launchy'
 end
 
 group :production do
@@ -77,4 +87,3 @@ group :production do
 
   gem 'rails_12factor'
 end
-
