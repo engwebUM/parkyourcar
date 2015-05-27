@@ -2,20 +2,25 @@
   <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-sm-12 col-md-12">
-    <h1><%= @space.title %>
-      <% if current_user.present? %>
-        <% unless current_user.favorites.exists?(space: @space) %>
-          <%= link_to favorites_path(space_id: @space), method: :post, class: "btn btn-warning btn-sm" do %>
-            <span class="glyphicon glyphicon-star-empty"></span> Add to favorites
-          <% end %>
-        <% else %>
-          <%= link_to favorite_path(@space), method: :delete, class: "btn btn-danger btn-sm" do %>
-            <span class="glyphicon glyphicon-star"></span> Remove from favorites
-          <% end %>
-        <% end %>
-      <% end %>
+      <h1><%= @space.title %>
+        <% if current_user.present? %>
+          <% if current_user != @space.user %>
+            <% unless current_user.favorites.exists?(space: @space) %>
+              <%= link_to favorites_path(space_id: @space), method: :post, class: "btn btn-warning btn-sm" do %>
+                <span class="glyphicon glyphicon-star-empty"></span> Add to favorites
+              <% end %>
+            <% else %>
+              <%= link_to favorite_path(@space), method: :delete, class: "btn btn-danger btn-sm" do %>
+                <span class="glyphicon glyphicon-star"></span> Remove from favorites
+              <% end
+            end
+          else%>
+            <%= link_to edit_space_path(@space), class: "btn btn-info" do %>Edit Space
+            <% end
+          end
+        end%>
       </h1>
-      </div>
+    </div>
   </div>
   <br>
   <br>

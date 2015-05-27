@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link href="Parkyourcar_ficheiros/css.css" rel="stylesheet" type="text/css"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}</style>
+  <title>Parkyourcar</title>
+  <link rel="stylesheet" media="all" href="Parkyourcar_ficheiros/custom.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="Parkyourcar_ficheiros/main.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="Parkyourcar_ficheiros/bootstrap-datepicker3.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="Parkyourcar_ficheiros/application.css" data-turbolinks-track="true">
+  <script style="" src="Parkyourcar_ficheiros/jquery.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/jquery_ujs.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/turbolinks.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/affix.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/alert.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/button.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/carousel.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/collapse.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/dropdown.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/tab.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/transition.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/scrollspy.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/modal.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/tooltip.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/popover.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-sprockets.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/moment.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datetimepicker.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/core.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_053.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_015.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_021.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_054.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_049.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_004.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_050.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_033.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_036.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_032.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_059.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_034.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_027.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_009.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_042.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_045.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_019.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_031.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_010.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_014.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_028.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_018.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_003.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_035.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_013.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_022.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_061.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_051.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_040.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_057.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_038.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_023.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_006.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_008.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_025.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_055.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_024.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_056.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_030.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_044.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_017.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_060.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_062.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_012.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_063.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_007.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_043.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_016.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_029.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_020.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_048.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_037.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_005.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_052.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_058.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_026.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_047.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_039.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_011.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_041.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bootstrap-datepicker_046.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/index.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/underscore.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/base.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/base_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/base_builder.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/builder.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/handler.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/null_clusterer.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/common.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bound.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/circle.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/clusterer_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/kml_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/map.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/marker.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/polygon_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/polyline_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/bound_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/circle_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/clusterer.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/kml.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/map_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/marker_002.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/polygon.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/polyline.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/primitives.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/google.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/static_pages.js" data-turbolinks-track="true"></script>
+<script src="Parkyourcar_ficheiros/application.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="aaD/0ZWoMvnvfVvBW6cn/Z1hypAiMcCWHAxTYsyXHVaqpofSsMRslXUKgQmbY/QZ1+c7cefXN3gnbNUTckYktA==">
+<script src="Parkyourcar_ficheiros/common_002.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/map_003.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/util.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/onion.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/controls.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/stats.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/marker_003.js" charset="UTF-8" type="text/javascript"></script><script src="Parkyourcar_ficheiros/overlay.js" charset="UTF-8" type="text/javascript"></script></head>
+<body>
+ <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:3000/">Park your Car</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:3000/spaces/new">New space</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bookings <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://localhost:3000/bookings">Bookings Made</a></li>
+                    <li><a href="http://localhost:3000/proposals">Bookings Received</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><a href="/static_pages/help">About Us</a></li> -->
+                <li><a href="http://localhost:3000/static_pages/faq">FAQ</a></li>
+                <li><a href="http://localhost:3000/#how_it_works">How It Works?</a></li>
+                <li>
+                <a href="http://localhost:3000/static_pages/dashboard">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> admin
+</a>                </li>
+                <li>
+                <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+</a>                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+ <div class="alerts">
+</div>
+
+ <div class="container">
+  <p id="notice"></p>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h1>Space Two
+            <a class="btn btn-info" href="http://localhost:3000/spaces/2/edit">Edit Space
+</a>      </h1>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reserve now</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+      <div class="col-md-12">
+        <p>
+          <span class="bold">This space is available from</span>
+          February 01, 2015 00:00 to
+          April 30, 2015 00:00
+          excluding weekends
+        </p>
+        <form class="form-inline" id="new_booking" action="/spaces/2/bookings" accept-charset="UTF-8" method="post"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="aaD/0ZWoMvnvfVvBW6cn/Z1hypAiMcCWHAxTYsyXHVaqpofSsMRslXUKgQmbY/QZ1+c7cefXN3gnbNUTckYktA==" type="hidden">
+            <div class="input-group date col-md-4" id="date_from">
+              <label class="sr-only" for="booking_date_from">Date from</label>
+              <input required="required" placeholder="Date-time" class="form-control" readonly="readonly" name="booking[date_from]" id="booking_date_from" type="text">
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span> From
+                </span>
+            </div>
+            <div class="input-group date col-md-4" id="date_until">
+              <label class="sr-only" for="booking_date_until">Date until</label>
+              <input required="required" placeholder="Date-time" class="form-control" readonly="readonly" name="booking[date_until]" id="booking_date_until" type="text">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span> Until
+              </span>
+            </div>
+            <p>
+              </p><div class="input-group col-md-4">
+                <div class="">
+                <a class="btn btn-info" href="http://localhost:3000/vehicles">New Vehicle</a>
+                <span data-original-title="You must own a vehicle" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="" aria-hidden="true"></span>
+
+                </div>
+              </div>
+              <script type="text/javascript">
+                $(function () {
+                  $('[data-toggle="tooltip"]').tooltip()
+                })
+              </script>
+            <div class="input-group col-md-4">
+              <span class="pull-right">
+              <input name="commit" value="Reserve Now" class="btn btn-success" type="submit">
+              </span>
+            </div>
+          <p></p>
+</form>        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Last bookings accepted</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <p>No bookings accepted available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $("#date_from").datetimepicker({
+      format: 'YYYY-MM-DD hh:mm a',
+      ignoreReadonly: true
+    }).on("dp.change", function (e) {
+        $("#date_until").data("DateTimePicker").minDate(e.date);
+      }).ready(function() {
+        $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+      });
+
+      $("#date_until").datetimepicker({
+        format: 'YYYY-MM-DD hh:mm a',
+        ignoreReadonly: true
+      }).on("dp.change", function (e) {
+        $("#date_from").data("DateTimePicker").maxDate(e.date);
+      }).ready(function() {
+        $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+      });
+    });
+</script>
+
+    <div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Location</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;" id="map" class="map-small"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 435px 164px 0px;"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: visible;"><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: 121px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: -135px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: 377px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: 121px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: -135px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: 377px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: 121px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: -135px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: 377px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: 121px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: -135px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: 377px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: visible;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 56px; top: 121px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 56px; top: -135px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 56px; top: 377px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -200px; top: 121px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -200px; top: -135px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -200px; top: 377px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 312px; top: 121px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 312px; top: -135px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 312px; top: 377px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 568px; top: 121px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 568px; top: -135px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 568px; top: 377px;"></div></div></div></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"><div style="overflow: hidden; width: 523px; height: 400px;"><img src="Parkyourcar_ficheiros/StaticMapService.png" style="width: 523px; height: 400px;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: visible;"><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: 121px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt_009.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: -135px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt_012.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 56px; top: 377px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt_005.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: 121px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: -135px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt_010.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -200px; top: 377px; opacity: 1; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="Parkyourcar_ficheiros/vt_004.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: 121px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_007.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: -135px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_008.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 312px; top: 377px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_002.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: 121px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_003.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: -135px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_006.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 568px; top: 377px;"><img draggable="false" src="Parkyourcar_ficheiros/vt_011.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 435px 164px 0px;"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div class="cluster"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a title="Clique para ver esta área no Google Maps" href="http://maps.google.com/maps?ll=31.322463,120.712899&amp;z=20&amp;t=m&amp;hl=pt-PT&amp;gl=US&amp;mapclient=apiv3" target="_blank" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img draggable="false" src="Parkyourcar_ficheiros/google_white2.png" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></a></div><div style="z-index: 1000001; position: absolute; right: 102px; bottom: 0px; width: 195px;" class="gmnoprint"><div class="gm-style-cc" style="-moz-user-select: none;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Dados do mapa</a><span style="">Dados do mapa ©2015 AutoNavi, Google</span></div></div></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto,Arial,sans-serif; color: rgb(34, 34, 34); box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 112px; top: 110px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Dados do mapa</div><div style="font-size: 13px;">Dados do mapa ©2015 AutoNavi, Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div style="position: absolute; right: 0px; bottom: 0px;" class="gmnoscreen"><div style="font-family: Roboto,Arial,sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Dados do mapa ©2015 AutoNavi, Google</div></div><div draggable="false" style="z-index: 1000001; position: absolute; -moz-user-select: none; right: 0px; bottom: 0px;" class="gmnoprint gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_blank" href="http://www.google.com/intl/pt-PT_US/help/terms_maps.html" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Termos de Utilização</a></div></div><div class="gm-style-cc" style="-moz-user-select: none; display: none; position: absolute; right: 0px; bottom: 0px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="https://www.google.com/maps/@31.3224635,120.7128989,20z/data=%2110m1%211e1%2112b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" title="Comunicar à Google erros nas imagens ou no mapa de estradas" target="_new">Comunicar um erro no mapa</a></div></div><div controlheight="356" controlwidth="78" draggable="false" style="margin: 5px; -moz-user-select: none; position: absolute; left: 0px; top: 0px;" class="gmnoprint"><div style="cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;" controlheight="80" controlwidth="78" class="gmnoprint"><div style="width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;" controlheight="80" controlwidth="78" class="gmnoprint"><div style="visibility: hidden;"><svg viewBox="0 0 78 78" height="78px" width="78px" overflow="hidden" version="1.1" style="position: absolute; left: 0px; top: 0px;"><circle stroke="#f2f4f6" fill="#f2f4f6" fill-opacity="0.2" stroke-width="3" r="35" cy="39" cx="39"></circle><g transform="rotate(0 39 39)"><rect fill="#f2f4f6" stroke-width="1" stroke="#a6a6a6" height="11" width="12" ry="4" rx="4" y="0" x="33"></rect><polyline stroke="#000" fill="#f2f4f6" stroke-width="1.5" stroke-linejoin="bevel" points="36.5,8.5 36.5,2.5 41.5,8.5 41.5,2.5"></polyline></g></svg></div></div><div style="position: absolute; left: 10px; top: 11px;" controlheight="59" controlwidth="59" class="gmnoprint"><div style="width: 59px; height: 59px; overflow: hidden; position: relative;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: 0px; top: 0px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"><div title="Panorâmica para a esquerda" style="position: absolute; left: 0px; top: 20px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Panorâmica para a direita" style="position: absolute; left: 39px; top: 20px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Panorâmica para cima" style="position: absolute; left: 20px; top: 0px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Panorâmica para baixo" style="position: absolute; left: 20px; top: 39px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div></div></div></div><div style="cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; position: absolute; left: 23px; top: 85px;" controlheight="40" controlwidth="32"><div aria-label="Street View Pegman Control" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img draggable="false" src="Parkyourcar_ficheiros/cb_scout2.png" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Pegman is disabled" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="Parkyourcar_ficheiros/cb_scout2.png" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Pegman is on top of the Map" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="Parkyourcar_ficheiros/cb_scout2.png" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Street View Pegman Control" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="Parkyourcar_ficheiros/cb_scout2.png" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div controlheight="0" controlwidth="0" style="opacity: 0.6; display: none; position: absolute;" class="gmnoprint"><div title="Rodar mapa 90 graus" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div controlheight="226" controlwidth="25" style="position: absolute; left: 27px; top: 130px;" class="gmnoprint"><div title="Ampliar" style="width: 23px; height: 24px; overflow: hidden; position: relative; cursor: pointer; z-index: 1;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: -17px; top: -400px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div title="Clique para ampliar" style="width: 25px; height: 178px; overflow: hidden; position: relative; cursor: pointer; top: -4px;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: -17px; top: -87px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div title="Arrastar para aplicar zoom" style="width: 21px; height: 14px; overflow: hidden; position: absolute; transition: top 0.25s ease 0s; z-index: 2; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; left: 2px; top: 28px;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: 0px; top: -384px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div title="Reduzir" style="width: 23px; height: 23px; overflow: hidden; position: relative; cursor: pointer; top: -4px; z-index: 3;"><img draggable="false" src="Parkyourcar_ficheiros/mapcnt3.png" style="position: absolute; left: -17px; top: -361px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div></div><div style="margin: 5px; z-index: 0; position: absolute; cursor: pointer; right: 0px; top: 0px;" class="gmnoprint"><div class="gm-style-mtc" style="float: left;"><div title="Mostrar mapa da rua" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 1px 6px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 30px; font-weight: 500;">Mapa</div><div style="background-color: white; z-index: -1; padding-top: 2px; background-clip: padding-box; border-width: 0px 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; left: 0px; top: 20px; text-align: left; display: none;"><div title="Reduza para mostrar o mapa de rua com terreno" draggable="false" style="color: rgb(184, 184, 184); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img draggable="false" src="Parkyourcar_ficheiros/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Terreno</label></div></div></div><div class="gm-style-mtc" style="float: left;"><div title="Mostrar imagens de satélite" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 1px 6px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 40px;">Satélite</div><div style="background-color: white; z-index: -1; padding-top: 2px; background-clip: padding-box; border-width: 0px 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; right: 0px; top: 20px; text-align: left; display: none;"><div title="Amplie para mostrar a vista de 45 graus" draggable="false" style="color: rgb(184, 184, 184); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img draggable="false" src="Parkyourcar_ficheiros/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">45°</label></div><div title="Mostrar imagens com nomes das ruas" draggable="false" style="color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img draggable="false" src="Parkyourcar_ficheiros/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Etiquetas</label></div></div></div></div></div></div>
+      </div>
+      <script src="Parkyourcar_ficheiros/js" type="text/javascript"></script><script src="Parkyourcar_ficheiros/main.js"></script><script src="Parkyourcar_ficheiros/geometry.js"></script>
+      <script src="Parkyourcar_ficheiros/markerclusterer_packed.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers([{"lat":31.322484,"lng":120.713015,"infowindow":"Times Square"}]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div>
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Description</h3>
+  </div>
+  <div class="panel-body row">
+    <div class="col-md-7">
+      <dl class="dl-horizontal">
+        <dt>Available spaces</dt>
+        <dd><span class="btn btn-success" disabled="">1</span></dd><dd>
+        <hr>
+        </dd><dt>Pricing starting at</dt>
+        <dd><span class="btn btn-success" disabled="">2.0 EUR/hour</span> | <span class="btn btn-info" disabled="">9.9 EUR/week</span> <span class="btn btn-info" disabled="">35.9 EUR/month</span></dd><dd>
+        <hr>
+        </dd><dt>Description</dt>
+        <dd class="well">A brief description about Space Two.</dd><dd>
+        </dd><dt>Address</dt>
+        <dd class="well">Times Square, 10036, New York - USA</dd>
+      </dl>
+    </div>
+    <div class="col-md-5">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+       <!-- Indicators -->
+       <ol class="carousel-indicators attachments-ol">
+           <li class="" data-target="#carousel-example-generic" data-slide-to="1"></li>
+           <li class="" data-target="#carousel-example-generic" data-slide-to="2"></li>
+           <li class="" data-target="#carousel-example-generic" data-slide-to="3"></li>
+           <li class="" data-target="#carousel-example-generic" data-slide-to="4"></li>
+           <li class="active" data-target="#carousel-example-generic" data-slide-to="5"></li>
+           <li class="" data-target="#carousel-example-generic" data-slide-to="6"></li>
+       </ol>
+       <!-- Wrapper for slides -->
+        <div class="carousel-inner attachments-item" role="listbox">
+          <div class="item">
+            <img src="Parkyourcar_ficheiros/show_c7d695e21b.jpg" alt="Show c7d695e21b">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="Parkyourcar_ficheiros/show_4da2645468.jpg" alt="Show 4da2645468">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="Parkyourcar_ficheiros/show_36c6d1b0cf.jpg" alt="Show 36c6d1b0cf">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="Parkyourcar_ficheiros/show_ed3d0e7062.jpg" alt="Show ed3d0e7062">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item active">
+            <img src="Parkyourcar_ficheiros/show_3f27386ee2.jpg" alt="Show 3f27386ee2">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="Parkyourcar_ficheiros/show_899f2f273a.jpg" alt="Show 899f2f273a">
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+       <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+ $(document).ready(function(){
+    $( ".attachments-ol li" ).first().addClass( "active" );
+    $( ".item" ).first().addClass( "active" );
+  });
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reviews</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Comment</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+  <td class="col-md-3">Nuno Gomes </td>
+  <td class="col-md-8">This will be a longer review. I'm really, really mad so I want to let you know that. The experience was awful.<br><span style="color: grey; font-size: 10px">27 May 10:49</span></td>
+  <td class="col-md-1">
+    <span class="stars"><span style="width: 16px;"></span></span>
+  </td>
+</tr>
+
+<!-- mudar o nome do space owner para o espaço entre a foto e as estrelas no outro partial
+Envelope no send email-->
+
+          </tbody>
+        </table>
+        
+    </div>
+  </div>
+</div>
+
+     <div class="col-md-5 text-center">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Space Owner</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+          <img class="img-circle" src="Parkyourcar_ficheiros/user_avatar-8ae3e38772806626b0954d086908bbe338fc5c82fa010cfe.png" alt="User avatar 8ae3e38772806626b0954d086908bbe338fc5c82fa010cfed837ee6ef074ef86">
+      </div>
+      <div class="row margin-space">
+        <span class="owner-name">Admin Test</span>
+      </div>
+      <div class="row margin-space">
+        <span class="stars img-center"><span style="width: 52px;"></span></span>
+      </div>
+      <div class="row">
+        <a class="btn btn-info btn-md" data_toggle="tooltip" data_placement="top" title="Send an email to Admin Test" href="mailto:admin@email.com">
+          <span class="glyphicon glyphicon-envelope"></span> Send email
+</a>      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+    $('span.stars').stars();
+});
+
+$.fn.stars = function() {
+    return $(this).each(function() {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    });
+}
+</script>
+
+  </div>
+</div>
+
+ <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright © Your Website 2015</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</footer>
+
+
+
+</body></html>

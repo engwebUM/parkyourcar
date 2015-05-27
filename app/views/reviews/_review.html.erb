@@ -1,6 +1,10 @@
 <tr>
-  <td><%= review.user.first_name %></td>
-  <td><%= review.evaluation %></td>
-  <td><%= review.comment %></td>
-  <td><%= l review.created_at, format: :long %></td>
+  <td class="col-md-3" ><%= review.user.full_name %> </td>
+  <td class="col-md-8"><%= review.comment %><br><span style="color: grey; font-size: 10px"><%= l review.created_at, format: :short %></span></td>
+  <td class="col-md-1">
+    <span class="stars"><%= review.evaluation %></span>
+  </td>
 </tr>
+
+<!-- mudar o nome do space owner para o espaço entre a foto e as estrelas no outro partial
+Envelope no send email-->

@@ -16,9 +16,8 @@
           <thead>
             <tr>
               <th>User</th>
-              <th>Evaluation</th>
               <th>Comment</th>
-              <th>Date</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -26,7 +25,7 @@
           </tbody>
         </table>
         <%= will_paginate @reviews, param_name: 'review_page', renderer: BootstrapPagination::Rails %>
-        <% if(@booked_by_user)%>
+        <% if(@booked_by_user && !@user_already_reviewed)%>
         <%= render 'reviews/form' %>
         <% end %>
       <% end %>
