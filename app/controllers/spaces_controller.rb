@@ -15,7 +15,6 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1
   def show
-    @space = Space.find(params[:id])
     @hash = Location.load_space_markers(@space)
     space_fill
   end
@@ -28,7 +27,6 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1/edit
   def edit
-    @space = Space.find(params[:id])
   end
 
   # POST /spaces
