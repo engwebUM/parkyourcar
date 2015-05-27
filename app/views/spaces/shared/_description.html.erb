@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-5">
     <% if @space.attachments.empty? %>
-      <div class="well text-center">No photos available</div>
+      <%= image_tag 'no-image-available.jpg', class: 'img-responsive img-rounded' %>
     <% else %>
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
        <!-- Indicators -->
@@ -32,7 +32,7 @@
         <div class="carousel-inner attachments-item" role="listbox">
          <% @space.attachments.each do |p| %>
           <div class="item">
-            <%= image_tag p.file_name_url(:show) %>
+            <%= image_tag p.file_name_url(:show), class: 'img-rounded' %>
             <div class="carousel-caption">
             </div>
           </div>
