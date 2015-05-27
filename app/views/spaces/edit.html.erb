@@ -9,32 +9,36 @@
             <h3 class="panel-title">Edit Space Advertising</h3>
           </div>
           <div class="panel-body">
-          	<%= form_for(@space, :html => { :multipart => true }) do |f| %>
-          		<%= render 'form', f: f  %> 
-				<div class="panel panel-primary">
-				    <div class="panel-heading">
-				      <h3 class="panel-title">Edit Images</h3>
-				    </div>
-				    <div class="panel-body">
-				        <div class="form-group">
-				        	<div class="row">
-								<% @space.attachments.each do |p| %>
-									<div class="col-md-4">
-									 	<%= image_tag p.file_name_url(:thumb)  %>
-									  	<%= link_to p, method: :delete, class: "btn btn-danger btn-xs" do %>
-									     <span class="glyphicon glyphicon-remove-circle"> Remove</span>
-									    <% end %>
-									</div>
-								<% end %>
-							</div>
-					    </div>
-				    </div>
-			  	</div>
-				<div class="actions">
-				    <%= f.submit "Save", class: 'btn btn-success' %>
-				</div>
-			<% end %>
-         </div>
+            <%= form_for(@space, :html => { :multipart => true }) do |f| %>
+            <%= render 'form', f: f  %>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Edit Images</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <div class="row">
+                    <% if @space.attachments.empty? %>
+                    <div class="col-md-12">You didn't upload images yet.</div>
+                    <% else %>
+                      <% @space.attachments.each do |p| %>
+                    <div class="col-md-4">
+                      <%= image_tag p.file_name_url(:thumb)  %>
+                      <%= link_to p, method: :delete, class: "btn btn-danger btn-xs" do %>
+                      <span class="glyphicon glyphicon-remove-circle"> Remove</span>
+                      <% end %>
+                      <% end %>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <%= f.submit "Save", class: 'btn btn-success' %>
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
