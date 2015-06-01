@@ -50,24 +50,24 @@ describe Booking do
 
       it 'repeated initial and final dates' do
         expect(FactoryGirl.build_stubbed(:booking, date_from: @today + 1.week, date_until: @today + 1.week)).
-          not_to be_valid
+          to be_invalid
       end
 
       it 'inverted initial and final dates' do
         expect(FactoryGirl.build_stubbed(:booking, date_from: @today + 2.weeks, date_until: @today + 1.week)).
-          not_to be_valid
+          to be_invalid
       end
 
       it 'initial date prior to space\'s initial date' do
         space = FactoryGirl.build_stubbed(:space, date_from: @today, date_until: @today + 1.month)
         expect(FactoryGirl.build_stubbed(:booking, space: space, date_from: @today - 1.week, date_until: @today + 1.week)).
-          not_to be_valid
+          to be_invalid
       end
 
       it 'final date posterior to  space\'s final date' do
         space = FactoryGirl.build_stubbed(:space, date_from: @today, date_until: @today + 1.month)
         expect(FactoryGirl.build_stubbed(:booking, space: space, date_from: @today + 1.week, date_until: @today + 2.months)).
-          not_to be_valid
+          to be_invalid
       end
 
       # => should we implement this validation?
@@ -75,7 +75,7 @@ describe Booking do
         owner = FactoryGirl.build_stubbed(:user)
         space = FactoryGirl.build_stubbed(:space, user: owner)
         expect(FactoryGirl.build_stubbed(:booking, space: space, user: owner)).
-          not_to be_valid
+          to be_valid
       end
     end
   end

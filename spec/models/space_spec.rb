@@ -8,35 +8,35 @@ describe Space do
   describe 'is invalid' do
     context 'without' do
       it 'title' do
-        expect(FactoryGirl.build_stubbed(:space, title: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, title: nil)).to be_invalid
       end
 
       it 'available spaces' do
-        expect(FactoryGirl.build_stubbed(:space, available_spaces: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, available_spaces: nil)).to be_invalid
       end
 
       it 'description' do
-        expect(FactoryGirl.build_stubbed(:space, description: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, description: nil)).to be_invalid
       end
 
       it 'country' do
-        expect(FactoryGirl.build_stubbed(:space, country: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, country: nil)).to be_invalid
       end
 
       it 'city' do
-        expect(FactoryGirl.build_stubbed(:space, city: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, city: nil)).to be_invalid
       end
 
       it 'address' do
-        expect(FactoryGirl.build_stubbed(:space, address: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, address: nil)).to be_invalid
       end
 
       it 'post code' do
-        expect(FactoryGirl.build_stubbed(:space, post_code: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, post_code: nil)).to be_invalid
       end
 
       it 'price per hour' do
-        expect(FactoryGirl.build_stubbed(:space, price_hour: nil)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, price_hour: nil)).to be_invalid
       end
 
       it 'initial date' do
@@ -58,19 +58,19 @@ describe Space do
 
     context 'with zero' do
       it 'available spaces' do
-        expect(FactoryGirl.build_stubbed(:space, available_spaces: 0)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, available_spaces: 0)).to be_invalid
       end
 
       it 'as price per hour' do
-        expect(FactoryGirl.build_stubbed(:space, price_hour: 0)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, price_hour: 0)).to be_invalid
       end
 
       it 'as price per week' do
-        expect(FactoryGirl.build_stubbed(:space, price_week: 0)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, price_week: 0)).to be_invalid
       end
 
       it 'as price per month' do
-        expect(FactoryGirl.build_stubbed(:space, price_month: 0)).not_to be_valid
+        expect(FactoryGirl.build_stubbed(:space, price_month: 0)).to be_invalid
       end
     end
   end
