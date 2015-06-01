@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
   end
 
   def phone
-    phone_number || 'No available'
+    phone_number || 'Not available'
   end
 
   def birthdate
-    date_of_birth || 'No available'
+    date_of_birth || 'Not available'
   end
 
   def valid_age

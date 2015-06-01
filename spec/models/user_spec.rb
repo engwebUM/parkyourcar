@@ -63,7 +63,7 @@ describe User do
     end
 
     context 'without a number' do
-      it 'returns \'No available\'' do
+      it 'returns \'Not available\'' do
         expect(FactoryGirl.build_stubbed(:user, phone_number: nil).phone).to eq 'Not available'
       end
     end
@@ -78,7 +78,7 @@ describe User do
     end
 
     context 'without a date of birth' do
-      it 'returns \'No available\'' do
+      it 'returns \'Not available\'' do
         expect(FactoryGirl.build_stubbed(:user, date_of_birth: nil).birthdate).to eq 'Not available'
       end
     end
