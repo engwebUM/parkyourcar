@@ -78,10 +78,12 @@ ActiveRecord::Schema.define(version: 20150504164215) do
     t.datetime "date_from"
     t.datetime "date_until"
     t.boolean  "available_weekend"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "reviews_count",     default: 0, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
+  add_index "spaces", ["reviews_count"], name: "index_spaces_on_reviews_count"
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id"
 
   create_table "users", force: :cascade do |t|

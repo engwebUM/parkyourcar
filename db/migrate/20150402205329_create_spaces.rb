@@ -17,6 +17,7 @@ class CreateSpaces < ActiveRecord::Migration
       t.datetime :date_from
       t.datetime :date_until
       t.boolean :available_weekend
+      t.integer :reviews_count, null: false, default: 0, index: true
 
       t.timestamps null: false
     end
