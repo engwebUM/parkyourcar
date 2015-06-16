@@ -8,33 +8,33 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
         <div class="form-group">
-          <%= f.label :email, class: 'sr-only' %>
+          <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email', :required => true %>
         </div>
         <div class="form-group">
-          <%= f.label :username, class: 'sr-only' %>
+          <%= f.label :username %>
           <%= f.text_field :username, class: 'form-control', placeholder: 'Username', :required => true %>
         </div>
         <div class="form-group row">
           <div class="col-md-6">
-            <%= f.label :first_name, class: 'sr-only' %>
+            <%= f.label :first_name %>
             <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name', :required => true %>
           </div>
 
           <div class="col-md-6">
-            <%= f.label :last_name, class: 'sr-only' %>
+            <%= f.label :last_name%>
             <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name', :required => true %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :password, class: 'sr-only' %>
+          <%= f.label :password %>
           <% if @validatable %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password', :required => true %>
         </div>
         <div class="form-group">
-          <%= f.label :password_confirmation, class: 'sr-only'  %>
+          <%= f.label :password_confirmation  %>
           <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirmation password', :required => true %>
         </div>
         <div class="actions">
