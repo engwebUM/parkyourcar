@@ -113,7 +113,7 @@ s5 = Space.create(user: u5,
                   latitude: 40.782989,
                   longitude: -73.965356,
                   date_from: '2015-03-01',
-                  date_until: '2015-05-31',
+                  date_until: '2015-10-31',
                   available_weekend: true)
 
 r1 = Review.create(user: u2,
@@ -173,42 +173,42 @@ b5 = Booking.create(user: u1,
 
 b6 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-01',
-                    date_until: '2015-05-05',
+                    date_from: '2015-07-01',
+                    date_until: '2015-07-05',
                     state: 'accepted')
 
 b7 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-06',
-                    date_until: '2015-05-07',
+                    date_from: '2015-07-06',
+                    date_until: '2015-07-07',
                     state: 'accepted')
 
 b8 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-08',
-                    date_until: '2015-05-09',
+                    date_from: '2015-07-08',
+                    date_until: '2015-07-09',
                     state: 'accepted')
 
 b9 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-10',
-                    date_until: '2015-05-15',
+                    date_from: '2015-07-10',
+                    date_until: '2015-07-15',
                     state: 'accepted')
 
 b10 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-16',
-                    date_until: '2015-05-25',
+                    date_from: '2015-07-16',
+                    date_until: '2015-07-25',
                     state: 'accepted')
 
 b11 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-05-27',
-                    date_until: '2015-05-29',
+                    date_from: '2015-07-27',
+                    date_until: '2015-07-29',
                     state: 'accepted')
 
 b12 = Booking.create(user: u1,
                     space: s5,
-                    date_from: '2015-06-07',
-                    date_until: '2015-06-09',
+                    date_from: '2015-08-07',
+                    date_until: '2015-08-09',
                     state: 'accepted')
