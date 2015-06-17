@@ -1,15 +1,19 @@
 <!-- Full Width Image Header with Logo -->
 <header class="image-bg-fluid-height">
   <div class="header-radius" >
-  <%= image_tag("white_logo_background.png", class: 'img-responsive img-center') %>
+    <%= image_tag("white_logo_background.png", class: 'img-responsive img-center') %>
+    <h1 class="header-title fadeIn animated">Park your car, <span class="header-slogan">closer to you!</span></h1>
     <div class="alert" role="alert">
       <%= form_tag locations_path, :class => 'form-inline', :method => :get do %>
         <%= render 'layouts/location_search' %>
-        <% end %>
+      <% end %>
     </div>
+    <%= link_to root_path(:anchor => "how_it_works"), class: "btn btn-link btn-lg link-color" do %>
+        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> How it works
+    <% end %>
   </div>
 </header>
- <%= render 'layouts/jumbotron' %>
+<%= render 'layouts/jumbotron' %>
 <!-- Fixed Height Image Aside -->
 <!-- Image backgrounds are set within the full-width-pics.css file. -->
 <aside class="image-bg-fixed-height"></aside>

@@ -40,6 +40,18 @@ class User < ActiveRecord::Base
     errors.add(:date_of_birth, 'You must be 18 years or older.') if date_of_birth.present? && date_of_birth > 18.year.ago
   end
 
+  def count_bookings_made(state)
+    bookings.where('state = ?', state).count
+  end
+
+  def count_bookings_received(state)
+    spaces.joins(:bookings).where('state = ?', state).count
+  end
+
+  def count_user_spaces
+    spaces.count
+  end
+
   def ==(other)
     super || other.instance_of?(self.class) && id.present? && other.id == id
   end

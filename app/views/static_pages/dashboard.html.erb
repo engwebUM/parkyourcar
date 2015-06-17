@@ -30,19 +30,19 @@
                     </tr>
                     <tr>
                       <td><%= link_to "Pending bookings made", bookings_path(:anchor => "pending") %></td>
-                      <td><%= @pending_bookings_made %></td>
+                      <td><%= current_user.count_bookings_made(BookingsController::PENDING_STATE) %></td>
                     </tr>
                     <tr>
                       <td><%= link_to "Received bookings awaiting approval", proposals_path(anchor: "sent") %></td>
-                      <td><%= @received_bookings_awaiting_approval %></td>
+                      <td><%= current_user.count_bookings_received(BookingsController::SENT_STATE) %></td>
                     </tr>
                     <tr>
                       <td><%= link_to "Received bookings pending", proposals_path(anchor: "pending") %></td>
-                      <td><%= @received_bookings_pending %></td>
+                      <td><%= current_user.count_bookings_received(BookingsController::PENDING_STATE) %></td>
                     </tr>
                     <tr>
                       <td><%= link_to "Your spaces", spaces_path %></td>
-                      <td><%= @user_spaces %></td>
+                      <td><%= current_user.count_user_spaces %></td>
                     </tr>
                   </tbody>
                 </table>
