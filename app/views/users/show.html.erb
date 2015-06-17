@@ -13,17 +13,12 @@
                   <div class="col-md-3 col-lg-3 " align="center">
                     <%= image_tag(@user.photo, class: 'img-circle') %>
                   </div>
-                  <div class=" col-md-9 col-lg-9 "> 
+                  <div class=" col-md-9 col-lg-9 ">
                     <table class="table table-user-information">
                       <tbody>
                         <tr>
-                          <td>First Name:</td>
-                          <td><%= @user.first_name %></td>
-                        </tr>
-
-                        <tr>
-                          <td>Last Name:</td>
-                          <td><%= @user.last_name %></td>
+                          <td>Full Name:</td>
+                          <td><%= @user.full_name %></td>
                         </tr>
                         <tr>
                           <td>Username:</td>
@@ -39,7 +34,7 @@
                         </tr>
                         <tr>
                           <td>Phone Number:</td>
-                          <td><%= @user.phone %></td>   
+                          <td><%= @user.phone %></td>
                         </tr>
                       </tbody>
                     </table>
@@ -49,8 +44,8 @@
                   </div>
                 </div>
               </div>
-            </div>  
+            </div>
         </div>
-      </div>  
-  </div>   
+      </div>
+  </div>
 </div>
