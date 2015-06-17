@@ -22,19 +22,17 @@
           <% end %>
           </p>
         </li>
-        <li class="dropdown">
-          <li>
-            <%= link_to bookings_path do %>
-            <span class="glyphicon glyphicon-comment"></span> Bookings Made
-            <span class="badge"><%= current_user.count_bookings_made(BookingsController::PENDING_STATE) %></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to proposals_path do %>
-            <span class="glyphicon glyphicon-comment"></span> Bookings Received
-            <span class="badge"><%= current_user.count_bookings_received(BookingsController::SENT_STATE) %></span>
-            <% end %>
-          </li>
+        <li>
+          <%= link_to bookings_path do %>
+          <span class="glyphicon glyphicon-comment"></span> Bookings Made
+          <span class="badge"><%= current_user.count_bookings_made(BookingsController::PENDING_STATE) %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to proposals_path do %>
+          <span class="glyphicon glyphicon-comment"></span> Bookings Received
+          <span class="badge"><%= current_user.count_bookings_received(BookingsController::SENT_STATE) %></span>
+          <% end %>
         </li>
       </ul>
       <% end %>
@@ -59,11 +57,9 @@
         <% end %>
         </li>
         <li>
-        <p class="navbar-btn">
-        <%= link_to new_user_session_path, class: "btn btn-default" do %>
+        <%= link_to new_user_session_path do %>
             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
         <% end %>
-        </p>
         </li>
         <% end %>
       </ul>
