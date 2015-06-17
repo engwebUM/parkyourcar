@@ -23,66 +23,66 @@
     <div class="form-group row">
       <div class="col-md-7">
         <%= f.label :title %>
-        <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', :required => true %>
+        <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title', required: true %>
       </div>
 
       <div class="col-md-5">
         <%= f.label :available_spaces %>
-        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'e.g. 1', :required => true, min: '1' %>
+        <%= f.number_field :available_spaces, class: 'form-control', placeholder: 'e.g. 1', required: true, min: '1' %>
       </div>
     </div>
 
     <div class="form-group">
         <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control', rows: '10' ,placeholder: 'Space description goes here',:required => true %>
+        <%= f.text_area :description, class: 'form-control', rows: '10' ,placeholder: 'Space description goes here', required: true %>
     </div>
   </div>
 </div>
 <hr>
 <div class="panel panel-primary">
-<div class="panel-heading">
-  <h3 class="panel-title">Location</h3>
-</div>
-<div class="panel-body">
-  <div class="form-group">
-    <%= f.label :country %>
-    <%= f.text_field :country, class: 'form-control', placeholder: 'e.g.: EUA', :required => true %>
+  <div class="panel-heading">
+    <h3 class="panel-title">Location</h3>
   </div>
-  <div class="form-group">
-    <%= f.label :city %>
-    <%= f.text_field :city, class: 'form-control', placeholder: 'e.g.: New York', :required => true %>
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.label :country %>
+      <%= f.text_field :country, class: 'form-control', placeholder: 'e.g.: EUA', required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: 'form-control', placeholder: 'e.g.: New York', required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control', placeholder: 'e.g.: 350 Fifth Avenue', required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :post_code %>
+      <%= f.text_field :post_code, class: 'form-control', placeholder: 'e.g.: 10118-3299', required: true %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control', placeholder: 'e.g.: 350 Fifth Avenue', :required => true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :post_code %>
-    <%= f.text_field :post_code, class: 'form-control', placeholder: 'e.g.: 10118-3299', :required => true %>
-  </div>
-</div>
 </div>
 <hr>
 <div class="panel panel-primary">
-<div class="panel-heading">
-  <h3 class="panel-title">Pricing</h3>
-</div>
-<div class="panel-body">
-  <div class="form-group row">
-      <div class="col-md-4">
-        <%= f.label :price_hour %>
-        <%= f.text_field :price_hour, class: 'form-control', placeholder: 'e.g.: 0.25 (EUR)', :required => true %>
-      </div>
-      <div class="col-md-4">
-        <%= f.label :price_week %>
-        <%= f.text_field :price_week, class: 'form-control', placeholder: 'e.g.: 7.50 (EUR)' %>
-      </div>
-      <div class="col-md-4">
-          <%= f.label :price_month %>
-          <%= f.text_field :price_month, class: 'form-control', placeholder: 'e.g.: 25.00 (EUR)' %>
-      </div>
+  <div class="panel-heading">
+    <h3 class="panel-title">Pricing</h3>
   </div>
-</div>
+  <div class="panel-body">
+    <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :price_hour %>
+          <%= f.text_field :price_hour, class: 'form-control', placeholder: 'e.g.: 0.25 (EUR)', required: true %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :price_week %>
+          <%= f.text_field :price_week, class: 'form-control', placeholder: 'e.g.: 7.50 (EUR)' %>
+        </div>
+        <div class="col-md-4">
+            <%= f.label :price_month %>
+            <%= f.text_field :price_month, class: 'form-control', placeholder: 'e.g.: 25.00 (EUR)' %>
+        </div>
+    </div>
+  </div>
 </div>
 <hr>
 <div class="panel panel-primary">
@@ -104,7 +104,7 @@
           <div class='input-group date' id='date_until'>
               <%= f.label :date_until %>
               <div class="input-group">
-                <%= f.text_field :date_until, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control'  %>
+                <%= f.text_field :date_until, placeholder: 'Date-time', required: true, readonly: true, class: 'form-control' %>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Until</span>
               </div>
           </div>

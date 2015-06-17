@@ -13,7 +13,7 @@
     <h4>New Vehicle</h4>
     <div class="form-group">
         <%= f.label :plate %>
-        <%= f.text_field :plate, autofocus: true, class: 'form-control', placeholder: 'e.g. AE37XY', :required => true %>
+        <%= f.text_field :plate, autofocus: true, class: 'form-control', placeholder: 'e.g. AE37XY', required: true %>
     </div>
     <div class="form-group">
         <%= f.label :make %>
@@ -24,7 +24,7 @@
         <%= f.text_field :model, autofocus: true, class: 'form-control', placeholder: 'e.g. Supra' %>
     </div>
     <div class="form-group">
-      <div class="actions">
+      <div class="actions text-right">
         <%= f.submit "Save", class: 'btn btn-success' %>
       </div>
     </div>
