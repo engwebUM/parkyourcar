@@ -15,17 +15,21 @@
         <%= form_for([@space, @space.bookings.build], :html => { :class => 'form-inline' } )do |f| %>
             <div class='input-group date col-md-4' id='date_from'>
               <%= f.label :date_from %>
-              <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span> From
+              <div class="input-group">
+                <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span> From
                 </span>
+              </div>
             </div>
             <div class='input-group date col-md-4' id='date_until'>
               <%= f.label :date_until %>
-              <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span> Until
-              </span>
+              <div class="input-group">
+                <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span> Until
+                </span>
+              </div>
             </div>
             <p>
             <% if !current_user.present? || current_user.vehicles.empty? %>

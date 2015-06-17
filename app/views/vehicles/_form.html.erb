@@ -2,7 +2,6 @@
   <% if @vehicle.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vehicle.errors.count, "error") %> prevented this space from being saved:</h2>
-
       <ul>
       <% @vehicle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -14,15 +13,15 @@
     <h4>New Vehicle</h4>
     <div class="form-group">
         <%= f.label :plate %>
-        <%= f.text_field :plate, autofocus: true, class: 'form-control', placeholder: 'License Plate', :required => true %>
+        <%= f.text_field :plate, autofocus: true, class: 'form-control', placeholder: 'e.g. AE37XY', :required => true %>
     </div>
     <div class="form-group">
         <%= f.label :make %>
-        <%= f.text_field :make, autofocus: true, class: 'form-control', placeholder: 'Make' %>
+        <%= f.text_field :make, autofocus: true, class: 'form-control', placeholder: 'e.g. Toyota' %>
     </div>
     <div class="form-group">
         <%= f.label :model %>
-        <%= f.text_field :model, autofocus: true, class: 'form-control', placeholder: 'Model' %>
+        <%= f.text_field :model, autofocus: true, class: 'form-control', placeholder: 'e.g. Supra' %>
     </div>
     <div class="form-group">
       <div class="actions">
