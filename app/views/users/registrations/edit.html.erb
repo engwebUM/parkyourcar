@@ -16,36 +16,34 @@
             <%= image_tag(current_user.photo, class: 'img-circle') %>
             <%= f.check_box :remove_avatar  %> Remove avatar
             <% end %>
-
             <div class="form-group">
             <%= f.file_field :avatar, class: 'form-control' %>
             <%= f.hidden_field :avatar_cache %>
             </div>
-
             <div class="form-group">
-            <%= f.label :email, class: 'sr-only' %>
+            <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
             </div>
             <div class="form-group">
-              <%= f.label :username, class: 'sr-only' %>
+              <%= f.label :username %>
               <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
             </div>
             <div class="form-group row">
               <div class="col-md-6">
-                <%= f.label :first_name, class: 'sr-only' %>
+                <%= f.label :first_name %>
                 <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
               </div>
               <div class="col-md-6">
-                <%= f.label :last_name, class: 'sr-only' %>
+                <%= f.label :last_name %>
                 <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :phone_number, class: 'sr-only' %>
+              <%= f.label :phone_number %>
               <%= f.number_field :phone_number, class: 'form-control', placeholder: 'Phone Number' %>
             </div>
             <div class="form-group">
-              <%= f.label :date_of_birth, class: 'sr-only' %>
+              <%= f.label :date_of_birth %>
               <%= f.text_field :date_of_birth, class: 'form-control datepicker', placeholder: 'Date of birth'  %>
             </div>
             <script type="text/javascript">
@@ -58,28 +56,28 @@
             <% end %>
             <div class="form-group">
             <i>(leave blank if you don't want to change it)</i><br />
-              <%= f.label :password, class: 'sr-only' %>
+              <%= f.label :password %>
               <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
             </div>
             <div class="form-group">
-              <%= f.label :password_confirmation, class: 'sr-only' %>
+              <%= f.label :password_confirmation %>
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirmation password' %>
             </div>
             <div class="form-group">
               <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.label :current_password, class: 'sr-only' %> 
+              <%= f.label :current_password %>
               <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current password' %>
             </div>
-            <div class="actions">
-              <%= f.submit "Update", class: 'btn btn-success' %>
+            <div class="actions text-right">
+              <%= f.submit "Save", class: 'btn btn-success' %>
             </div>
           <% end %>
           <div class="page-header">
             <h2>Cancel my account</h2>
           </div>
-          <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: 'btn btn-danger' %></p>
+          <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: 'btn btn-danger btn-sm' %></p>
         </div>
       </div>
     </div>
-  </div>  
-</div>   
+  </div>
+</div>

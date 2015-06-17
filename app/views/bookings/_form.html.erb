@@ -12,29 +12,30 @@
           <%= l @space.date_until, format: :long %>
           <%= @space.weekend %>
         </p>
-        <%= form_for([@space, @space.bookings.build], :html => { :class => 'form-inline' } )do |f| %>
-            <div class='input-group date col-md-4' id='date_from'>
-              <%= f.label :date_from, class: 'sr-only' %>
-              <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span> From
+        <%= form_for([@space, @space.bookings.build], html: { class: 'form-inline' }) do |f| %>
+            <div class="input-group date col-md-4" id="date_from">
+              <%= f.label :date_from, "From:" %>
+              <div class="input-group">
+                <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span> From
                 </span>
+              </div>
             </div>
-            <div class='input-group date col-md-4' id='date_until'>
-              <%= f.label :date_until, class: 'sr-only' %>
-              <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span> Until
-              </span>
+            <div class="input-group date col-md-4" id="date_until">
+              <%= f.label :date_until, "At:" %>
+              <div class="input-group">
+                <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span> At
+                </span>
+              </div>
             </div>
             <p>
             <% if !current_user.present? || current_user.vehicles.empty? %>
               <div class="input-group col-md-4">
-                <div class="">
                 <%= link_to 'New Vehicle', vehicles_path, {class: 'btn btn-info'} %>
                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="You must own a vehicle" aria-hidden="true"></span>
-
-                </div>
               </div>
               <script type="text/javascript">
                 $(function () {
@@ -45,7 +46,7 @@
               <div class="input-group col-md-4">
                 <div class="input-group">
                   <span class="input-group-addon">Vehicle</span>
-                  <%= f.label :vehicle, class: 'sr-only' %>
+                  <%= f.label :vehicle %>
                   <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :plate),{}, {class: 'form-control'} %>
                 </div>
               </div>

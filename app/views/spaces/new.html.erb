@@ -3,21 +3,21 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <%= render 'layouts/sidenav' %>
-		<div class="col-sm-9 col-md-9">
-		    <div class="panel panel-info">
-		      <div class="panel-heading">
-		        <h3 class="panel-title">Space Advertising</h3>
-		      </div>
-		      <div class="panel-body">
-		      	<%= form_for(@space, :html => { :multipart => true }) do |f| %>
-					<%= render 'form', f: f  %>
-					<div class="actions">
-					   	<%= f.submit "Create", class: 'btn btn-success' %>
-					</div>
-				<% end %>
-		     </div>
-		    </div>
-		</div>
+    	<div class="col-sm-9 col-md-9">
+  	    <div class="panel panel-info">
+  	      <div class="panel-heading">
+  	        <h3 class="panel-title">Space Advertising</h3>
+  	      </div>
+  	      <div class="panel-body">
+  	      	<%= form_for(@space, :html => { :multipart => true }) do |f| %>
+  				<%= render 'form', f: f  %>
+  				<div class="actions text-right">
+  				   	<%= f.submit "Create", class: 'btn btn-success' %>
+  				</div>
+  			  <% end %>
+  	     </div>
+  	    </div>
+    	</div>
     </div>
   </div>
 </div>

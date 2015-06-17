@@ -1,15 +1,15 @@
 <%= form_for([@space, @space.reviews.build]) do |f| %>
   <div class="form-group row">
     <div class="col-md-9">
-      <%= f.label :Comment, class: 'sr-only' %>
-      <%= f.text_area :comment, class: 'form-control', placeholder: 'Comment', :required => true %>
+      <%= f.label :Comment %>
+      <%= f.text_area :comment, class: 'form-control', placeholder: 'Comment', required: true %>
     </div>
     <div class="col-md-3">
-      <%= f.label :Evaluation, class: 'sr-only' %>
-      <%= f.number_field :evaluation, class: 'form-control', placeholder: 'Evaluation', :required => true, in: 1..5 %>
+      <%= f.label :Evaluation %>
+      <%= f.number_field :evaluation, class: 'form-control', placeholder: 'Evaluation', required: true, in: 1..5 %>
     </div>
   </div>
-  <div class="actions">
+  <div class="actions text-right">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
 <% end %>

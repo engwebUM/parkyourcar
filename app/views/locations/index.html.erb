@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-            <div class="input-group date" id='date_from'>
+            <div class="input-group date" id="date_from">
               <%= label_tag :date_from, 'Date From', class: 'sr-only' %>
               <%= text_field_tag :date_from, params[:date_from], placeholder: 'Date-time from', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-group">
-            <div class='input-group date' id='date_until'>
+            <div class="input-group date" id="date_until">
               <%= label_tag :date_until, 'Date Until', class: 'sr-only' %>
               <%= text_field_tag :date_until, params[:date_until], placeholder: 'Date-time until', class: 'form-control', readonly: true %>
               <span class="input-group-addon">
@@ -110,10 +110,10 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th></th>
-            <th>Space</th>
-            <th>Schedule</th>
-            <th>Starting at</th>
+            <th class="col-md-3">Space</th>
+            <th class="col-md-3"></th>
+            <th class="col-md-4">Schedule</th>
+            <th class="col-md-2">Starting at</th>
           </tr>
         </thead>
         <tbody>
