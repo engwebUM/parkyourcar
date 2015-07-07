@@ -160,6 +160,26 @@ section {
   font-size: 12px;
 }
 
+.date-label {
+  color: grey;
+  font-size: 12px;
+}
+
 .fc-center h2 {
   font-size: 16pt;
+}
+
+.highligth {
+  border-style: solid;
+  border-width: thin;
+  padding: 6px 6px;
+  border-radius: 5px;
+}
+
+.highligth-primary-color {
+  border-color: #4cae4c;
+}
+
+.highligth-secondary-color {
+  border-color: #46b8da;
 }
