@@ -1,7 +1,9 @@
 <tr>
   <td><%= link_to booking.space.title, space_path(booking.space) %></td>
-  <td><%= l booking.date_from, format: :short %></td>
-  <td><%= l booking.date_until, format: :short %></td>
+  <td>
+    <span class="date-label">From:</span> <%= l booking.date_from, format: :long %><br/>
+    <span class="date-label">At:</span> <%= l booking.date_until, format: :long %>
+  </td>
   <% renter = booking.user %>
   <td><%= renter.username %></td>
   <td class="text-right">

@@ -1,7 +1,9 @@
 <tr>
   <td><%= link_to booking.space.title, space_path(booking.space) %></td>
-  <td><%= l booking.date_from, format: :long %></td>
-  <td><%= l booking.date_until, format: :long %></td>
+  <td>
+    <span class="date-label">From:</span> <%= l booking.date_from, format: :long %><br/>
+    <span class="date-label">At:</span> <%= l booking.date_until, format: :long %>
+  </td>
   <td><%= booking.owner.username %></td>
   <td class="text-right">
   <% if state == 'sent' %>
@@ -20,4 +22,3 @@
   <% end %>
   </td>
 </tr>
-   
