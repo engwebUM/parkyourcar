@@ -1,6 +1,8 @@
 <tr>
-    <%= render 'spaces/shared/space_summary', space: favorite.space %>
-    <td><%= link_to favorite_path(favorite.space), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
-     <span class="glyphicon glyphicon-remove-circle"> Remove</span>
+  <%= render 'spaces/shared/space_summary', space: favorite.space %>
+  <td>
+    <%= link_to favorite_path(favorite.space), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+      <span class="glyphicon glyphicon-remove-circle"> Remove</span>
     <% end %>
+  </td>
 </tr>
