@@ -52,11 +52,11 @@ class Space < ActiveRecord::Base
   end
 
   def owner_avatar
-    @owner_avatar = user.photo
+    user.photo
   end
 
   def owner_rating
-    @owner_rating = number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2).to_f
+    number_with_precision(user.spaces.joins(:reviews).average(:evaluation), precision: 2).to_f
   end
 
   def first_image

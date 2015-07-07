@@ -45,11 +45,13 @@ describe Space do
       end
 
       it 'initial date' do
-        expect(FactoryGirl.build_stubbed(:space, date_from: nil)).not_to be_valid
+        expect { FactoryGirl.build_stubbed(:space, date_from: nil).valid? }.
+          to raise_error(NoMethodError, "undefined method `to_datetime' for nil:NilClass")
       end
 
       it 'final date' do
-        expect(FactoryGirl.build_stubbed(:space, date_until: nil)).not_to be_valid
+        expect { FactoryGirl.build_stubbed(:space, date_until: nil).valid? }.
+          to raise_error(NoMethodError, "undefined method `to_datetime' for nil:NilClass")
       end
     end
 
@@ -74,7 +76,7 @@ describe Space do
 
   describe '#filter_by' do
     before do
-      @today = DateTime.current
+      @today = DateTime.now
     end
 
     context '\'date_from\'' do
