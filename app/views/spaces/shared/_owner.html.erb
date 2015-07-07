@@ -26,7 +26,7 @@ $(function() {
 
 $.fn.stars = function() {
     return $(this).each(function() {
-        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+        $(this).html($('<span class="rating"/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
     });
 }
 </script>
