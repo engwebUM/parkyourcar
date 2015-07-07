@@ -1,6 +1,10 @@
 class SpacesController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
   before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_reviews, only: [:show]
+  before_action :set_space_booked_by_user, only: [:show]
+  before_action :set_reviewed_by_user, only: [:show]
+  before_action :set_last_bookings, only: [:show]
   before_filter :require_permission, only: :edit
 
   def require_permission
@@ -10,13 +14,12 @@ class SpacesController < ApplicationController
 
   # GET /spaces
   def index
-    @spaces = current_user.spaces.by_last_created.paginate(page: params[:page], per_page: 2)
+    @spaces = current_user.spaces.by_last_created.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /spaces/1
   def show
     @hash = Location.load_space_markers(@space)
-    space_fill
   end
 
   # GET /spaces/new
@@ -78,23 +81,24 @@ class SpacesController < ApplicationController
     end unless params[:attachments_new].nil?
   end
 
-  def space_fill
-    @bookings = bookings_accepted.by_datetime_until
-    @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
+  def set_space_booked_by_user
     @booked_by_user = @space.bookings.joins(:user).exists?(user_id: current_user)
-    @user_already_reviewed = user_already_reviewed?
+  end
+
+  def set_reviewed_by_user
+    @user_already_reviewed = @space.reviews.where(user: current_user).exists?
+  end
+
+  def set_reviews
+    @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
+  end
+
+  def set_last_bookings
+    @bookings = @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date).by_datetime_until
 
     respond_to do |format|
       format.html
       format.json { render json: @bookings }
     end
-  end
-
-  def bookings_accepted
-    @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date)
-  end
-
-  def user_already_reviewed?
-    @space.reviews.where(user: current_user).exists?
   end
 end

@@ -22,7 +22,7 @@ class Booking < ActiveRecord::Base
       title: 'Reserved',
       start:  date_from.rfc822,
       end: date_until.rfc822,
-      allDay: true,
+      allDay: false,
       user_name: user.username,
       color: 'red'
     }
