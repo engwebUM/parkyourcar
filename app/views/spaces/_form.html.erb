@@ -109,27 +109,28 @@
               </div>
           </div>
       </div>
+
       <script type="text/javascript">
         $(document).ready(function() {
            $("#date_from").datetimepicker({
               format: 'YYYY-MM-DD hh:mm a',
               ignoreReadonly: true,
               sideBySide: true
-            }).on("dp.change", function (e) {
-              $("#date_until").data("DateTimePicker").minDate(e.date);
-            }).ready(function() {
-              $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
-            });
+             }).on("dp.change", function (e) {
+             $("#date_until").data("DateTimePicker").minDate(e.date);
+             }).ready(function() {
+               $("#date_until").data("DateTimePicker").minDate($("#date_from").data("DateTimePicker").date());
+             });
 
             $("#date_until").datetimepicker({
               format: 'YYYY-MM-DD hh:mm a',
               ignoreReadonly: true,
               sideBySide: true
-            }).on("dp.change", function (e) {
-              $("#date_from").data("DateTimePicker").maxDate(e.date);
-            }).ready(function() {
-              $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
-            });
+             }).on("dp.change", function (e) {
+               $("#date_from").data("DateTimePicker").maxDate(e.date);
+             }).ready(function() {
+               $("#date_from").data("DateTimePicker").maxDate($("#date_until").data("DateTimePicker").date());
+             });
         });
       </script>
       <div class="col-md-4">

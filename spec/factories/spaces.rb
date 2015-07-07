@@ -13,8 +13,8 @@ FactoryGirl.define do
     price_hour        { Faker::Commerce.price }
     latitude          { Faker::Address.latitude }
     longitude         { Faker::Address.longitude }
-    date_from         { DateTime.current }
-    date_until        { DateTime.current + 1.year }
+    date_from         { DateTime.now - 1.year }
+    date_until        { DateTime.now + 1.year }
     available_weekend { [true, false].sample }
   end
 end
