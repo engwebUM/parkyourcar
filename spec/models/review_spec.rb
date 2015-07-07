@@ -25,8 +25,7 @@ describe Review do
         expect(FactoryGirl.build_stubbed(:review, evaluation: 6)).not_to be_valid
       end
 
-      # should we implement this validation? (only_integer: true on model validator)
-      xit 'being a float' do
+      it 'being a float' do
         expect(FactoryGirl.build_stubbed(:review, evaluation: 2.1)).not_to be_valid
       end
     end

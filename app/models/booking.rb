@@ -2,17 +2,10 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :space
   belongs_to :vehicle
-
   scope :by_datetime_until, -> { order(date_until: :asc) }
-  validates :date_from, presence: true
-  validates :date_until, presence: true
-  validates :vehicle, presence: true
 
-  validate :valid_dates_format
-  validate :valid_date_from_after_now
-  validate :valid_dates_interval
-  validate :valid_space_interval
-  validate :valid_accepted_bookings_interval
+  validates_presence_of :date_from, :date_until, :vehicle
+  validate :valid_dates_format, :valid_date_from_after_now, :valid_dates_interval, :valid_space_interval, :valid_accepted_bookings_interval
 
   def owner
     space.user
