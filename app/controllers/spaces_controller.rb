@@ -41,7 +41,7 @@ class SpacesController < ApplicationController
       flash[:success] = 'Space was successfully created.'
       redirect_to @space
     else
-      render :new
+      render :new, flash: { error: @space.errors.full_messages.to_sentence }
     end
   end
 
@@ -52,7 +52,7 @@ class SpacesController < ApplicationController
       flash[:success] = 'Space was successfully updated.'
       redirect_to @space
     else
-      render :edit
+      render :edit, flash: { error: @space.errors.full_messages.to_sentence }
     end
   end
 

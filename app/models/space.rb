@@ -25,6 +25,7 @@ class Space < ActiveRecord::Base
   validates :price_month, format: NUMBER_REGEX, allow_blank: true, numericality: { greater_than: 0 }
   validates :date_from, presence: true
   validates :date_until, presence: true
+  validate :valid_dates_interval
 
   def self.filter_by(date_from, date_until, available_weekend)
     filtered = Space.where(nil)
@@ -64,6 +65,10 @@ class Space < ActiveRecord::Base
     else
       attachments.first.file_name.url(:thumb)
     end
+  end
+
+  def valid_dates_interval
+    errors.add(:date_from, 'cannot be higher than date until') unless date_from.to_datetime < date_until.to_datetime
   end
 
   def weekend

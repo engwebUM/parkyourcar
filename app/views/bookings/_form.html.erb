@@ -44,7 +44,6 @@
           <% else %>
             <div class="input-group col-md-4">
               <div class="input-group">
-                <span class="input-group-addon">Vehicle</span>
                 <%= f.label :vehicle %>
                 <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :plate),{}, {class: 'form-control'} %>
               </div>

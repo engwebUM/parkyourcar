@@ -6,8 +6,10 @@ class Booking < ActiveRecord::Base
   scope :by_datetime_until, -> { order(date_until: :asc) }
   validates :date_from, presence: true
   validates :date_until, presence: true
+  validates :vehicle, presence: true
 
   validate :valid_dates_format
+  validate :valid_date_from_after_now
   validate :valid_dates_interval
   validate :valid_space_interval
   validate :valid_accepted_bookings_interval
@@ -31,8 +33,12 @@ class Booking < ActiveRecord::Base
   private
 
   def valid_dates_format
-    errors.add(:date_from, 'must be a valid datetime') unless date_from.to_datetime && date_from.to_datetime > DateTime.now.to_datetime
+    errors.add(:date_from, 'must be a valid datetime') unless date_from.to_datetime
     errors.add(:date_until, 'must be a valid datetime') unless date_until.to_datetime
+  end
+
+  def valid_date_from_after_now
+    errors.add(:date_from, 'must be after than now') unless date_from.to_datetime > DateTime.now.to_datetime
   end
 
   def valid_dates_interval
