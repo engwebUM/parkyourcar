@@ -1,12 +1,16 @@
 <tr data-link='<%= space_path(space) %>'>
 	<td><%= image_tag space.first_image %></td>
-    <td>
-			<strong><%= space.title %></strong><br/>
-			<%= space.address %></td>
-    <td>
-			<span class="date-format">From</span> <%= l space.date_from, format: :short %><br/>
-			<span class="date-format">At</span> <%= l space.date_until, format: :short %>
-    <td><span class="btn btn-success btn-xs"><%= space.price_hour %> EUR/hour</span></td>
+  <td>
+		<strong><%= space.title %></strong><br/>
+		<%= space.address %>
+	</td>
+  <td>
+			<span class="date-label">From:</span> <%= l space.date_from, format: :short %><br/>
+			<span class="date-label">At:</span> <%= l space.date_until, format: :short %>
+  </td>
+	<td>
+		<span class="highligth highligth-primary-color"><%= space.price_hour %> EUR/hour</span>
+	</td>
 </tr>
 <script type="text/javascript">
  $(function() {

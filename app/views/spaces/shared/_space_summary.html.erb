@@ -1,4 +1,9 @@
 <td><%= image_tag space.first_image %></td>
 <td><strong><%= link_to space.title, space_path(space) %></strong>, <%= space.address %></td>
-<td><%= l space.date_from, format: :short %> - <%= l space.date_until, format: :short %></td>
-<td><span class="btn btn-success btn-xs"><%= space.price_hour %> EUR/hour</span></td>
+<td>
+  <span class="date-label">From:</span> <%= l space.date_from, format: :short %><br/>
+  <span class="date-label">At:</span> <%= l space.date_until, format: :short %>
+</td>
+<td>
+  <span class="highligth highligth-primary-color"><%= space.price_hour %> EUR/hour</span>
+</td>
