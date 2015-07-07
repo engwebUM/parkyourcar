@@ -1,12 +1,12 @@
-<div class="col-md-7">
+
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Reviews</h3>
     </div>
     <div class="panel-body">
-      <% if(@reviews.empty?) %>
+      <% if @reviews.empty? %>
       <p>There's no reviews for this space.
-        <% if(@booked_by_user)%>
+        <% if @booked_by_user %>
         Be the first reviewing this space.
         <%= render 'reviews/form' %>
         <% end %>
@@ -29,6 +29,5 @@
         <%= render 'reviews/form' %>
         <% end %>
       <% end %>
-    </div>
   </div>
 </div>

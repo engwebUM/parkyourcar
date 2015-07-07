@@ -23,16 +23,24 @@
     </div>
   </div>
   <br>
-  <br>
   <div class="row">
+    <div class="col-md-6">
     <%= render 'bookings/form' %>
     <%= render 'spaces/shared/map' %>
+    </div>
+    <div class="col-md-6">
+      <%= render 'spaces/shared/last_bookings_accepted' %>
+    </div>
   </div>
   <div>
     <%= render 'spaces/shared/description' %>
   </div>
   <div class="row">
-    <%= render 'reviews/reviews' %>
-    <%= render 'spaces/shared/owner' %>
+    <div class="col-md-7">
+      <%= render 'reviews/reviews' %>
+    </div>
+    <div class="col-md-5 text-center">
+      <%= render 'spaces/shared/owner' %>
+    </div>
   </div>
 </div>

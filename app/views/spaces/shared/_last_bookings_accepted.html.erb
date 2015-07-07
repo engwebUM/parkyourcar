@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Last bookings accepted</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @bookings.empty? %>
+        <p>No bookings accepted available</p>
+        <% else %>
+        <div id='calendar'></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    columnFormat: {
+      month: 'ddd',
+      day: 'D, dddd'
+      },
+    titleFormat: {
+      month: 'MMM YY',
+      week: 'MMM YY',
+      day: 'MMM YY',},
+    height: 450,
+    editable: false,
+    events: window.location.href
+  });
+</script>

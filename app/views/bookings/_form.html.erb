@@ -1,10 +1,9 @@
-<div class="col-md-6">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Reserve now</h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Reserve now</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
       <div class="col-md-12">
         <p>
           <span class="bold">This space is available from</span>
@@ -13,80 +12,51 @@
           <%= @space.weekend %>
         </p>
         <%= form_for([@space, @space.bookings.build], html: { class: 'form-inline' }) do |f| %>
-            <div class="input-group date col-md-4" id="date_from">
-              <%= f.label :date_from, "From:" %>
-              <div class="input-group">
-                <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span> From
-                </span>
-              </div>
-            </div>
-            <div class="input-group date col-md-4" id="date_until">
-              <%= f.label :date_until, "At:" %>
-              <div class="input-group">
-                <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span> At
-                </span>
-              </div>
-            </div>
-            <p>
-            <% if !current_user.present? || current_user.vehicles.empty? %>
-              <div class="input-group col-md-4">
-                <%= link_to 'New Vehicle', vehicles_path, {class: 'btn btn-info'} %>
-                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="You must own a vehicle" aria-hidden="true"></span>
-              </div>
-              <script type="text/javascript">
-                $(function () {
-                  $('[data-toggle="tooltip"]').tooltip()
-                })
-              </script>
-            <% else %>
-              <div class="input-group col-md-4">
-                <div class="input-group">
-                  <span class="input-group-addon">Vehicle</span>
-                  <%= f.label :vehicle %>
-                  <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :plate),{}, {class: 'form-control'} %>
-                </div>
-              </div>
-            <% end %>
-            <div class="input-group col-md-4">
-              <span class="pull-right">
-              <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+          <div class="input-group date col-md-4" id="date_from">
+            <%= f.label :date_from, "From:" %>
+            <div class="input-group">
+              <%= f.text_field :date_from, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span> From
               </span>
             </div>
+          </div>
+          <div class="input-group date col-md-4" id="date_until">
+            <%= f.label :date_until, "At:" %>
+            <div class="input-group">
+              <%= f.text_field :date_until, required: true, placeholder: 'Date-time', class: 'form-control', readonly: true %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span> At
+              </span>
+            </div>
+          </div>
+          <p>
+          <% if !current_user.present? || current_user.vehicles.empty? %>
+            <div class="input-group col-md-4">
+              <%= link_to 'New Vehicle', vehicles_path, {class: 'btn btn-info'} %>
+              <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="You must own a vehicle" aria-hidden="true"></span>
+            </div>
+            <script type="text/javascript">
+              $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+              })
+            </script>
+          <% else %>
+            <div class="input-group col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Vehicle</span>
+                <%= f.label :vehicle %>
+                <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :plate),{}, {class: 'form-control'} %>
+              </div>
+            </div>
+          <% end %>
+          <div class="input-group col-md-4">
+            <span class="pull-right">
+            <%= f.submit "Reserve Now", class: 'btn btn-success' %>
+            </span>
+          </div>
           </p>
         <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Last bookings accepted</h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-12">
-          <% if @bookings.empty? %>
-          <p>No bookings accepted available</p>
-          <% else %>
-           <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Space</th>
-                <th>Date From</th>
-                <th>Date Until</th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= render partial: 'bookings/booking', collection: @bookings, locals: { state: '' } %>
-            </tbody>
-          </table>
-          <%= will_paginate @bookings, param_name: 'booking_page', renderer: BootstrapPagination::Rails %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
@@ -95,7 +65,8 @@
   $(function() {
     $("#date_from").datetimepicker({
       format: 'YYYY-MM-DD hh:mm a',
-      ignoreReadonly: true
+      ignoreReadonly: true,
+      sideBySide: true
     }).on("dp.change", function (e) {
         $("#date_until").data("DateTimePicker").minDate(e.date);
       }).ready(function() {
@@ -104,7 +75,8 @@
 
       $("#date_until").datetimepicker({
         format: 'YYYY-MM-DD hh:mm a',
-        ignoreReadonly: true
+        ignoreReadonly: true,
+        sideBySide: true
       }).on("dp.change", function (e) {
         $("#date_from").data("DateTimePicker").maxDate(e.date);
       }).ready(function() {

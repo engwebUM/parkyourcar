@@ -1,27 +1,24 @@
- <div class="col-md-5 text-center">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Space Owner</h3>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Space Owner</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+        <%= image_tag(@space.owner_avatar, class: 'img-circle') %>
     </div>
-    <div class="panel-body">
-      <div class="row">
-          <%= image_tag(@space.owner_avatar, class: 'img-circle') %>
-      </div>
-      <div class="row margin-space">
-        <span class="owner-name"><%= @space.user.full_name %></span>
-      </div>
-      <div class="row margin-space">
-        <span class="stars img-center"><%= @space.owner_rating %></span>
-      </div>
-      <div class="row">
-        <%= mail_to @space.user.email, class: "btn btn-info btn-md", data_toggle: "tooltip", data_placement: "top", title: "Send an email to " << @space.user.full_name do %>
-          <span class="glyphicon glyphicon-envelope"></span> Send email
-        <% end %>
-      </div>
+    <div class="row margin-space">
+      <span class="owner-name"><%= @space.user.full_name %></span>
+    </div>
+    <div class="row margin-space">
+      <span class="stars img-center"><%= @space.owner_rating %></span>
+    </div>
+    <div class="row">
+      <%= mail_to @space.user.email, class: "btn btn-info btn-md", data_toggle: "tooltip", data_placement: "top", title: "Send an email to " << @space.user.full_name do %>
+        <span class="glyphicon glyphicon-envelope"></span> Send email
+      <% end %>
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
 $(function() {
     $('span.stars').stars();

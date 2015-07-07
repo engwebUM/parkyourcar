@@ -43,6 +43,8 @@ gem 'geocoder'
 
 gem 'gmaps4rails'
 
+gem 'fullcalendar-rails'
+
 gem 'will_paginate', '~> 3.0.6'
 
 gem 'will_paginate-bootstrap'
