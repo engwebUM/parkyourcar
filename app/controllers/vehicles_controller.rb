@@ -1,26 +1,10 @@
 class VehiclesController < ApplicationController
   before_filter :authenticate_user!
+  before_action :set_vehicle, only: [:edit, :update, :destroy]
+  before_action :set_vehicles, only: [:index, :edit]
 
   def index
-    @vehicles = current_user.vehicles
-    paginate_vehicles
     @vehicle = Vehicle.new
-  end
-
-  def show
-  end
-
-  def new
-    @vehicles = current_user.vehicles
-    paginate_vehicles
-    @vehicle = Vehicle.new
-  end
-
-  def edit
-    @vehicle = Vehicle.find(params[:id])
-    @vehicles = current_user.vehicles
-    paginate_vehicles
-    render :index
   end
 
   def create
@@ -34,8 +18,11 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def edit
+    render :index
+  end
+
   def update
-    @vehicle = Vehicle.find(params[:id])
     if @vehicle.update(vehicle_params)
       flash[:success] = 'Vehicle was successfully edited.'
       redirect_to vehicles_path
@@ -45,7 +32,6 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    @vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
     flash[:success] = 'Vehicle was successfully destroyed.'
     redirect_to vehicles_path
@@ -57,7 +43,11 @@ class VehiclesController < ApplicationController
     params.require(:vehicle).permit(:plate, :make, :model)
   end
 
-  def paginate_vehicles
-    @vehicles = @vehicles.paginate(page: params[:page], per_page: 2)
+  def set_vehicle
+    @vehicle = Vehicle.find(params[:id])
+  end
+
+  def set_vehicles
+    @vehicles = current_user.vehicles.paginate(page: params[:page], per_page: 5)
   end
 end
