@@ -44,7 +44,13 @@ describe User do
 
   describe '#photo' do
     context 'with an avatar' do
-      it 'returns user\'s avatar'
+      it 'doesn\'t return the standard one' do
+        attachment = FactoryGirl.create(:attachment)
+        user = FactoryGirl.create(:user, avatar: attachment.file_name)
+        expect(user.photo).not_to eq 'user_avatar.png'
+        attachment.file_name.remove!
+        user.remove_avatar!
+      end
     end
 
     context 'without an avatar' do

@@ -69,14 +69,6 @@ describe Booking do
         expect(FactoryGirl.build_stubbed(:booking, space: space, date_from: @today + 1.week, date_until: @today + 2.months)).
           to be_invalid
       end
-
-      # => should we implement this validation?
-      xit 'booking\'s user being the same as booked space\'s owner' do
-        owner = FactoryGirl.build_stubbed(:user)
-        space = FactoryGirl.build_stubbed(:space, user: owner)
-        expect(FactoryGirl.build_stubbed(:booking, space: space, user: owner)).
-          to be_valid
-      end
     end
   end
 
