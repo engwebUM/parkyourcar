@@ -13,18 +13,10 @@ class Space < ActiveRecord::Base
 
   NUMBER_REGEX = /\A\d+(?:\.\d{0,2})?\z/
 
-  validates :title, presence: true
-  validates :available_spaces, presence: true, numericality: { greater_than: 0 }
-  validates :description, presence: true
-  validates :country, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
-  validates :post_code, presence: true
-  validates :price_hour, presence: true, format: NUMBER_REGEX, numericality: { greater_than: 0 }
-  validates :price_week, format: NUMBER_REGEX, allow_blank: true, numericality: { greater_than: 0 }
-  validates :price_month, format: NUMBER_REGEX, allow_blank: true, numericality: { greater_than: 0 }
-  validates :date_from, presence: true
-  validates :date_until, presence: true
+  validates_presence_of :title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :date_from, :date_until, :user
+  validates_numericality_of :available_spaces, greater_than: 0, only_integer: true
+  validates :price_hour, format: NUMBER_REGEX, numericality: { greater_than: 0 }
+  validates :price_week, :price_month, format: NUMBER_REGEX, allow_blank: true, numericality: { greater_than: 0 }
   validate :valid_dates_interval
 
   def self.filter_by(date_from, date_until, available_weekend)

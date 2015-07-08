@@ -14,25 +14,23 @@
 ActiveRecord::Schema.define(version: 20150504164215) do
 
   create_table "attachments", force: :cascade do |t|
-    t.integer  "space_id"
-    t.string   "file_name"
-    t.string   "content_type"
-    t.string   "file_size"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "space_id",   null: false
+    t.string   "file_name",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "attachments", ["space_id"], name: "index_attachments_on_space_id"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "space_id"
-    t.datetime "date_from"
-    t.datetime "date_until"
+    t.integer  "user_id",    null: false
+    t.integer  "space_id",   null: false
+    t.integer  "vehicle_id", null: false
+    t.datetime "date_from",  null: false
+    t.datetime "date_until", null: false
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "vehicle_id"
   end
 
   add_index "bookings", ["space_id"], name: "index_bookings_on_space_id"
@@ -40,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150504164215) do
   add_index "bookings", ["vehicle_id"], name: "index_bookings_on_vehicle_id"
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "space_id"
+    t.integer  "user_id",    null: false
+    t.integer  "space_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,10 +48,10 @@ ActiveRecord::Schema.define(version: 20150504164215) do
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "space_id"
-    t.integer  "evaluation"
-    t.text     "comment"
+    t.integer  "user_id",    null: false
+    t.integer  "space_id",   null: false
+    t.integer  "evaluation", null: false
+    t.text     "comment",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,20 +61,20 @@ ActiveRecord::Schema.define(version: 20150504164215) do
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title"
-    t.integer  "available_spaces"
-    t.text     "description"
-    t.string   "country"
-    t.string   "city"
-    t.string   "address"
-    t.string   "post_code"
-    t.float    "price_hour"
+    t.string   "title",                         null: false
+    t.integer  "available_spaces",              null: false
+    t.text     "description",                   null: false
+    t.string   "country",                       null: false
+    t.string   "city",                          null: false
+    t.string   "address",                       null: false
+    t.string   "post_code",                     null: false
+    t.float    "price_hour",                    null: false
     t.float    "price_week"
     t.float    "price_month"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "date_from"
-    t.datetime "date_until"
+    t.datetime "date_from",                     null: false
+    t.datetime "date_until",                    null: false
     t.boolean  "available_weekend"
     t.integer  "reviews_count",     default: 0, null: false
     t.datetime "created_at",                    null: false
@@ -112,7 +110,7 @@ ActiveRecord::Schema.define(version: 20150504164215) do
 
   create_table "vehicles", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "plate"
+    t.string   "plate",      null: false
     t.string   "make"
     t.string   "model"
     t.datetime "created_at", null: false

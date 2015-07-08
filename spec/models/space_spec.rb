@@ -7,11 +7,6 @@ describe Space do
 
   describe 'is invalid' do
     context 'without' do
-      # => should we implement this validation?
-      xit 'user' do
-        expect(FactoryGirl.build_stubbed(:space, user: nil)).not_to be_valid
-      end
-
       it 'title' do
         expect(FactoryGirl.build_stubbed(:space, title: nil)).not_to be_valid
       end
@@ -52,6 +47,12 @@ describe Space do
       it 'final date' do
         expect { FactoryGirl.build_stubbed(:space, date_until: nil).valid? }.
           to raise_error(NoMethodError, "undefined method `to_datetime' for nil:NilClass")
+      end
+
+      context 'associated' do
+        it 'user' do
+          expect(FactoryGirl.build_stubbed(:space, user: nil)).to be_invalid
+        end
       end
     end
 
