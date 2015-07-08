@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
     resources :bookings, only: [:new, :create]
   end
-  resources :vehicles
+  resources :vehicles, except: [:new, :show]
   resources :bookings, only: [:index, :destroy]
   resources :proposals, only: [:index] do
     get 'aprove', on: :member
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index, :destroy, :create]
   devise_for :users
   resources :users, only: [:show]
+  get 'spaces/last_bookings_accepted/:id', to: 'spaces#last_bookings_accepted', as: 'last_bookings_accepted'
   get 'static_pages/help'
   get 'static_pages/faq'
   get 'static_pages/dashboard'
