@@ -1,37 +1,37 @@
 Geocoder.configure(lookup: :test)
 
 Geocoder::Lookup::Test.add_stub(
-  'Allen Street', [
+  'Allen Street, New York, USA', [
     {
-      'latitude'  => 40.718760,
-      'longitude' => -73.990486
+      'latitude'  => 40.7187154,
+      'longitude' => -73.9904645
     }
   ]
 )
 
 Geocoder::Lookup::Test.add_stub(
-  'Broadway', [
+  'Broadway, New York, USA', [
     {
-      'latitude'  => 40.790962,
-      'longitude' => -73.974711
+      'latitude'  => 40.76164,
+      'longitude' => -73.80176
     }
   ]
 )
 
 Geocoder::Lookup::Test.add_stub(
-  'Times Square', [
+  'Times Square, New York, USA', [
     {
-      'latitude'  => 40.758883,
-      'longitude' => -73.985142
+      'latitude'  => 40.759011,
+      'longitude' => -73.9844722
     }
   ]
 )
 
 Geocoder::Lookup::Test.add_stub(
-  'Mountain View', [
+  '1263 California St, Mountain View, USA', [
     {
-      'latitude'  => 37.393046,
-      'longitude' => -122.085208
+      'latitude'  => 37.393029,
+      'longitude' => -122.085585
     }
   ]
 )

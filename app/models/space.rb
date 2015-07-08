@@ -36,7 +36,7 @@ class Space < ActiveRecord::Base
   end
 
   def full_street_address
-    address + ', ' + city + ', ' + country
+    "#{address}, #{city}, #{country}"
   end
 
   def full_street_address_changed?
