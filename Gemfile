@@ -57,6 +57,11 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'factory_girl_rails'
+
+gem 'faker'
+
+
 group :development, :test do
 
   gem 'sqlite3'
@@ -70,13 +75,9 @@ group :development, :test do
   gem 'rubocop', require: false
 
   gem 'rspec-rails'
-
-  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'faker'
-
   gem 'capybara'
 
   gem 'guard-rspec'
