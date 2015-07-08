@@ -4,7 +4,7 @@ class Booking < ActiveRecord::Base
   belongs_to :vehicle
   scope :by_datetime_until, -> { order(date_until: :asc) }
 
-  validates_presence_of :date_from, :date_until, :vehicle
+  validates_presence_of :date_from, :date_until, :user, :space, :vehicle
   validate :valid_dates_format, :valid_date_from_after_now, :valid_dates_interval, :valid_space_interval, :valid_accepted_bookings_interval
 
   def owner

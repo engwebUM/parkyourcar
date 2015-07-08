@@ -13,7 +13,7 @@ class Space < ActiveRecord::Base
 
   NUMBER_REGEX = /\A\d+(?:\.\d{0,2})?\z/
 
-  validates_presence_of :title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :date_from, :date_until
+  validates_presence_of :title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :date_from, :date_until, :user
   validates_numericality_of :available_spaces, greater_than: 0, only_integer: true
   validates :price_hour, format: NUMBER_REGEX, numericality: { greater_than: 0 }
   validates :price_week, :price_month, format: NUMBER_REGEX, allow_blank: true, numericality: { greater_than: 0 }
