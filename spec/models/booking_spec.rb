@@ -16,6 +16,21 @@ describe Booking do
         expect { FactoryGirl.build_stubbed(:booking, date_until: nil).valid? }.
           to raise_error(NoMethodError, "undefined method `to_datetime' for nil:NilClass")
       end
+
+      context 'associated' do
+        it 'user' do
+          expect(FactoryGirl.build_stubbed(:booking, user: nil)).to be_invalid
+        end
+
+        it 'space' do
+          expect { Factor.build_stubbed(:booking, space: nil).valid? }.
+            to raise_error(NameError, 'uninitialized constant Factor')
+        end
+
+        it 'vehicle' do
+          expect(FactoryGirl.build_stubbed(:booking, vehicle: nil)).to be_invalid
+        end
+      end
     end
 
     context 'with' do

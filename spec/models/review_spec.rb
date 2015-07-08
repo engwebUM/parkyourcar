@@ -14,6 +14,16 @@ describe Review do
       it 'comment' do
         expect(FactoryGirl.build_stubbed(:review, comment: nil)).not_to be_valid
       end
+
+      context 'associated' do
+        it 'user' do
+          expect(FactoryGirl.build_stubbed(:review, user: nil)).to be_invalid
+        end
+
+        it 'space' do
+          expect(FactoryGirl.build_stubbed(:review, space: nil)).to be_invalid
+        end
+      end
     end
 
     context 'with evaluation' do
