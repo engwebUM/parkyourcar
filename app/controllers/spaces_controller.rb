@@ -1,10 +1,9 @@
 class SpacesController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
-  before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_space, only: [:show, :edit, :update, :destroy, :last_bookings_accepted]
   before_action :set_reviews, only: [:show]
   before_action :set_space_booked_by_user, only: [:show]
   before_action :set_reviewed_by_user, only: [:show]
-  before_action :set_last_bookings, only: [:show]
   before_filter :require_permission, only: :edit
 
   def require_permission
@@ -63,14 +62,17 @@ class SpacesController < ApplicationController
     redirect_to spaces_url
   end
 
+  def last_bookings_accepted
+    @bookings = @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date).by_datetime_until
+    render json: @bookings
+  end
+
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_space
     @space = Space.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def space_params
     params.require(:space).permit(:title, :available_spaces, :description, :country, :city, :address, :post_code, :price_hour, :price_week, :price_month, :date_from, :date_until, :available_weekend, :latitude, :longitude, attachments_attributes: [:id, :space_id, :file_name])
   end
@@ -91,14 +93,5 @@ class SpacesController < ApplicationController
 
   def set_reviews
     @reviews = @space.reviews.paginate(page: params['review_page'], per_page: 5)
-  end
-
-  def set_last_bookings
-    @bookings = @space.bookings.where('state = ? AND date_until >= ?', BookingsController::ACCEPTED_STATE, DateTime.now.to_date).by_datetime_until
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @bookings }
-    end
   end
 end

@@ -76,7 +76,7 @@ describe Space do
 
   describe '#filter_by' do
     before do
-      @today = DateTime.now
+      @today = DateTime.current
     end
 
     context '\'date_from\'' do
@@ -115,10 +115,10 @@ describe Space do
 
   describe '#sort_by' do
     before do
-      @space_a = FactoryGirl.create(:space, price_hour: 2, address: 'Broadway')
-      @space_b = FactoryGirl.create(:space, price_hour: 3, address: 'Times Square')
-      @space_c = FactoryGirl.create(:space, price_hour: 1, address: 'Allen Street')
-      @spaces = Space.near('New York', 10) # Spaces are pre-sorted by distance when a search is made
+      @space_a = FactoryGirl.create(:space, price_hour: 2, address: 'Broadway', city: 'New York', country: 'USA')
+      @space_b = FactoryGirl.create(:space, price_hour: 3, address: 'Times Square', city: 'New York', country: 'USA')
+      @space_c = FactoryGirl.create(:space, price_hour: 1, address: 'Allen Street', city: 'New York', country: 'USA')
+      @spaces = Space.near('New York', 20) # Spaces are pre-sorted by distance when a search is made
     end
 
     context 'without parameter' do
@@ -150,9 +150,9 @@ describe Space do
 
   describe '#near' do
     it 'returns places within given distance' do
-      space = FactoryGirl.create(:space, price_hour: 2, address: 'Allen Stree')
-      FactoryGirl.create(:space, price_hour: 3, address: 'Mountain View')
-      expect(Space.near('New York', 10)).to contain_exactly(space)
+      space = FactoryGirl.create(:space, price_hour: 2, address: 'Allen Street', city: 'New York', country: 'USA')
+      FactoryGirl.create(:space, price_hour: 3, address: '1263 California St', city: 'Mountain View', country: 'USA')
+      expect(Space.near('New York', 20)).to contain_exactly(space)
     end
   end
 

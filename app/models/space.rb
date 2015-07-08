@@ -8,8 +8,8 @@ class Space < ActiveRecord::Base
   has_many :attachments, dependent: :destroy
   scope :by_last_created, -> { order(created_at: :desc) }
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  geocoded_by :full_street_address
+  after_validation :geocode, if: :full_street_address_changed?
 
   NUMBER_REGEX = /\A\d+(?:\.\d{0,2})?\z/
 
@@ -33,6 +33,14 @@ class Space < ActiveRecord::Base
     filtered = filtered.where('date_until >= ?', date_until.to_datetime) if valid_date?(date_until)
     filtered = filtered.where(available_weekend: true) if available_weekend == 'true'
     filtered
+  end
+
+  def full_street_address
+    "#{address}, #{city}, #{country}"
+  end
+
+  def full_street_address_changed?
+    address_changed? || city_changed? || country_changed?
   end
 
   def self.sort_by(sort_param)

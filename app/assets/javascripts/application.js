@@ -16,7 +16,6 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
-//= require bootstrap-datepicker
 //= require underscore
 //= require gmaps/google
 //= require fullcalendar

@@ -5,11 +5,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <% if @bookings.empty? %>
-        <p>No bookings accepted available</p>
-        <% else %>
         <div id='calendar'></div>
-        <% end %>
       </div>
     </div>
   </div>
@@ -31,6 +27,6 @@
       day: 'MMM YY',},
     height: 450,
     editable: false,
-    events: window.location.href
+    events: "/spaces/last_bookings_accepted/<%= id %>"
   });
 </script>
