@@ -5,41 +5,41 @@
  */
 
 body {
-  margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .section-heading {
-  color: #2c9acf;
-  margin-top: 0 !important;
+    color: #2c9acf;
+    margin-top: 0 !important;
 }
 
 .alerts{
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .header-radius {
-  border-radius: 25px;
-  background-color:rgba(0, 0, 0, 0.7);
-  padding: 25px 0px;
+    border-radius: 25px;
+    background-color:rgba(0, 0, 0, 0.7);
+    padding: 25px 0px;
 }
 
 .image-bg-fluid-height,
 .image-bg-fixed-height {
-  text-align: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .image-bg-fluid-height {
 	background: asset_url('header-bg.jpg') no-repeat center center scroll;
-  padding: 125px 0;
+    padding: 200px 0;
 }
 
 .image-bg-fixed-height {
 	background: asset_url('header-bg.jpg') no-repeat center center scroll;
-  height: 450px;
+    height: 450px;
 }
 
 .img-center {
@@ -51,19 +51,19 @@ body {
 }
 
 section {
-  padding: 25px 0;
+    padding: 25px 0;
 }
 
 .section-lead {
-  margin: 30px 0;
+    margin: 30px 0;
 }
 
 .section-paragraph {
-  margin: 30px 0;
+    margin: 30px 0;
 }
 
-.footer {
-  margin: 50px 0;
+footer {
+    margin: 50px 0;
 }
 
 /*
@@ -71,19 +71,19 @@ section {
 */
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .center-divs {
-  margin: 0 auto
+    margin: 0 auto
 }
 
 .form {
-  background-color: #2c9acf;
+    background-color: #2c9acf;
 }
 
 .map-container{
-  width: 100%;
+    width: 100%;
 }
 
 .map-small {
@@ -92,16 +92,16 @@ section {
 }
 
 .map-big {
-  width: 100%;
-  height: 400px;
+    width: 100%;
+    height: 400px;
 }
 
 .filter-display-block {
-  display: block;
+    display: block;
 }
 
 .filter-display-none {
-  display: none;
+    display: none;
 }
 
 .panel-body > .table {
@@ -139,25 +139,11 @@ section {
 
 .navbar a:hover {
   color: #5CB85C !important;
+  font-size: 15px !important;
 }
 
 .navbar a {
-  color: #FFF !important;
-}
-
-.how_it_works-image {
-  width: 75px;
-  height: 75px;
-}
-
-.logo-image {
-  width: 200px;
-  height: 200px;
-}
-
-.date-format {
-  color: grey;
-  font-size: 12px;
+  color: white !important;
 }
 
 .date-label {
